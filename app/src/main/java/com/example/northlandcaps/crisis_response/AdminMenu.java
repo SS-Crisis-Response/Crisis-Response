@@ -1,6 +1,7 @@
 package com.example.northlandcaps.crisis_response;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +25,12 @@ public class AdminMenu extends AppCompatActivity {
         GroupChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent chatintent = new Intent(getApplicationContext(),chat_group.class);
+                String discord = "https://discordapp.com";
+                Uri webaddress = Uri.parse(discord);
+                Intent chatintent = new Intent(Intent.ACTION_VIEW,webaddress);
+                if (chatintent.resolveActivity(getPackageManager())!= null){
                 startActivity(chatintent);
+                }
             }
         });
         Button usermanager = findViewById(R.id.usermanager);

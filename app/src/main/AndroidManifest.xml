@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AdminMenu" />
-        <activity android:name=".usermanagement"></activity>
+        <activity android:name=".usermanagement"/>
+        <activity android:name=".chat_group"/>
     </application>
 
 </manifest>
