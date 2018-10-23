@@ -20,5 +20,15 @@ public class AdminMenu extends AppCompatActivity {
                 startActivity(loginintent);
             }
         });
+        Button GroupChat = findViewById(R.id.groupchat);
+        GroupChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chatintent = new Intent(getApplicationContext(),chat_group.class);
+                startActivity(chatintent);
+            }
+        });
+        Button
+
     }
 }
