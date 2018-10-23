@@ -133,7 +133,7 @@
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginBottom="2dp"
-        android:background="@drawable/menu_buttons"
+        android:background="@drawable/redbuttons"
         android:text="Logout"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"

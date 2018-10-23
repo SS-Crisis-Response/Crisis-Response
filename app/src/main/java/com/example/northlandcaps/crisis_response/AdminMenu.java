@@ -28,7 +28,14 @@ public class AdminMenu extends AppCompatActivity {
                 startActivity(chatintent);
             }
         });
-        Button
+        Button usermanager = findViewById(R.id.usermanager);
+        usermanager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent usermanager = new Intent(getApplicationContext(),usermanagement.class);
+                startActivity(usermanager);
+            }
+        });
 
     }
 }
