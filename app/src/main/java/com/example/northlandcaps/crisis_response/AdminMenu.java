@@ -6,16 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class AdminMenu extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button _loginbutton = findViewById(R.id.loginbutton);
-        _loginbutton.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_admin_menu);
+        Button _logoutbutton = findViewById(R.id.logout);
+        _logoutbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginintent = new Intent(getApplicationContext(),AdminMenu.class);
+                Intent loginintent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(loginintent);
             }
         });
