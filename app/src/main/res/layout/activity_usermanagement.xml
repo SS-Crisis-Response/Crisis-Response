@@ -18,7 +18,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/menu_buttons"
-        android:text=" Create User"
+        android:text="Create User"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
