@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button _locationlog,_groupchat,_settings,_usermanager,_buildingmanager,_roommanager,_logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         _loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginintent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent loginintent = new Intent(getApplicationContext(),AdminMenu.class);
                 startActivity(loginintent);
             }
         });
