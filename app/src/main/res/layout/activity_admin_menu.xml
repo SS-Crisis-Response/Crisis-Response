@@ -176,6 +176,16 @@
 
     <ImageView
         android:id="@+id/imageView2"
+<<<<<<< HEAD
+        android:layout_width="392dp"
+        android:layout_height="518dp"
+        android:alpha="0.8"
+        android:translationZ="2dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/focus_box"
+        tools:layout_editor_absoluteX="-6dp"
+        tools:layout_editor_absoluteY="-1dp" />
+=======
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.8"
@@ -186,5 +196,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/focus_box" />
 
+>>>>>>> 3f77f21e3292d02415c00e545ca747cdc6d747d6
 
 </android.support.constraint.ConstraintLayout>
