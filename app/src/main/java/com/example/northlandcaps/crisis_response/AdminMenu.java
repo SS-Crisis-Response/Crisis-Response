@@ -25,7 +25,7 @@ public class AdminMenu extends AppCompatActivity {
         GroupChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String discord = "https://discordapp.com";
+                String discord = "https://discord.gg/wY3Bbu";
                 Uri webaddress = Uri.parse(discord);
                 Intent chatintent = new Intent(Intent.ACTION_VIEW,webaddress);
                 if (chatintent.resolveActivity(getPackageManager())!= null){
