@@ -41,7 +41,7 @@ public class AdminMenu extends AppCompatActivity {
                 startActivity(usermanager);
             }
         });
-        final Button buildingmanager = findViewById(R.id.buildingmanager);
+        Button buildingmanager = findViewById(R.id.buildingmanager);
         buildingmanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
