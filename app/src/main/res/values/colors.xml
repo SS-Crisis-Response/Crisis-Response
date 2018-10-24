@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#01059f</color>
     <color name="colorAccent">#D81B60</color>
     <color name="ButtonColor">#0004b7</color>
+    <color name="focusbox">#b5ffffff</color>
 </resources>
