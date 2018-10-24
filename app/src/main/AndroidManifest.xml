@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".AdminMenu" />
         <activity android:name=".usermanagement" />
-        <activity android:name=".chat_group" />
         <activity android:name=".buildingmangement" />
         <activity android:name=".CreateUser"></activity>
     </application>
