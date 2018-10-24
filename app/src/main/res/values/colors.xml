@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="ButtonColor">#0004b7</color>
     <color name="focusbox">#b5ffffff</color>
+    <color name="dark_upper">#3b5e94</color>
+    <color name="light_lower">#679acf</color>
 </resources>
