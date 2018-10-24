@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class AdminMenu extends AppCompatActivity {
 
@@ -13,6 +14,8 @@ public class AdminMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_menu);
+        final ImageView blurr = findViewById(R.id.blur);
+        blurr.setVisibility(View.GONE);
         Button _logoutbutton = findViewById(R.id.logout);
         _logoutbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,12 +44,25 @@ public class AdminMenu extends AppCompatActivity {
                 startActivity(usermanager);
             }
         });
-        final Button buildingmanager = findViewById(R.id.buildingmanager);
+        Button buildingmanager = findViewById(R.id.buildingmanager);
         buildingmanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent buildingmanager = new Intent(getApplicationContext(),buildingmangement.class);
                 startActivity(buildingmanager);
+            }
+        });
+        Button crisisCall = findViewById(R.id.crisiscallbutton);
+        crisisCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (blurr.getVisibility() == View.VISIBLE) {
+                    blurr.setVisibility(View.INVISIBLE);
+                }
+                    else
+                {
+                        blurr.setVisibility(View.VISIBLE);
+                }
             }
         });
     }

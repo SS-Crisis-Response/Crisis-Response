@@ -12,12 +12,12 @@ public class usermanagement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usermanagement);
-        Button createuser = findViewById(R.id.createuserbtn);
+        Button createuser = findViewById(R.id.CreateUser);
         createuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent GotoCreate =new Intent(getApplicationContext(),CreateUser.class);
-                startActivity(GotoCreate);
+                Intent createuserintent = new Intent(getApplicationContext(),CreateUser.class);
+                startActivity(createuserintent);
             }
         });
     }
