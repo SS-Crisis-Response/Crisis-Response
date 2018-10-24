@@ -19,22 +19,28 @@ public class AdminMenu extends AppCompatActivity {
         final ImageView blurr = findViewById(R.id.blur);
         blurr.setVisibility(View.GONE);
         Button _logoutbutton = findViewById(R.id.logout);
+
+        Global.active =true;
         _logoutbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Global.active){
                 Intent loginintent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(loginintent);
+                }
             }
         });
         Button GroupChat = findViewById(R.id.groupchat);
         GroupChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String discord = "https://discord.gg/wY3Bbu";
-                Uri webaddress = Uri.parse(discord);
-                Intent chatintent = new Intent(Intent.ACTION_VIEW,webaddress);
-                if (chatintent.resolveActivity(getPackageManager())!= null){
-                startActivity(chatintent);
+                if (Global.active) {
+                    String discord = "https://discord.gg/wY3Bbu";
+                    Uri webaddress = Uri.parse(discord);
+                    Intent chatintent = new Intent(Intent.ACTION_VIEW, webaddress);
+                    if (chatintent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(chatintent);
+                    }
                 }
             }
         });
@@ -42,16 +48,20 @@ public class AdminMenu extends AppCompatActivity {
         usermanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent usermanager = new Intent(getApplicationContext(),usermanagement.class);
-                startActivity(usermanager);
+                if (Global.active) {
+                    Intent usermanager = new Intent(getApplicationContext(), usermanagement.class);
+                    startActivity(usermanager);
+                }
             }
         });
         Button buildingmanager = findViewById(R.id.buildingmanager);
         buildingmanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent buildingmanager = new Intent(getApplicationContext(),buildingmangement.class);
-                startActivity(buildingmanager);
+                if (Global.active) {
+                    Intent buildingmanager = new Intent(getApplicationContext(), buildingmangement.class);
+                    startActivity(buildingmanager);
+                }
             }
         });
         Button crisisCall = findViewById(R.id.crisiscallbutton);
@@ -61,11 +71,14 @@ public class AdminMenu extends AppCompatActivity {
             public void onClick(View v) {
                 if (blurr.getVisibility() == View.VISIBLE) {
                     blurr.setVisibility(View.INVISIBLE);
+                    Global.active=true;
                 }
                     else
                 {
                         blurr.setVisibility(View.VISIBLE);
                         blurr.bringToFront();
+                        Global.active = false;
+
                 }
             }
         });
