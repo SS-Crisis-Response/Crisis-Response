@@ -19,12 +19,18 @@
         <activity android:name=".AdminMenu" />
         <activity android:name=".usermanagement" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".location_log_activity"></activity>
 =======
 
         <activity android:name=".chat_group" />
         <activity android:name=".buildingmangement" />
 >>>>>>> c60549abeff1bb2c83bae0c89cd0fdd0031c5d48
+=======
+        <activity android:name=".chat_group" />
+        <activity android:name=".buildingmangement" />
+        <activity android:name=".CreateUser"></activity>
+>>>>>>> 4192b70e6b33653ec47978beea43a4bf8778c898
     </application>
 
 </manifest>
