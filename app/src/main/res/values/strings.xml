@@ -20,4 +20,7 @@
     <string name="Delete_Building">Delete Building</string>
     <string name="Register">Register</string>
     <string name="Crisis_Call">Crisis Call</string>
+    <string name="Create_Room">Create Room</string>
+    <string name="Edit_Room">Edit Room</string>
+    <string name="Delete_Room">Delete Room</string>
 </resources>
