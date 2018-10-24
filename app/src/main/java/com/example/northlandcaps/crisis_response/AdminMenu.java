@@ -1,7 +1,9 @@
 package com.example.northlandcaps.crisis_response;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -54,6 +56,7 @@ public class AdminMenu extends AppCompatActivity {
         });
         Button crisisCall = findViewById(R.id.crisiscallbutton);
         crisisCall.setOnClickListener(new View.OnClickListener() {
+            @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
                 if (blurr.getVisibility() == View.VISIBLE) {
@@ -62,6 +65,7 @@ public class AdminMenu extends AppCompatActivity {
                     else
                 {
                         blurr.setVisibility(View.VISIBLE);
+                        blurr.bringToFront();
                 }
             }
         });
