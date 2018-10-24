@@ -19,6 +19,7 @@ public class AdminMenu extends AppCompatActivity {
         final ImageView blurr = findViewById(R.id.blur);
         blurr.setVisibility(View.GONE);
         Button _logoutbutton = findViewById(R.id.logout);
+        Global.active =true;
         _logoutbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
