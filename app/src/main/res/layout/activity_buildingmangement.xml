@@ -18,9 +18,9 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/menu_buttons"
-        android:text=" Create Building"
+        android:text="@string/Create_User"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintBottom_toTopOf="@+id/EditRoom"
+        app:layout_constraintBottom_toTopOf="@+id/edituser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         app:layout_constraintVertical_bias="0.686" />
 
     <Button
-        android:id="@+id/EditRoom"
+        android:id="@+id/edituser"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -37,14 +37,14 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:background="@drawable/menu_buttons"
-        android:text="Edit Building"
+        android:text="@string/Edit_User"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CreateRoom" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/deleteuser"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -53,10 +53,10 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:background="@drawable/redbuttons"
-        android:text="Delete Building"
+        android:text="@string/Delete_User"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditRoom" />
+        app:layout_constraintTop_toBottomOf="@+id/edituser" />
 
 </android.support.constraint.ConstraintLayout>
