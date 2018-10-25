@@ -94,5 +94,12 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+        Button settings = findViewById(R.id.Settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 }
