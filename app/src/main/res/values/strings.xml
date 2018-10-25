@@ -3,4 +3,24 @@
     <string name="username_box">Username</string>
     <string name="password_box">Password</string>
     <string name="login_button">Login</string>
+    <string name="Location_Log">Location Log</string>
+    <string name="Group_Chat">Group Chat</string>
+    <string name="Settings">Settings</string>
+    <string name="User_Managememt">User Management</string>
+    <string name="Building_Management">Building Management</string>
+    <string name="Room_Management">Room Management</string>
+    <string name="Call_Option">Call Options</string>
+    <string name="Logout">Logout</string>
+    <string name="Create_User">Create User</string>
+    <string name="Edit_User">Edit User</string>
+    <string name="Delete_User">Delete User</string>
+    <string name="Admin">Admin</string>
+    <string name="Create_Building">Create Building</string>
+    <string name="Edit_Building">Edit Building</string>
+    <string name="Delete_Building">Delete Building</string>
+    <string name="Register">Register</string>
+    <string name="Crisis_Call">Crisis Call</string>
+    <string name="Create_Room">Create Room</string>
+    <string name="Edit_Room">Edit Room</string>
+    <string name="Delete_Room">Delete Room</string>
 </resources>
