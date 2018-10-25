@@ -9,6 +9,6 @@ public class setingshandler extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setingshandler);
-        this.setTitle("User Management");
+        this.setTitle("Settings");
     }
 }
