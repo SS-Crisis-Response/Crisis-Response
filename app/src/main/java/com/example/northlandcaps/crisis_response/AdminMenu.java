@@ -45,6 +45,29 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+
+        Button settings = findViewById(R.id.Settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Global.active) {
+                    Intent settings = new Intent(getApplicationContext(), setingshandler.class);
+                    startActivity(settings);
+                }
+            }
+        });
+
+        Button calloptions = findViewById(R.id.calloptions);
+        calloptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Global.active) {
+                    Intent calloptions = new Intent(getApplicationContext(), calloptionspage.class);
+                    startActivity(calloptions);
+                }
+            }
+        });
+
         Button usermanager = findViewById(R.id.usermanager);
         usermanager.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,14 +116,6 @@ public class AdminMenu extends AppCompatActivity {
                         Global.active = false;
 
                 }
-            }
-        });
-        Button settings = findViewById(R.id.Settings);
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent settings = new Intent(getApplicationContext(),setingshandler.class);
-                startActivity(settings);
             }
         });
         Button locationbutton = findViewById(R.id.locationlog);
