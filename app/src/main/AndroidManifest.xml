@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.northlandcaps.crisis_response">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +23,8 @@
         <activity android:name=".location_log_activity" />
         <activity android:name=".buildingmangement" />
         <activity android:name=".CreateUser" />
-        <activity android:name=".roommanagement"></activity>
+        <activity android:name=".roommanagement" />
+        <activity android:name=".setingshandler"></activity>
     </application>
 
 </manifest>
