@@ -64,6 +64,18 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+
+        Button roommanager = findViewById(R.id.buildingmanager);
+        roommanager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Global.active) {
+                    Intent roommanager = new Intent(getApplicationContext(), roommanagement.class);
+                    startActivity(roommanager);
+                }
+            }
+        });
+
         Button crisisCall = findViewById(R.id.crisiscallbutton);
         crisisCall.setOnClickListener(new View.OnClickListener() {
             @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
