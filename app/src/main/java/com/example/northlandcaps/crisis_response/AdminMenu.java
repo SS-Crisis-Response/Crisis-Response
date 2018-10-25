@@ -65,7 +65,7 @@ public class AdminMenu extends AppCompatActivity {
             }
         });
 
-        Button roommanager = findViewById(R.id.buildingmanager);
+        Button roommanager = findViewById(R.id.roommanager);
         roommanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
