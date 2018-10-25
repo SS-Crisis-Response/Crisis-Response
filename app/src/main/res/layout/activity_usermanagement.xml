@@ -9,7 +9,7 @@
     android:background="@drawable/background_light">
 
     <Button
-        android:id="@+id/CreateRoom"
+        android:id="@+id/CreateBuilding"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -42,7 +42,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreateRoom" />
+        app:layout_constraintTop_toBottomOf="@+id/CreateBuilding" />
 
     <Button
         android:id="@+id/DeleteRoom"
