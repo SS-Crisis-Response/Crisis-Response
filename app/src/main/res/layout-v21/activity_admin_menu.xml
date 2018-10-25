@@ -167,6 +167,8 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/call_button"
         android:text="@string/Crisis_Call"
+        android:textSize="40pt"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -185,6 +187,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/focusbox" />
+        app:srcCompat="@color/focusbox"
+        />
 
 </android.support.constraint.ConstraintLayout>

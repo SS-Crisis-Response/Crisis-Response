@@ -98,7 +98,16 @@ public class AdminMenu extends AppCompatActivity {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent settings = new Intent(getApplicationContext(),setingshandler.class);
+                startActivity(settings);
+            }
+        });
+        Button locationbutton = findViewById(R.id.locationlog);
+        locationbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent location = new Intent(getApplicationContext(),location_log_activity.class);
+                startActivity(location);
             }
         });
     }
