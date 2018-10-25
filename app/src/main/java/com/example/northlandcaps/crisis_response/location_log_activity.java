@@ -9,5 +9,6 @@ public class location_log_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_log_activity);
+        this.setTitle("Location Log");
     }
 }

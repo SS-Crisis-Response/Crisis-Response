@@ -16,6 +16,7 @@ public class AdminMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_menu);
+        this.setTitle("Admin Menu");
         final ImageView blurr = findViewById(R.id.blur);
         blurr.setVisibility(View.GONE);
         Button _logoutbutton = findViewById(R.id.logout);

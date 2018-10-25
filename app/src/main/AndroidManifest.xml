@@ -24,7 +24,8 @@
         <activity android:name=".buildingmangement" />
         <activity android:name=".CreateUser" />
         <activity android:name=".roommanagement" />
-        <activity android:name=".setingshandler"></activity>
+        <activity android:name=".setingshandler" />
+        <activity android:name=".calloptionspage"></activity>
     </application>
 
 </manifest>
