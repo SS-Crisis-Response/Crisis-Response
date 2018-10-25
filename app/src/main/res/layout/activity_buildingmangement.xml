@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,16 +10,18 @@
 
     <Button
         android:id="@+id/CreateBuilding"
-        android:layout_width="317dp"
-        android:layout_height="51dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="120dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/Create_Building"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintBottom_toTopOf="@+id/EditBuilding"
+        app:layout_constraintBottom_toTopOf="@+id/EditRoom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,12 +29,14 @@
         app:layout_constraintVertical_bias="0.686" />
 
     <Button
-        android:id="@+id/EditBuilding"
-        android:layout_width="321dp"
-        android:layout_height="51dp"
+        android:id="@+id/EditRoom"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/Edit_Building"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -40,17 +45,18 @@
         app:layout_constraintTop_toBottomOf="@+id/CreateBuilding" />
 
     <Button
-        android:id="@+id/DeleteBuilding"
+        android:id="@+id/DeleteRoom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:background="@drawable/redbuttons"
         android:text="@string/Delete_Building"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditBuilding" />
-
+        app:layout_constraintTop_toBottomOf="@+id/EditRoom" />
 </android.support.constraint.ConstraintLayout>
