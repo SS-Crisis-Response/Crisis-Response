@@ -18,9 +18,10 @@
         </activity>
         <activity android:name=".AdminMenu" />
         <activity android:name=".usermanagement" />
-        <activity android:name=".location_log_activity"></activity>
+        <activity android:name=".location_log_activity" />
         <activity android:name=".buildingmangement" />
-        <activity android:name=".CreateUser"></activity>
+        <activity android:name=".CreateUser" />
+        <activity android:name=".roommanagement"></activity>
     </application>
 
 </manifest>
