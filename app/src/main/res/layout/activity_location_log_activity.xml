@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradientbackground"
+    android:background="@drawable/background_light"
     tools:context=".location_log_activity">
 
     <android.support.v7.widget.RecyclerView

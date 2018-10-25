@@ -35,7 +35,7 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Global.active) {
-                    String discord = "https://discord.gg/wY3Bbu";
+                    String discord = "https://discord.gg/yqjUX6b";
                     Uri webaddress = Uri.parse(discord);
                     Intent chatintent = new Intent(Intent.ACTION_VIEW, webaddress);
                     if (chatintent.resolveActivity(getPackageManager()) != null) {
