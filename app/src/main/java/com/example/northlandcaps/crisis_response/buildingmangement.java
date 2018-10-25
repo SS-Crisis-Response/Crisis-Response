@@ -9,5 +9,6 @@ public class buildingmangement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buildingmangement);
+        this.setTitle("Building Management");
     }
 }

@@ -167,7 +167,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/call_button"
         android:text="@string/Crisis_Call"
-        android:textSize="40pt"
+        android:textSize="25pt"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
