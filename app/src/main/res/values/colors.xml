@@ -2,7 +2,13 @@
 <resources>
     <color name="colorPrimary">#3A5D93</color>
     <color name="colorPrimaryDark">#01059f</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#01059f</color>
+    <color name="colorLightPrimary">#65a1ff</color>
+    <color name="colorLightPrimaryDark">#0006ff</color>
+
+    <color name="colorDarkPrimary">#213351</color>
+    <color name="colorDarkDarkPrimary">#000268</color>
+
     <color name="ButtonColor">#0004b7</color>
     <color name="focusbox">#b5ffffff</color>
     <color name="dark_upper">#3b5e94</color>

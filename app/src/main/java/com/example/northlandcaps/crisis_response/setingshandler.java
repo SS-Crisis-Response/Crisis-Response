@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class setingshandler extends AppCompatActivity {
+public class setingshandler extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +27,14 @@ public class setingshandler extends AppCompatActivity {
                 seekBar.setProgress(progress);
                 System.out.println(progress);
                 if (progress==1){
-                    int[] normalcolor = {Color.parseColor("#679acf"),Color.parseColor("#3b5e94")};
-                     GradientDrawable NormalGD = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, normalcolor);
-                    settings.setBackground(NormalGD);
+                    settings.setBackground(Global.NormalGD);
+                    progresstext.setTextColor(Global.textnormalcolors);
+                    setTheme(R.style.NormalTheme);
                 }else if(progress ==0){
-                    int[] darkcolor = {Color.parseColor("#203453"),Color.parseColor("#436486")};
-                    GradientDrawable DarkGD = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, darkcolor);
-                    settings.setBackground(DarkGD);
-                    progresstext.setText("Dark Colors");
+
+                }else if(progress==2){
+                    settings.setBackground(Global.DarkGD);
+                    progresstext.setTextColor(Global.textlightcolors);
                 }
             }
 
