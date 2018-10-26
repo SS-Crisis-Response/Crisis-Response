@@ -5,10 +5,10 @@
     <color name="colorAccent">#01059f</color>
 
     <color name="colorLightPrimary">#65a1ff</color>
-    <color name="colorLightPrimaryDark">#0006ff</color>
-
-    <color name="colorDarkPrimary">#213351</color>
-    <color name="colorDarkDarkPrimary">#000268</color>
+    <color name="colorLightPrimaryDark">#eff0ff</color>
+    <color name="dfjdfsbvjsdfgbk">#5c5c5c</color>
+    <color name="colorDarkPrimary">#000268</color>
+    <color name="colorDarkDarkPrimary">#213351</color>
 
     <color name="ButtonColor">#0004b7</color>
     <color name="focusbox">#b5ffffff</color>
