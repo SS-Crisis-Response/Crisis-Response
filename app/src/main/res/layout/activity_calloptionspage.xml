@@ -20,6 +20,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Medical"
+        android:textColor=""
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"

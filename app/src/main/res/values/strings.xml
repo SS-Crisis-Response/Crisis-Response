@@ -23,4 +23,5 @@
     <string name="Create_Room">Create Room</string>
     <string name="Edit_Room">Edit Room</string>
     <string name="Delete_Room">Delete Room</string>
+    <string name="progress_text">Normal colors</string>
 </resources>
