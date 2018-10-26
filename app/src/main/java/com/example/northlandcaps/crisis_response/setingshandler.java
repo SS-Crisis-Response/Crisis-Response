@@ -1,5 +1,8 @@
 package com.example.northlandcaps.crisis_response;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.ColorSpace;
 import android.graphics.drawable.GradientDrawable;
@@ -13,6 +16,13 @@ public class setingshandler extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (Global.themetype == 1 ){
+            setTheme(R.style.NormalTheme);
+        }else if (Global.themetype ==2){
+            setTheme(R.style.LightTheme);
+        }else if (Global.themetype ==0){
+            setTheme(R.style.DarkTheme);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setingshandler);
 
@@ -20,21 +30,43 @@ public class setingshandler extends AppCompatActivity  {
         SeekBar seekbar = findViewById(R.id.darknessbar);
         final TextView progresstext = findViewById(R.id.progresstext);
         final ConstraintLayout settings =findViewById(R.id.settingspage);
-        seekbar.setProgress(1);
+        if (Global.themetype ==0){
+            settings.setBackground(Global.DarkGD);
+            progresstext.setTextColor(Global.textlightcolors);
+            progresstext.setText("Dark colors");
+        }else if (Global.themetype ==1){
+            settings.setBackground(Global.NormalGD);
+            progresstext.setTextColor(Global.textnormalcolors);
+            progresstext.setText("Normal colors");
+        }else if (Global.themetype ==2){
+            settings.setBackground(Global.LightGD);
+            progresstext.setTextColor(Global.textdarkcolors);
+            progresstext.setText("Light colors");
+        }
+        seekbar.setProgress(Global.themetype);
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekBar.setProgress(progress);
                 System.out.println(progress);
                 if (progress==1){
-                    settings.setBackground(Global.NormalGD);
-                    progresstext.setTextColor(Global.textnormalcolors);
-                    setTheme(R.style.NormalTheme);
-                }else if(progress ==0){
-
-                }else if(progress==2){
-                    settings.setBackground(Global.DarkGD);
-                    progresstext.setTextColor(Global.textlightcolors);
+                    Global.themetype = 1;
+                    finish();
+                    overridePendingTransition(0, 0);
+                    startActivity(getIntent());
+                    overridePendingTransition(0, 0);
+                }else if(progress ==2){
+                    Global.themetype = 2;
+                    finish();
+                    overridePendingTransition(0, 0);
+                    startActivity(getIntent());
+                    overridePendingTransition(0, 0);
+                }else if(progress==0){
+                    Global.themetype = 0;
+                    finish();
+                    overridePendingTransition(0, 0);
+                    startActivity(getIntent());
+                    overridePendingTransition(0, 0);
                 }
             }
 
