@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_light"
-    tools:context=".location_log_activity">
+    tools:context=".location_log_activity"
+    android:id="@+id/locationloglayout">
 
     <Spinner
         android:id="@+id/spinner"
