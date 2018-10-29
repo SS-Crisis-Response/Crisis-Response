@@ -38,7 +38,7 @@ public class buildingmangement extends AppCompatActivity {
             EditBuilding.setTextColor(Global.textdarkcolors);
             EditBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
             DeleteBuilding.setTextColor(Global.textdarkcolors);
-            DeleteBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
+            DeleteBuilding.setBackgroundResource(R.drawable.darkredbuttons);
         }else if (Global.themetype ==1){
             buildingmanagement.setBackground(Global.NormalGD);
             CreateBuilding.setTextColor(Global.textnormalcolors);
@@ -46,7 +46,7 @@ public class buildingmangement extends AppCompatActivity {
             EditBuilding.setTextColor(Global.textnormalcolors);
             EditBuilding.setBackgroundResource(R.drawable.menu_buttons);
             DeleteBuilding.setTextColor(Global.textnormalcolors);
-            DeleteBuilding.setBackgroundResource(R.drawable.menu_buttons);
+            DeleteBuilding.setBackgroundResource(R.drawable.redbuttons);
         }else if (Global.themetype ==2){
             buildingmanagement.setBackground(Global.LightGD);
             CreateBuilding.setTextColor(Global.textlightcolors);
@@ -54,7 +54,7 @@ public class buildingmangement extends AppCompatActivity {
             EditBuilding.setTextColor(Global.textlightcolors);
             EditBuilding.setBackgroundResource(R.drawable.light_menu_button);
             DeleteBuilding.setTextColor(Global.textlightcolors);
-            DeleteBuilding.setBackgroundResource(R.drawable.light_menu_button);
+            DeleteBuilding.setBackgroundResource(R.drawable.lightredbuttons);
         }
     }
 }
