@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".usermanagement"
-    android:background="@drawable/background_light">
+    android:background="@drawable/background_light"
+    android:id="@+id/roommanager">
 
     <Button
         android:id="@+id/CreateBuilding"
