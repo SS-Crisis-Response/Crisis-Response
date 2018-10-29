@@ -79,16 +79,8 @@ public class CreateUser extends AppCompatActivity {
         EditText createpassword = findViewById(R.id.CreatePassword);
         Switch isAdmin = findViewById(R.id.isadmin);
         Button createuserbtn = findViewById(R.id.createuserbtn);
-        if(Global.themetype ==0) {
+            if (Global.themetype==0){
             createuserpage.setBackground(Global.DarkGD);
-        }
-        else if(Global.themetype ==1){
-            createuserpage.setBackground(Global.NormalGD);
-        }
-        else if(Global.themetype ==2){
-            createuserpage.setBackground(Global.LightGD);
-        }
-        if (Global.themetype==0){
             createusername.setTextColor(Global.textdarkcolors);
             createpassword.setTextColor(Global.textdarkcolors);
             isAdmin.setTextColor(Global.textdarkcolors);
@@ -96,6 +88,7 @@ public class CreateUser extends AppCompatActivity {
             /////////////////////////////////////////////////
             createuserbtn.setBackgroundResource(R.drawable.dark_menu_buttons);
         }else if (Global.themetype==1) {
+            createuserpage.setBackground(Global.NormalGD);
             createusername.setTextColor(Global.textnormalcolors);
             createpassword.setTextColor(Global.textnormalcolors);
             isAdmin.setTextColor(Global.textnormalcolors);
@@ -103,6 +96,7 @@ public class CreateUser extends AppCompatActivity {
             /////////////////////////////////////////////////
             createuserbtn.setBackgroundResource(R.drawable.menu_buttons);
         }else if (Global.themetype==2){
+            createuserpage.setBackground(Global.LightGD);
             createusername.setTextColor(Global.textlightcolors);
             createpassword.setTextColor(Global.textlightcolors);
             isAdmin.setTextColor(Global.textlightcolors);
