@@ -28,8 +28,8 @@ public class buildingmangement extends AppCompatActivity {
         setContentView(R.layout.activity_buildingmangement);
         this.setTitle("Building Management");
         final ConstraintLayout buildingmanagement =findViewById(R.id.buildingmanagerpage);
-        Button CreateBuilding = findViewById(R.id.CreateRoom);
-        Button EditBuilding = findViewById(R.id.EditRoom);
+        Button CreateBuilding = findViewById(R.id.CreateBuilding);
+        Button EditBuilding = findViewById(R.id.EditBuilding);
         Button DeleteBuilding = findViewById(R.id.DeleteBuilding);
         if (Global.themetype ==0){
             buildingmanagement.setBackground(Global.DarkGD);
