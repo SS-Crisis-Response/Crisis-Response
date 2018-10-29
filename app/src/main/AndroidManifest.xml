@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.northlandcaps.crisis_response">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +25,7 @@
         <activity android:name=".CreateUser" />
         <activity android:name=".roommanagement" />
         <activity android:name=".setingshandler" />
-
+        <activity android:name=".CreateBuilding"></activity>
     </application>
 
 </manifest>
