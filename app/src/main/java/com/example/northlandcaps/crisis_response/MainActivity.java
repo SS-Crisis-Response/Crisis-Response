@@ -1,6 +1,7 @@
 package com.example.northlandcaps.crisis_response;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
         final EditText username = findViewById(R.id.password);
         final EditText password = findViewById(R.id.username);
         final Button loginbtn = findViewById(R.id.loginbutton);
-        final TextView registerlink = (TextView)findViewById(R.id.registertxtv);
-
+        loginbtn.setTextColor(Color.rgb(0,0,0));
+        final TextView registerlink = findViewById(R.id.registertxtv);
+        registerlink.setTextColor(Color.rgb(0,0,0));
         registerlink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

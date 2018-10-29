@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreateUser"
-    android:background="@drawable/background_light">
+    android:background="@drawable/background_light"
+    android:id="@+id/createuser">
 
     <EditText
         android:id="@+id/Createusername"
@@ -61,7 +62,7 @@
 
     <Switch
         android:id="@+id/isadmin"
-        android:layout_width="96dp"
+        android:layout_width="wrap_content"
         android:layout_height="51dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
