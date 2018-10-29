@@ -37,9 +37,10 @@ public class CreateUser extends AppCompatActivity {
         createuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final String username = username1.getText().toString();
                 final String password = password1.getText().toString();
-                final boolean isadmin = isAdmin.getShowText();
+                final String isadmin = isAdmin.getText().toString();
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
