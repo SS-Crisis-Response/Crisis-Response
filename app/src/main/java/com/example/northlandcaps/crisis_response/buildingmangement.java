@@ -1,14 +1,29 @@
 package com.example.northlandcaps.crisis_response;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class buildingmangement extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Button createBuilding = findViewById(R.id.CreateBuilding);
+
+        createBuilding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Global.active) {
+                    Intent createBuilding = new Intent(getApplicationContext(), CreateBuilding.class);
+                    startActivity(createBuilding);
+                }
+            }
+        });
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buildingmangement);
         this.setTitle("Building Management");
@@ -19,27 +34,27 @@ public class buildingmangement extends AppCompatActivity {
         if (Global.themetype ==0){
             buildingmanagement.setBackground(Global.DarkGD);
             CreateBuilding.setTextColor(Global.textdarkcolors);
-            CreateBuilding.setBackground(Global.DarkGD);
+            CreateBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
             EditBuilding.setTextColor(Global.textdarkcolors);
-            EditBuilding.setBackground(Global.DarkGD);
+            EditBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
             DeleteBuilding.setTextColor(Global.textdarkcolors);
-            DeleteBuilding.setBackground(Global.DarkGD);
+            DeleteBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
         }else if (Global.themetype ==1){
             buildingmanagement.setBackground(Global.NormalGD);
             CreateBuilding.setTextColor(Global.textnormalcolors);
-            CreateBuilding.setBackground(Global.NormalGD);
+            CreateBuilding.setBackgroundResource(R.drawable.menu_buttons);
             EditBuilding.setTextColor(Global.textnormalcolors);
-            EditBuilding.setBackground(Global.NormalGD);
+            EditBuilding.setBackgroundResource(R.drawable.menu_buttons);
             DeleteBuilding.setTextColor(Global.textnormalcolors);
-            DeleteBuilding.setBackground(Global.NormalGD);
+            DeleteBuilding.setBackgroundResource(R.drawable.menu_buttons);
         }else if (Global.themetype ==2){
             buildingmanagement.setBackground(Global.LightGD);
             CreateBuilding.setTextColor(Global.textlightcolors);
-            CreateBuilding.setBackground(Global.LightGD);
+            CreateBuilding.setBackgroundResource(R.drawable.light_menu_button);
             EditBuilding.setTextColor(Global.textlightcolors);
-            EditBuilding.setBackground(Global.LightGD);
+            EditBuilding.setBackgroundResource(R.drawable.light_menu_button);
             DeleteBuilding.setTextColor(Global.textlightcolors);
-            DeleteBuilding.setBackground(Global.LightGD);
+            DeleteBuilding.setBackgroundResource(R.drawable.light_menu_button);
         }
     }
 }
