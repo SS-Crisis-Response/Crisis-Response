@@ -10,7 +10,7 @@ public class RegisterRequest extends StringRequest {
 
     private static final String REGISTER_REQUEST_URL = "http://testinghostingdomain.com/Register.php";
     private Map<String, String> parass;
-    public RegisterRequest(String username, String password,Boolean isAdmin, Response.Listener<String> listener){
+    public RegisterRequest(String username, String password,String isAdmin, Response.Listener<String> listener){
         super(Method.POST, REGISTER_REQUEST_URL,listener,null);
         parass = new HashMap<>();
         parass.put("username",username);
