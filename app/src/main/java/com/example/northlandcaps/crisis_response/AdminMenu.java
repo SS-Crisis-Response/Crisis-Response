@@ -159,7 +159,7 @@ public class AdminMenu extends AppCompatActivity {
             crisisCall.setTextColor(Global.textdarkcolors);
             locationbutton.setTextColor(Global.textdarkcolors);
             /////////////////////////////////////////////////
-            logoutbutton.setBackgroundResource(R.drawable.dark_menu_buttons);
+            logoutbutton.setBackgroundResource(R.drawable.darkredbuttons);
             GroupChat.setBackgroundResource(R.drawable.dark_menu_buttons);
             settings.setBackgroundResource(R.drawable.dark_menu_buttons);
             calloptions.setBackgroundResource(R.drawable.dark_menu_buttons);
@@ -179,7 +179,7 @@ public class AdminMenu extends AppCompatActivity {
             crisisCall.setTextColor(Global.textnormalcolors);
             locationbutton.setTextColor(Global.textnormalcolors);
             /////////////////////////////////////////////////
-            logoutbutton.setBackgroundResource(R.drawable.menu_buttons);
+            logoutbutton.setBackgroundResource(R.drawable.redbuttons);
             GroupChat.setBackgroundResource(R.drawable.menu_buttons);
             settings.setBackgroundResource(R.drawable.menu_buttons);
             calloptions.setBackgroundResource(R.drawable.menu_buttons);
@@ -199,7 +199,7 @@ public class AdminMenu extends AppCompatActivity {
             crisisCall.setTextColor(Global.textlightcolors);
             locationbutton.setTextColor(Global.textlightcolors);
             /////////////////////////////////////////////////
-            logoutbutton.setBackgroundResource(R.drawable.light_menu_button);
+            logoutbutton.setBackgroundResource(R.drawable.lightredbuttons);
             GroupChat.setBackgroundResource(R.drawable.light_menu_button);
             settings.setBackgroundResource(R.drawable.light_menu_button);
             calloptions.setBackgroundResource(R.drawable.light_menu_button);
