@@ -18,8 +18,8 @@ public class roommanagement extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         ConstraintLayout roomanager = findViewById(R.id.roommanager);
-        Button CreateRoom = findViewById(R.id.CreateRoom);
-        Button EditRoom = findViewById(R.id.EditRoom);
+        Button CreateRoom = findViewById(R.id.CreateBuilding);
+        Button EditRoom = findViewById(R.id.EditBuilding);
         Button DeleteRoom = findViewById(R.id.DeleteRoom);
         if (Global.themetype==0){
             roomanager.setBackground(Global.DarkGD);
