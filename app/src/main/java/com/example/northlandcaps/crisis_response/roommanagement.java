@@ -1,8 +1,10 @@
 package com.example.northlandcaps.crisis_response;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class roommanagement extends AppCompatActivity {
@@ -12,14 +14,22 @@ public class roommanagement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roommanagement);
         this.setTitle("Room Management");
+        Button createroombtn = findViewById(R.id.CreateRoombtn);
+        createroombtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreateRoom.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         ConstraintLayout roomanager = findViewById(R.id.roommanager);
-        Button CreateRoom = findViewById(R.id.CreateBuilding);
-        Button EditRoom = findViewById(R.id.EditBuilding);
+        Button CreateRoom = findViewById(R.id.CreateRoombtn);
+        Button EditRoom = findViewById(R.id.EditRoom);
         Button DeleteRoom = findViewById(R.id.DeleteRoom);
         if (Global.themetype==0){
             roomanager.setBackground(Global.DarkGD);
