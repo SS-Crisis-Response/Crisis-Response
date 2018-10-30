@@ -25,7 +25,8 @@
         <activity android:name=".CreateUser" />
         <activity android:name=".roommanagement" />
         <activity android:name=".setingshandler" />
-        <activity android:name=".CreateBuilding"></activity>
+        <activity android:name=".CreateBuilding" />
+        <activity android:name=".EditBuilding"></activity>
     </application>
 
 </manifest>
