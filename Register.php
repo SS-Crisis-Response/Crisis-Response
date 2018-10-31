@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect("https://testinghostserver.000webhostapp.com/", "id7645332_fakesynergyservicesvserver", "Minecraft10", "id7645332_testingdbss");
+    $con = mysqli_connect("testingserverhost.000webhostapp.com", "id7690220_testingserverhost", "May232001", "id7690220_testhostserver");
     
     $age = $_POST["isAdmin"];
     $username = $_POST["username"];
