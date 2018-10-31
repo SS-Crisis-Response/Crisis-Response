@@ -19,10 +19,23 @@ public class buildingmangement extends AppCompatActivity {
         addbuilding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 if (Global.active) {
                     Intent addbuilding = new Intent(getApplicationContext(), CreateBuilding.class);
                     startActivity(addbuilding);
                 }
+=======
+                Intent createBuilding = new Intent(getApplicationContext(), CreateBuilding.class);
+                startActivity(createBuilding);
+            }
+        });
+        Button editbuilding = findViewById(R.id.EditBuilding);
+        editbuilding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent editbuilding = new Intent(getApplicationContext(),EditBuilding.class);
+                startActivity(editbuilding);
+>>>>>>> 4b2e0e22e93954c80c46f99c9f49e99f77ec1fb9
             }
         });
     }
