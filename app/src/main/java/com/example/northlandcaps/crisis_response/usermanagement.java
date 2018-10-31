@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class usermanagement extends AppCompatActivity {
     @Override
@@ -55,6 +56,17 @@ public class usermanagement extends AppCompatActivity {
             public void onClick(View v) {
                 Intent createuserintent = new Intent(getApplicationContext(),CreateUser.class);
                 startActivity(createuserintent);
+            }
+        });
+        Button eebtn = findViewById(R.id.eebtn);
+        eebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "The devs said they'd me, but they never did come back....",
+                        Toast.LENGTH_SHORT);
+
+                toast.show();
             }
         });
     }

@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_light"
-    tools:context=".CreateRoom">
+    tools:context=".CreateRoom"
+    android:id="@+id/createroom2">
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/roomnametxt"
         android:layout_width="301dp"
         android:layout_height="47dp"
         android:layout_marginStart="42dp"
