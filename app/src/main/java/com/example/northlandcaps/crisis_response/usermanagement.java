@@ -63,7 +63,7 @@ public class usermanagement extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "The devs said they'd me, but they never did come back....",
+                        "The devs said they do it to me, but they never did come back....",
                         Toast.LENGTH_SHORT);
 
                 toast.show();
