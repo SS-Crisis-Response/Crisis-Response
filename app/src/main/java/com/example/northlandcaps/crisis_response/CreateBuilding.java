@@ -17,33 +17,21 @@ public class CreateBuilding extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Button CreateBuilding = findViewById(R.id.CreateBuilding2);
-        EditText createbuildingtxt = findViewById(R.id.createbuildingtxt);
-        ConstraintLayout createbuildinglayout = findViewById(R.id.CreateBuildingLayout);
-        if (Global.themetype ==0){
-            createbuildinglayout.setBackground(Global.DarkGD);
+        final ConstraintLayout createbuildingpage = findViewById(R.id.CreateBuildingLayout);
+        Button AddBuilding = findViewById(R.id.AddBuilding);
 
-            createbuildingtxt.setTextColor(Global.textdarkcolors);
-            CreateBuilding.setTextColor(Global.textdarkcolors);
-            ////////////////////////////////////////////////
-            CreateBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
-        }
-        else if (Global.themetype ==1){
-            createbuildinglayout.setBackground(Global.NormalGD);
-
-            createbuildingtxt.setTextColor(Global.textnormalcolors);
-            CreateBuilding.setTextColor(Global.textnormalcolors);
-            ////////////////////////////////////////////////
-            CreateBuilding.setBackgroundResource(R.drawable.menu_buttons);
-
-        }
-        else if (Global.themetype ==2){
-            createbuildinglayout.setBackground(Global.LightGD);
-
-            createbuildingtxt.setTextColor(Global.textlightcolors);
-            CreateBuilding.setTextColor(Global.textlightcolors);
-            ////////////////////////////////////////////////
-            CreateBuilding.setBackgroundResource(R.drawable.light_menu_button);
+        if (Global.themetype == 0) {
+            createbuildingpage.setBackground(Global.DarkGD);
+            AddBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
+            AddBuilding.setTextColor(Global.textdarkcolors);
+        } else if (Global.themetype == 1) {
+            createbuildingpage.setBackground(Global.NormalGD);
+            AddBuilding.setBackgroundResource(R.drawable.menu_buttons);
+            AddBuilding.setTextColor(Global.textnormalcolors);
+        } else if (Global.themetype == 2) {
+            createbuildingpage.setBackground(Global.DarkGD);
+            AddBuilding.setBackgroundResource(R.drawable.light_menu_button);
+            AddBuilding.setTextColor(Global.textlightcolors);
         }
     }
 }

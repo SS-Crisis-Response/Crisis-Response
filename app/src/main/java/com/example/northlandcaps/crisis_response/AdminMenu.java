@@ -22,9 +22,13 @@ public class AdminMenu extends AppCompatActivity {
         setContentView(R.layout.activity_admin_menu);
         this.setTitle("Admin Menu");
         final ImageView blurr = findViewById(R.id.blur);
+        final Button crisis1 = findViewById(R.id.crisistype1);
+        final Button crisis2 = findViewById(R.id.crisistype2);
+        final Button crisis3 = findViewById(R.id.crisistype3);
+        final Button crisis4 = findViewById(R.id.crisistype4);
         blurr.setVisibility(View.GONE);
         Global.active =true;
-        Button locationbutton = findViewById(R.id.locationlog);
+        final Button locationbutton = findViewById(R.id.locationlog);
         Button logoutbutton = findViewById(R.id.logout);
         Button GroupChat = findViewById(R.id.groupchat);
         Button settings = findViewById(R.id.Settings);
@@ -115,6 +119,45 @@ public class AdminMenu extends AppCompatActivity {
                         blurr.bringToFront();
                         Global.active = false;
 
+                }
+
+                if (crisis1.getVisibility() == View.VISIBLE) {
+                    crisis1.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                }
+                    else {
+                    crisis1.setVisibility(View.VISIBLE);
+                    Global.active = false;
+                }
+
+
+                if (crisis2.getVisibility() == View.VISIBLE) {
+                    crisis2.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                }
+                else {
+                    crisis2.setVisibility(View.VISIBLE);
+                    Global.active = false;
+                }
+
+
+                if (crisis3.getVisibility() == View.VISIBLE) {
+                    crisis3.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                }
+                else {
+                    crisis3.setVisibility(View.VISIBLE);
+                    Global.active = false;
+                }
+
+
+                if (crisis4.getVisibility() == View.VISIBLE) {
+                    crisis4.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                }
+                else {
+                    crisis4.setVisibility(View.VISIBLE);
+                    Global.active = false;
                 }
             }
         });

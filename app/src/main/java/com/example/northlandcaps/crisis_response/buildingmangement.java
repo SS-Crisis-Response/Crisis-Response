@@ -14,11 +14,15 @@ public class buildingmangement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buildingmangement);
         this.setTitle("Building Management");
-        Button createBuilding = findViewById(R.id.CreateBuilding);
+        Button addbuilding = findViewById(R.id.CreateBuilding);
 
-        createBuilding.setOnClickListener(new View.OnClickListener() {
+        addbuilding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Global.active) {
+                    Intent addbuilding = new Intent(getApplicationContext(), CreateBuilding.class);
+                    startActivity(addbuilding);
+                }
                 Intent createBuilding = new Intent(getApplicationContext(), CreateBuilding.class);
                 startActivity(createBuilding);
             }
