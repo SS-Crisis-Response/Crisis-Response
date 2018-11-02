@@ -6,11 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_light"
     tools:context=".CreateBuilding"
-<<<<<<< HEAD
-    android:id="@+id/createbuildingpage">
-=======
     android:id="@+id/CreateBuildingLayout">
->>>>>>> 9245a9a8a7a347f32d131ac1c418b9a50513c451
 
 
     <EditText
