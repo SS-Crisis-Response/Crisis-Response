@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toolbar;
+
+import org.w3c.dom.Text;
 
 public class setingshandler extends AppCompatActivity  {
 
@@ -26,23 +29,27 @@ public class setingshandler extends AppCompatActivity  {
         final TextView progresstext = findViewById(R.id.progresstext);
         final ConstraintLayout settings =findViewById(R.id.settingspage);
         final Switch animationon = findViewById(R.id.AnimationOnButton);
+        final TextView ToggleAnimationText = findViewById(R.id.ToggleAnimationText);
         seekbar.setProgress(Global.themetype);
         final Button changepassword = findViewById(R.id.changepassword);
         if (Global.themetype ==0){
             settings.setBackground(Global.DarkGD);
-            progresstext.setTextColor(Global.textlightcolors);
+            progresstext.setTextColor(Global.textdarkcolors);
             progresstext.setText("Dark colors");
+            ToggleAnimationText.setTextColor(Global.textdarkcolors);
             changepassword.setBackgroundResource(R.drawable.dark_menu_buttons);
             changepassword.setTextColor(Global.textdarkcolors);
         }else if (Global.themetype ==1){
             settings.setBackground(Global.NormalGD);
+            ToggleAnimationText.setTextColor(Global.textnormalcolors);
             progresstext.setTextColor(Global.textnormalcolors);
             progresstext.setText("Normal colors");
             changepassword.setBackgroundResource(R.drawable.menu_buttons);
             changepassword.setTextColor(Global.textnormalcolors);
         }else if (Global.themetype==2){
             settings.setBackground(Global.LightGD);
-            progresstext.setTextColor(Global.textdarkcolors);
+            progresstext.setTextColor(Global.textlightcolors);
+            ToggleAnimationText.setTextColor(Global.textlightcolors);
             progresstext.setText("Light colors");
             changepassword.setBackgroundResource(R.drawable.light_menu_button);
             changepassword.setTextColor(Global.textlightcolors);
@@ -57,12 +64,14 @@ public class setingshandler extends AppCompatActivity  {
                     settings.setBackground(Global.NormalGD);
                     progresstext.setTextColor(Global.textnormalcolors);
                     progresstext.setText("Normal colors");
+                    ToggleAnimationText.setTextColor(Global.textnormalcolors);
                     changepassword.setBackgroundResource(R.drawable.menu_buttons);
                     changepassword.setTextColor(Global.textnormalcolors);
                 }else if(progress ==2){
                     Global.themetype = 2;
                     settings.setBackground(Global.LightGD);
                     progresstext.setTextColor(Global.textlightcolors);
+                    ToggleAnimationText.setTextColor(Global.textlightcolors);
                     progresstext.setText("Light colors");
                     changepassword.setBackgroundResource(R.drawable.light_menu_button);
                     changepassword.setTextColor(Global.textlightcolors);
@@ -70,6 +79,7 @@ public class setingshandler extends AppCompatActivity  {
                     Global.themetype = 0;
                     settings.setBackground(Global.DarkGD);
                     progresstext.setTextColor(Global.textdarkcolors);
+                    ToggleAnimationText.setTextColor(Global.textdarkcolors);
                     progresstext.setText("Dark colors");
                     changepassword.setBackgroundResource(R.drawable.dark_menu_buttons);
                     changepassword.setTextColor(Global.textdarkcolors);
