@@ -9,8 +9,10 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class setingshandler extends AppCompatActivity  {
@@ -23,6 +25,7 @@ public class setingshandler extends AppCompatActivity  {
         SeekBar seekbar = findViewById(R.id.darknessbar);
         final TextView progresstext = findViewById(R.id.progresstext);
         final ConstraintLayout settings =findViewById(R.id.settingspage);
+        final Switch animationon = findViewById(R.id.AnimationOnButton);
         seekbar.setProgress(Global.themetype);
         final Button changepassword = findViewById(R.id.changepassword);
         if (Global.themetype ==0){
@@ -81,6 +84,17 @@ public class setingshandler extends AppCompatActivity  {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        animationon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               if (Global.animationon){
+                   Global.animationon=false;
+               }else{
+                   Global.animationon=true;
+               }
             }
         });
     }

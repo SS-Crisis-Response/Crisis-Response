@@ -135,9 +135,13 @@ public class AdminMenu extends AppCompatActivity {
                     crisis4.setVisibility(View.VISIBLE);
                     crisis4.setZ(50);
                     Global.active = false;
-                    CrisisButtonMoveIntoAnimation();
+                    if (Global.animationon){
+                        CrisisButtonMoveIntoAnimation();
+                    }
                 }else{
-                    CrisisButtonMoveAwayAnimation();
+                    if (Global.animationon) {
+                        CrisisButtonMoveAwayAnimation();
+                    }
                     crisis1.setVisibility(View.INVISIBLE);
                     Global.active=true;
                     crisis2.setVisibility(View.INVISIBLE);
