@@ -10,22 +10,24 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
 public class AdminMenu extends AppCompatActivity {
 
-
+    Button crisis1,crisis2,crisis3,crisis4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_menu);
         this.setTitle("Admin Menu");
         final ImageView blurr = findViewById(R.id.blur);
-        final Button crisis1 = findViewById(R.id.crisistype1);
-        final Button crisis2 = findViewById(R.id.crisistype2);
-        final Button crisis3 = findViewById(R.id.crisistype3);
-        final Button crisis4 = findViewById(R.id.crisistype4);
+        crisis1 = findViewById(R.id.crisistype1);
+        crisis2 = findViewById(R.id.crisistype2);
+        crisis3 = findViewById(R.id.crisistype3);
+        crisis4 = findViewById(R.id.crisistype4);
         blurr.setVisibility(View.GONE);
         Global.active =true;
         final Button locationbutton = findViewById(R.id.locationlog);
@@ -36,7 +38,7 @@ public class AdminMenu extends AppCompatActivity {
         Button usermanager = findViewById(R.id.usermanager);
         Button buildingmanager = findViewById(R.id.buildingmanager);
         Button roommanager = findViewById(R.id.roommanager);
-        Button crisisCall = findViewById(R.id.crisiscallbutton);
+        final Button crisisCall = findViewById(R.id.crisiscallbutton);
 
 
         logoutbutton.setOnClickListener(new View.OnClickListener() {
@@ -109,55 +111,42 @@ public class AdminMenu extends AppCompatActivity {
             @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
+                crisisCall.bringToFront();
+                crisisCall.setZ(80);
                 if (blurr.getVisibility() == View.VISIBLE) {
                     blurr.setVisibility(View.INVISIBLE);
                     Global.active=true;
-                }
-                    else
-                {
+                } else{
                         blurr.setVisibility(View.VISIBLE);
-                        blurr.bringToFront();
+                        blurr.setZ(25);
                         Global.active = false;
+                        }
 
-                }
-
-                if (crisis1.getVisibility() == View.VISIBLE) {
+                if (Global.active!= true) {
+                    crisis1.setVisibility(View.VISIBLE);
+                    crisis1.setZ(50);
+                    Global.active = false;
+                    crisis2.setVisibility(View.VISIBLE);
+                    crisis2.setZ(50);
+                    Global.active = false;
+                    crisis3.setVisibility(View.VISIBLE);
+                    crisis3.setZ(50);
+                    Global.active = false;
+                    crisis4.setVisibility(View.VISIBLE);
+                    crisis4.setZ(50);
+                    Global.active = false;
+                    CrisisButtonMoveIntoAnimation();
+                }else{
+                    CrisisButtonMoveAwayAnimation();
                     crisis1.setVisibility(View.INVISIBLE);
                     Global.active=true;
-                }
-                    else {
-                    crisis1.setVisibility(View.VISIBLE);
-                    Global.active = false;
-                }
-
-
-                if (crisis2.getVisibility() == View.VISIBLE) {
                     crisis2.setVisibility(View.INVISIBLE);
                     Global.active=true;
-                }
-                else {
-                    crisis2.setVisibility(View.VISIBLE);
-                    Global.active = false;
-                }
-
-
-                if (crisis3.getVisibility() == View.VISIBLE) {
                     crisis3.setVisibility(View.INVISIBLE);
                     Global.active=true;
-                }
-                else {
-                    crisis3.setVisibility(View.VISIBLE);
-                    Global.active = false;
-                }
-
-
-                if (crisis4.getVisibility() == View.VISIBLE) {
                     crisis4.setVisibility(View.INVISIBLE);
                     Global.active=true;
-                }
-                else {
-                    crisis4.setVisibility(View.VISIBLE);
-                    Global.active = false;
+
                 }
             }
         });
@@ -252,5 +241,25 @@ public class AdminMenu extends AppCompatActivity {
             locationbutton.setBackgroundResource(R.drawable.light_menu_button);
             crisisCall.setBackgroundResource(R.drawable.light_call_button);
         }
+    }
+    public void CrisisButtonMoveIntoAnimation(){
+        Animation btn = new TranslateAnimation(Animation.ABSOLUTE,Animation.ABSOLUTE,Animation.ABSOLUTE+10000,Animation.ABSOLUTE);
+        btn.setDuration(500);
+        btn.setFillAfter(true);
+
+        crisis1.startAnimation(btn);
+        crisis2.startAnimation(btn);
+        crisis3.startAnimation(btn);
+        crisis4.startAnimation(btn);
+    }
+    public  void CrisisButtonMoveAwayAnimation() {
+        Animation btn = new TranslateAnimation(Animation.ABSOLUTE,Animation.ABSOLUTE,Animation.ABSOLUTE,10000);
+        btn.setDuration(500);
+        btn.setFillAfter(true);
+
+        crisis1.startAnimation(btn);
+        crisis2.startAnimation(btn);
+        crisis3.startAnimation(btn);
+        crisis4.startAnimation(btn);
     }
 }
