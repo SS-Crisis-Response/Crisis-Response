@@ -44,10 +44,7 @@ public class CreateUser extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Log.d("Response Value: ", response);
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-                            if (success){
+                            if (response.equals("success")){
                                 Intent intent = new Intent(CreateUser.this, MainActivity.class);
                                 CreateUser.this.startActivity(intent);
                             }else{
@@ -56,11 +53,6 @@ public class CreateUser extends AppCompatActivity {
                                         .setNegativeButton("Retry",null)
                                         .create()
                                         .show();
-
-
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
                     }
                 };
