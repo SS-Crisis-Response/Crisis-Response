@@ -19,7 +19,7 @@
         android:layout_marginEnd="42dp"
         android:textColor="@android:color/black"
         android:ems="10"
-        android:hint="Room Name"
+        android:hint="@string/room_name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
