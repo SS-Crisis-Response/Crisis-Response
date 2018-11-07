@@ -9,6 +9,7 @@ import android.os.Build;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -121,9 +122,12 @@ public class AdminMenu extends AppCompatActivity {
                         blurr.setZ(25);
                         Global.active = false;
                         }
-
+                System.out.println(Global.active);
                 if (!Global.active) {
                     crisis1.setVisibility(View.VISIBLE);
+                    System.out.println("visibility - "+crisis1.getVisibility());
+                    System.out.println("X position - "+crisis1.getX());
+                    System.out.println("Y position - "+crisis1.getY());
                     crisis1.setZ(50);
                     Global.active = false;
                     crisis2.setVisibility(View.VISIBLE);
@@ -175,6 +179,10 @@ public class AdminMenu extends AppCompatActivity {
         Button buildingmanager = findViewById(R.id.buildingmanager);
         Button roommanager = findViewById(R.id.roommanager);
         Button crisisCall = findViewById(R.id.crisiscallbutton);
+        crisis1 = findViewById(R.id.crisistype1);
+        crisis2 = findViewById(R.id.crisistype2);
+        crisis3 = findViewById(R.id.crisistype3);
+        crisis4 = findViewById(R.id.crisistype4);
         if (Global.themetype==0){
             adminmenu.setBackground(Global.DarkGD);
             logoutbutton.setTextColor(Global.textdarkcolors);
@@ -186,8 +194,10 @@ public class AdminMenu extends AppCompatActivity {
             roommanager.setTextColor(Global.textdarkcolors);
             crisisCall.setTextColor(Global.textdarkcolors);
             locationbutton.setTextColor(Global.textdarkcolors);
+            crisis4.setTextColor(Global.textdarkcolors);
             /////////////////////////////////////////////////
             logoutbutton.setBackgroundResource(R.drawable.darkredbuttons);
+            crisis4.setBackgroundResource(R.drawable.dark_menu_buttons);
             GroupChat.setBackgroundResource(R.drawable.dark_menu_buttons);
             settings.setBackgroundResource(R.drawable.dark_menu_buttons);
             calloptions.setBackgroundResource(R.drawable.dark_menu_buttons);
@@ -207,6 +217,7 @@ public class AdminMenu extends AppCompatActivity {
             roommanager.setTextColor(Global.textnormalcolors);
             crisisCall.setTextColor(Global.textnormalcolors);
             locationbutton.setTextColor(Global.textnormalcolors);
+            crisis4.setTextColor(Global.textnormalcolors);
             /////////////////////////////////////////////////
             logoutbutton.setBackgroundResource(R.drawable.redbuttons);
             GroupChat.setBackgroundResource(R.drawable.menu_buttons);
@@ -217,6 +228,7 @@ public class AdminMenu extends AppCompatActivity {
             roommanager.setBackgroundResource(R.drawable.menu_buttons);
             locationbutton.setBackgroundResource(R.drawable.menu_buttons);
             crisisCall.setBackgroundResource(R.drawable.call_button);
+            crisis4.setBackgroundResource(R.drawable.menu_buttons);
         }else if (Global.themetype==2){
             adminmenu.setBackground(Global.LightGD);
             logoutbutton.setTextColor(Global.textlightcolors);
@@ -228,6 +240,7 @@ public class AdminMenu extends AppCompatActivity {
             roommanager.setTextColor(Global.textlightcolors);
             crisisCall.setTextColor(Global.textlightcolors);
             locationbutton.setTextColor(Global.textlightcolors);
+            crisis4.setTextColor(Global.textlightcolors);
             /////////////////////////////////////////////////
             logoutbutton.setBackgroundResource(R.drawable.lightredbuttons);
             GroupChat.setBackgroundResource(R.drawable.light_menu_button);
@@ -238,6 +251,7 @@ public class AdminMenu extends AppCompatActivity {
             roommanager.setBackgroundResource(R.drawable.light_menu_button);
             locationbutton.setBackgroundResource(R.drawable.light_menu_button);
             crisisCall.setBackgroundResource(R.drawable.light_call_button);
+            crisis4.setBackgroundResource(R.drawable.light_menu_button);
         }
     }
     public void CrisisButtonMoveIntoAnimation(){
