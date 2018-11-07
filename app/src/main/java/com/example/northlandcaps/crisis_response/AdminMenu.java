@@ -122,7 +122,7 @@ public class AdminMenu extends AppCompatActivity {
                         Global.active = false;
                         }
 
-                if (Global.active!= true) {
+                if (!Global.active) {
                     crisis1.setVisibility(View.VISIBLE);
                     crisis1.setZ(50);
                     Global.active = false;
@@ -175,16 +175,8 @@ public class AdminMenu extends AppCompatActivity {
         Button buildingmanager = findViewById(R.id.buildingmanager);
         Button roommanager = findViewById(R.id.roommanager);
         Button crisisCall = findViewById(R.id.crisiscallbutton);
-        if(Global.themetype ==0) {
-            adminmenu.setBackground(Global.DarkGD);
-        }
-        else if(Global.themetype ==1){
-            adminmenu.setBackground(Global.NormalGD);
-        }
-        else if(Global.themetype ==2){
-            adminmenu.setBackground(Global.LightGD);
-        }
         if (Global.themetype==0){
+            adminmenu.setBackground(Global.DarkGD);
             logoutbutton.setTextColor(Global.textdarkcolors);
             GroupChat.setTextColor(Global.textdarkcolors);
             settings.setTextColor(Global.textdarkcolors);
@@ -205,6 +197,7 @@ public class AdminMenu extends AppCompatActivity {
             locationbutton.setBackgroundResource(R.drawable.dark_menu_buttons);
             crisisCall.setBackgroundResource(R.drawable.dark_call_button);
         }else if (Global.themetype==1) {
+            adminmenu.setBackground(Global.NormalGD);
             logoutbutton.setTextColor(Global.textnormalcolors);
             GroupChat.setTextColor(Global.textnormalcolors);
             settings.setTextColor(Global.textnormalcolors);
@@ -225,6 +218,7 @@ public class AdminMenu extends AppCompatActivity {
             locationbutton.setBackgroundResource(R.drawable.menu_buttons);
             crisisCall.setBackgroundResource(R.drawable.call_button);
         }else if (Global.themetype==2){
+            adminmenu.setBackground(Global.LightGD);
             logoutbutton.setTextColor(Global.textlightcolors);
             GroupChat.setTextColor(Global.textlightcolors);
             settings.setTextColor(Global.textlightcolors);

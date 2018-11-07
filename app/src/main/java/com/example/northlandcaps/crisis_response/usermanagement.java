@@ -20,7 +20,7 @@ public class usermanagement extends AppCompatActivity {
             usermanagementlayout.setBackground(Global.DarkGD);
             createuser.setBackgroundResource(R.drawable.dark_menu_buttons);
             edituser.setBackgroundResource(R.drawable.dark_menu_buttons);
-            deleteuser.setBackgroundResource(R.drawable.dark_menu_buttons);
+            deleteuser.setBackgroundResource(R.drawable.darkredbuttons);
             createuser.setTextColor(Global.textdarkcolors);
             edituser.setTextColor(Global.textdarkcolors);
             deleteuser.setTextColor(Global.textdarkcolors);
@@ -29,7 +29,7 @@ public class usermanagement extends AppCompatActivity {
             usermanagementlayout.setBackground(Global.NormalGD);
             createuser.setBackgroundResource(R.drawable.menu_buttons);
             edituser.setBackgroundResource(R.drawable.menu_buttons);
-            deleteuser.setBackgroundResource(R.drawable.menu_buttons);
+            deleteuser.setBackgroundResource(R.drawable.redbuttons);
             createuser.setTextColor(Global.textnormalcolors);
             edituser.setTextColor(Global.textnormalcolors);
             deleteuser.setTextColor(Global.textnormalcolors);
@@ -38,7 +38,7 @@ public class usermanagement extends AppCompatActivity {
             usermanagementlayout.setBackground(Global.LightGD);
             createuser.setBackgroundResource(R.drawable.light_menu_button);
             edituser.setBackgroundResource(R.drawable.light_menu_button);
-            deleteuser.setBackgroundResource(R.drawable.light_menu_button);
+            deleteuser.setBackgroundResource(R.drawable.lightredbuttons);
             createuser.setTextColor(Global.textlightcolors);
             edituser.setTextColor(Global.textlightcolors);
             deleteuser.setTextColor(Global.textlightcolors);
