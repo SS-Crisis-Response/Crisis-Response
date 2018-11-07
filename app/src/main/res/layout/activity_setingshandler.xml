@@ -13,11 +13,11 @@
 
         android:id="@+id/changepassword"
         android:layout_width="338dp"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:layout_marginStart="97dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="450dp"
         android:layout_marginEnd="95dp"
-        android:layout_marginBottom="374dp"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/menu_buttons"
         android:text="Change Password"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -31,28 +31,58 @@
     <SeekBar
         android:id="@+id/darknessbar"
         android:layout_width="254dp"
-        android:layout_height="43dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="284dp"
         android:max="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changepassword"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintTop_toBottomOf="@+id/progresstext" />
 
     <TextView
         android:id="@+id/progresstext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="37dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="2dp"
         android:text="@string/progress_text"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toTopOf="@+id/darknessbar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AnimationOnButton" />
+
+    <Switch
+        android:id="@+id/AnimationOnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:textOff="false"
+        android:textOn="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ToggleAnimationText" />
+
+    <TextView
+        android:id="@+id/ToggleAnimationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="2dp"
+        android:text="Toggle Animation"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintBottom_toTopOf="@+id/AnimationOnButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
