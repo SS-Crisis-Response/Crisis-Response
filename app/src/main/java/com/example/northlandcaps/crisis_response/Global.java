@@ -8,6 +8,7 @@ public class Global {
     public static int textnormalcolors = Color.parseColor("#FF000000");
     public static int textlightcolors = Color.parseColor("#5c5c5c");
     public static int textdarkcolors = Color.parseColor("#FFBFBFBF");
+    public static boolean animationon = false;
 
     public static int[] normalcolor = {Color.parseColor("#679acf"), Color.parseColor("#3b5e94")};
     public static GradientDrawable NormalGD = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, normalcolor);
