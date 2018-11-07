@@ -18,7 +18,7 @@
         android:layout_marginEnd="42dp"
         android:ems="10"
         android:textColor="@android:color/black"
-        android:hint="Building Name"
+        android:hint="@string/building_name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
