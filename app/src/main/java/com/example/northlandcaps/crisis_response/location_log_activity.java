@@ -22,7 +22,8 @@ public class location_log_activity extends AppCompatActivity {
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items1);
         Buildings.setAdapter(adapter);
         Rooms.setAdapter(adapter1);
-        TextView BuildingText = findViewById(R.id.BuildingText);
+        TextView BuildingText;
+        BuildingText = findViewById(R.id.BuildingText);
         TextView RoomText = findViewById(R.id.RoomText);
         if (Global.themetype == 0) {
             locationloglayout.setBackground(Global.DarkGD);
