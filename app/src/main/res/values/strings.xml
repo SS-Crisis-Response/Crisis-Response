@@ -11,7 +11,6 @@
     <string name="Room_Management">Room Management</string>
     <string name="Call_Option">Call Options</string>
     <string name="Logout">Logout</string>
-    <string name="Create_User">Create User</string>
     <string name="Edit_User">Edit User</string>
     <string name="Delete_User">Delete User</string>
     <string name="Admin">Admin</string>
@@ -24,4 +23,15 @@
     <string name="Edit_Room">Edit Room</string>
     <string name="Delete_Room">Delete Room</string>
     <string name="progress_text">Normal colors</string>
+    <string name="physical">Physical</string>
+    <string name="medical">Medical</string>
+    <string name="weapon">Weapon</string>
+    <string name="unlisted_crisis">Unlisted Crisis</string>
+    <string name="building_name">Building Name</string>
+    <string name="room_name">Room Name</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="create_user">Create User</string>
+    <string name="logout_button">Logout</string>
+    <string name="change_password">Change Password</string>
 </resources>
