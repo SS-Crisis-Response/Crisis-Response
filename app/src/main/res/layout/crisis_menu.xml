@@ -83,6 +83,8 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/call_button"
         android:text="@string/Crisis_Call"
+        android:textSize="25pt"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -102,6 +104,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/focus_box" />
+
+    <ImageView
+        android:id="@+id/blur2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:translationZ="6dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@color/focusbox" />
 
 
 </android.support.constraint.ConstraintLayout>
