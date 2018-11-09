@@ -34,6 +34,7 @@
             tools:ignore="DuplicateActivity" />
         <activity android:name=".CreateUser" />
         <activity android:name=".DeleteBuilding" />
+        <activity android:name=".DeleteRoom" />
         <activity android:name=".roommanagement" />
         <activity android:name=".setingshandler" />
         <activity android:name=".CreateBuilding" />

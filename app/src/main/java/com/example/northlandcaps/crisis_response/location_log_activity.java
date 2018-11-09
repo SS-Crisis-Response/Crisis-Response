@@ -14,12 +14,12 @@ public class location_log_activity extends AppCompatActivity {
         super.onResume();
         final ConstraintLayout locationloglayout = findViewById(R.id.locationloglayout);
         Spinner Buildings = findViewById(R.id.spinner);
-        String[] items = new String[]{"to", "be", "Edited", "to", "use", "List", "from", "DataBase"};
+
         Spinner Rooms = findViewById(R.id.spinner2);
-        String[] items1 = new String[]{"one", "two", "3"};
+
         this.setTitle("Location Log");
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.item);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.items);
         Buildings.setAdapter(adapter);
         Rooms.setAdapter(adapter1);
         TextView BuildingText;
@@ -47,13 +47,13 @@ public class location_log_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_log_activity);
         Spinner Buildings = findViewById(R.id.spinner);
-        String[] items = new String[]{"to", "be", "Edited", "to", "use", "List", "from", "DataBase"};
+
         Spinner Rooms = findViewById(R.id.spinner2);
-        String[] items1 = new String[]{"one", "two", "3"};
+
         this.setTitle("Location Log");
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.item);
         Buildings.setAdapter(adapter);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items1);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.items);
         Rooms.setAdapter(adapter1);
         final ConstraintLayout locationloglayout = findViewById(R.id.locationloglayout);
         TextView BuildingText = findViewById(R.id.BuildingText);

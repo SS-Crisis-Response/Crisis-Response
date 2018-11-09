@@ -22,6 +22,14 @@ public class roommanagement extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button deleteroombtn = findViewById(R.id.DeleteRoombtn);
+        deleteroombtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DeleteRoom.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -30,7 +38,7 @@ public class roommanagement extends AppCompatActivity {
         ConstraintLayout roomanager = findViewById(R.id.roommanager);
         Button CreateRoom = findViewById(R.id.CreateRoombtn);
         Button EditRoom = findViewById(R.id.EditRoom);
-        Button DeleteRoom = findViewById(R.id.DeleteRoom);
+        Button DeleteRoom = findViewById(R.id.DeleteRoombtn);
         if (Global.themetype==0){
             roomanager.setBackground(Global.DarkGD);
             CreateRoom.setTextColor(Global.textdarkcolors);
