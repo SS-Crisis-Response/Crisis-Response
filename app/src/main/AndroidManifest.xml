@@ -28,9 +28,12 @@
         <activity android:name=".chat_group" />
         <activity android:name=".buildingmangement" />
 
-        <activity android:name=".location_log_activity" />
-        <activity android:name=".buildingmangement" />
+        <activity android:name=".location_log_activity"
+            tools:ignore="DuplicateActivity" />
+        <activity android:name=".buildingmangement"
+            tools:ignore="DuplicateActivity" />
         <activity android:name=".CreateUser" />
+        <activity android:name=".DeleteBuilding" />
         <activity android:name=".roommanagement" />
         <activity android:name=".setingshandler" />
         <activity android:name=".CreateBuilding" />
