@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "49641504667",
+    "firebase_url": "https://crisis-call.firebaseio.com",
+    "project_id": "crisis-call",
+    "storage_bucket": "crisis-call.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49641504667:android:185317f9f1bed6b1",
+        "android_client_info": {
+          "package_name": "com.example.northlandcaps.crisis_response"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49641504667-6gm0suoqb3am5fu9segffim7qaqnviu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl0663MFH8QMC_xdlIruHfT1MqcLE6KWs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

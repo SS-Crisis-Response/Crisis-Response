@@ -1,9 +1,7 @@
 package com.example.northlandcaps.crisis_response;
 
-import android.content.ContentValues;
+
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -16,9 +14,8 @@ import android.widget.Switch;
 import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class CreateUser extends AppCompatActivity {
     @Override
@@ -36,7 +33,6 @@ public class CreateUser extends AppCompatActivity {
         createuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final String username = username1.getText().toString();
                 final String password = password1.getText().toString();
                 final String isadmin = isAdmin.getText().toString();
@@ -55,12 +51,18 @@ public class CreateUser extends AppCompatActivity {
                                         .show();
                         }
                     }
+                };Response.ErrorListener errorListener = new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), String.valueOf(error), Toast.LENGTH_SHORT).show();
+                    }
                 };
-                RegisterRequest registerRequest = new RegisterRequest(username,password,isadmin,responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(username,password,isadmin,responseListener,errorListener);
                 RequestQueue queue = Volley.newRequestQueue(CreateUser.this);
                 queue.add(registerRequest);
             }
         });
+
     }
 
     @Override

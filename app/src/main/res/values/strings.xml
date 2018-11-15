@@ -34,4 +34,6 @@
     <string name="create_user">Create User</string>
     <string name="logout_button">Logout</string>
     <string name="change_password">Change Password</string>
+    <string name="FCM_PREF">com.example.northlandcaps.crisis_response.fcm_pref</string>
+    <string name="FCM_TOKEN">com.example.northlandcaps.crisis_response.fcm_token</string>
 </resources>
