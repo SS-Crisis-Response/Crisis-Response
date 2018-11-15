@@ -78,6 +78,7 @@ public class AdminMenu extends AppCompatActivity {
             public void onClick(View v) {
                 if (Global.active) {
 
+
                 }
             }
         });

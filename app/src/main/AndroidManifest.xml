@@ -38,6 +38,7 @@
         <activity android:name=".setingshandler" />
         <activity android:name=".CreateBuilding" />
         <activity android:name=".EditBuilding"/>
+        <activity android:name=".calloptions"/>
         <activity android:name=".CreateRoom"></activity>
 
     </application>
