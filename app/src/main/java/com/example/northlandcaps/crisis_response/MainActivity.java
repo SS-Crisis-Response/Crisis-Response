@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.setTitle("Sign In");
-        final EditText username = findViewById(R.id.password);
-        final EditText password = findViewById(R.id.username);
+        final EditText username = findViewById(R.id.username);
+        final EditText password = findViewById(R.id.password);
         final Button loginbtn = findViewById(R.id.loginbutton);
         loginbtn.setTextColor(Color.rgb(0,0,0));
         final TextView registerlink = findViewById(R.id.registertxtv);
