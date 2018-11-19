@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.northlandcaps.crisis_response">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,7 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/NormalTheme">
+        android:theme="@style/NormalTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,14 +32,26 @@
         </service>
         <activity android:name=".AdminMenu" />
         <activity android:name=".usermanagement" />
-        <activity android:name=".location_log_activity" />
+
+        <activity android:name=".location_log_activity"></activity>
+
+        <activity android:name=".chat_group" />
         <activity android:name=".buildingmangement" />
+
+        <activity android:name=".location_log_activity"
+            tools:ignore="DuplicateActivity" />
+        <activity android:name=".buildingmangement"
+            tools:ignore="DuplicateActivity" />
         <activity android:name=".CreateUser" />
+        <activity android:name=".DeleteBuilding" />
+        <activity android:name=".DeleteRoom" />
         <activity android:name=".roommanagement" />
         <activity android:name=".setingshandler" />
         <activity android:name=".CreateBuilding" />
         <activity android:name=".EditBuilding"/>
+        <activity android:name=".calloptions"/>
         <activity android:name=".CreateRoom"></activity>
+
     </application>
 
 </manifest>

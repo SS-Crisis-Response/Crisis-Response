@@ -119,6 +119,9 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Global.active) {
+                    Intent calloptions = new Intent (getApplicationContext(), calloptions.class);
+                    startActivity (calloptions);
+
 
                 }
             }

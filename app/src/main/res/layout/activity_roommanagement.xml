@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/CreateRoombtn" />
 
     <Button
-        android:id="@+id/DeleteRoom"
+        android:id="@+id/DeleteRoombtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
