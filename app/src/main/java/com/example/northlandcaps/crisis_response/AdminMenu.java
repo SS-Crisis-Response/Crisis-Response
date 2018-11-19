@@ -1,7 +1,9 @@
 package com.example.northlandcaps.crisis_response;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -15,6 +17,15 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AdminMenu extends AppCompatActivity {
 
@@ -30,6 +41,7 @@ public class AdminMenu extends AppCompatActivity {
         crisis3 = findViewById(R.id.crisistype3);
         crisis4 = findViewById(R.id.crisistype4);
         blurr.setVisibility(View.GONE);
+        final String app_server_url = "http://10.0.2.2/phptesting/fcm_insert.php";
         Global.active =true;
         final Button locationbutton = findViewById(R.id.locationlog);
         Button logoutbutton = findViewById(R.id.logout);
@@ -40,7 +52,37 @@ public class AdminMenu extends AppCompatActivity {
         Button buildingmanager = findViewById(R.id.buildingmanager);
         Button roommanager = findViewById(R.id.roommanager);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
+        crisis1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!Global.active){
+                    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.FCM_PREF),Context.MODE_PRIVATE);
+                    final String token = sharedPreferences.getString(getString(R.string.FCM_TOKEN),"");
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, app_server_url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
 
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    })
+                    {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String,String> params = new HashMap<String, String>();
+                            params.put("fcm_token",token);
+
+                            return params;
+                        }
+                    };
+                    MySingleton.getmInstance(AdminMenu.this).addToRequestque(stringRequest);
+                }
+            }
+        });
 
         logoutbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +210,7 @@ public class AdminMenu extends AppCompatActivity {
                 startActivity(location);
             }
         });
+
     }
     @Override
     protected void onResume() {
