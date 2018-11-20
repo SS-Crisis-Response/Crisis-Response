@@ -13,13 +13,7 @@ public class EditBuilding extends AppCompatActivity {
 
     private ArrayList<String> mwords = new ArrayList<>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_building);
-        Log.d(TAG, "onCreate: started.");
-        initbitmaps();
-    }
+
     private void initbitmaps(){
         mwords.add("AAAAAAH");
         initrecyclerview();

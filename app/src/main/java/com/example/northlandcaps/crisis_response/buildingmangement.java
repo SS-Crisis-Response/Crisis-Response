@@ -35,6 +35,14 @@ public class buildingmangement extends AppCompatActivity {
                 startActivity(editbuilding);
             }
         });
+        Button deletebuilding = findViewById(R.id.DeleteBuilding);
+        deletebuilding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent deletebuilding = new Intent(getApplicationContext(),DeleteBuilding.class);
+                startActivity(deletebuilding);
+            }
+        });
     }
 
     @Override

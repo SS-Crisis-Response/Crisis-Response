@@ -100,11 +100,7 @@ public class setingshandler extends AppCompatActivity  {
         animationon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if (Global.animationon){
-                   Global.animationon=false;
-               }else{
-                   Global.animationon=true;
-               }
+                Global.animationon = !Global.animationon;
             }
         });
     }
