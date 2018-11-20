@@ -17,6 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
+
 public class CreateUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,30 +38,25 @@ public class CreateUser extends AppCompatActivity {
                 final String username = username1.getText().toString();
                 final String password = password1.getText().toString();
                 final String isadmin = isAdmin.getText().toString();
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                HashMap<String, String> data = new HashMap<>();
+                data.put("username", username);//define the value
+                data.put("password", password);//define the value
+                data.put("isAdmin", isadmin);//define the value
+
+                SendData sendData = new SendData(getApplicationContext(), "http://192.168.0.9:80/phptesting/Register.php", data); //define the context and url properly
+                sendData.setOnDataSent(new SendData.OnDataSent() {
                     @Override
-                    public void onResponse(String response) {
-                        Log.d("Response Value: ", response);
-                            if (response.equals("success")){
-                                Intent intent = new Intent(CreateUser.this, MainActivity.class);
-                                CreateUser.this.startActivity(intent);
-                            }else{
-                                AlertDialog.Builder builder = new AlertDialog.Builder(CreateUser.this);
-                                builder.setMessage("Register Failed")
-                                        .setNegativeButton("Retry",null)
-                                        .create()
-                                        .show();
-                        }
+                    public void onSuccess(String response) {
+                        Intent intent = new Intent(getApplicationContext(),AdminMenu.class);
+                        startActivity(intent);
                     }
-                };Response.ErrorListener errorListener = new Response.ErrorListener() {
+
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), String.valueOf(error), Toast.LENGTH_SHORT).show();
+                    public void onFailed(String error) {
+                        Log.d("Error: ", error);
                     }
-                };
-                RegisterRequest registerRequest = new RegisterRequest(username,password,isadmin,responseListener,errorListener);
-                RequestQueue queue = Volley.newRequestQueue(CreateUser.this);
-                queue.add(registerRequest);
+                });
+                sendData.send();
             }
         });
 
