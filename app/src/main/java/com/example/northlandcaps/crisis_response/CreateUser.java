@@ -37,17 +37,22 @@ public class CreateUser extends AppCompatActivity {
             public void onClick(View v) {
                 final String username = username1.getText().toString();
                 final String password = password1.getText().toString();
-                final String isadmin = isAdmin.getText().toString();
+                final boolean isadmin1 = isAdmin.isChecked();
+                final String isadmin;
+                if (isadmin1){
+                    isadmin = "true";
+                }else {
+                    isadmin = "false";
+                }
                 HashMap<String, String> data = new HashMap<>();
                 data.put("username", username);//define the value
                 data.put("password", password);//define the value
                 data.put("isAdmin", isadmin);//define the value
-
                 SendData sendData = new SendData(getApplicationContext(), "http://192.168.0.9:80/phptesting/Register.php", data); //define the context and url properly
                 sendData.setOnDataSent(new SendData.OnDataSent() {
                     @Override
                     public void onSuccess(String response) {
-                        Intent intent = new Intent(getApplicationContext(),AdminMenu.class);
+                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                         startActivity(intent);
                     }
 
