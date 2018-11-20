@@ -32,11 +32,11 @@
         </service>
         <activity android:name=".AdminMenu" />
         <activity android:name=".usermanagement" />
-
         <activity android:name=".location_log_activity"></activity>
 
         <activity android:name=".chat_group" />
         <activity android:name=".buildingmangement" />
+
 
         <activity android:name=".location_log_activity"
             tools:ignore="DuplicateActivity" />
