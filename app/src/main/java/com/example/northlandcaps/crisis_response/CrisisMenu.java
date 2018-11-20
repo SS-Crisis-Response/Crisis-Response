@@ -165,12 +165,12 @@ public class CrisisMenu extends AppCompatActivity {
         @Override
         protected void onResume() {
             super.onResume();
-            final ConstraintLayout adminmenu = findViewById(R.id.adminmenu);
-            Button locationbutton = findViewById(R.id.locationlog);
-            Button logoutbutton = findViewById(R.id.logout);
-            Button GroupChat = findViewById(R.id.groupchat);
-            Button settings = findViewById(R.id.Settings);
-            Button crisisCall = findViewById(R.id.crisiscallbutton);
+            final ConstraintLayout adminmenu = findViewById(R.id.crisismenu);
+            Button locationbutton = findViewById(R.id.locationlog1);
+            Button logoutbutton = findViewById(R.id.logout1);
+            Button GroupChat = findViewById(R.id.groupchat1);
+            Button settings = findViewById(R.id.Settings1);
+            Button crisisCall = findViewById(R.id.crisiscallbutton1);
             crisis1 = findViewById(R.id.crisistype1);
             crisis2 = findViewById(R.id.crisistype2);
             crisis3 = findViewById(R.id.crisistype3);
