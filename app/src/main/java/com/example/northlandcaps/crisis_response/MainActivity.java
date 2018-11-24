@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -51,10 +53,17 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(response);
                     }
                 };
-                LoginRequest loginRequest = new LoginRequest(usertxt,passtxt,responseListener);
+                LoginRequest loginRequest = new LoginRequest(usertxt,passtxt,responseListener,errorListener);
                 RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 queue.add(loginRequest);
+
             }
         });
-    }
+
+    }Response.ErrorListener errorListener = new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            Toast.makeText(getApplicationContext(), String.valueOf(error), Toast.LENGTH_SHORT).show();
+        }
+    };
 }
