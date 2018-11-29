@@ -47,8 +47,8 @@ public class CreateUser extends AppCompatActivity {
                 HashMap<String, String> data = new HashMap<>();
                 data.put("username", username);//define the value
                 data.put("password", password);//define the value
-                data.put("isAdmin", isadmin);//define the value
-                SendData sendData = new SendData(getApplicationContext(), "http://192.168.0.9:80/phptesting/Register.php", data); //define the context and url properly
+                data.put("is_admin", isadmin);//define the value
+                SendData sendData = new SendData(getApplicationContext(), "http://192.168.10.109:80/phptesting/Register.php", data); //define the context and url properly
                 sendData.setOnDataSent(new SendData.OnDataSent() {
                     @Override
                     public void onSuccess(String response) {

@@ -1,34 +1,24 @@
 package com.example.northlandcaps.crisis_response;
 
-import android.annotation.TargetApi;
-import android.content.Context;
+import android.app.Notification;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-
-import java.util.HashMap;
-import java.util.Map;
+import static com.example.northlandcaps.crisis_response.App.CHANNEL_1_ID;
 
 public class AdminMenu extends AppCompatActivity {
-
+    private NotificationManagerCompat notificationManager;
     Button crisis1,crisis2,crisis3,crisis4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,34 +42,20 @@ public class AdminMenu extends AppCompatActivity {
         Button buildingmanager = findViewById(R.id.buildingmanager);
         Button roommanager = findViewById(R.id.roommanager);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
+        notificationManager = NotificationManagerCompat.from(this);
+
         crisis1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!Global.active){
-                    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.FCM_PREF),Context.MODE_PRIVATE);
-                    final String token = sharedPreferences.getString(getString(R.string.FCM_TOKEN),"");
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, app_server_url,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-
-                                }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-
-                        }
-                    })
-                    {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String,String> params = new HashMap<String, String>();
-                            params.put("fcm_token",token);
-
-                            return params;
-                        }
-                    };
-                    MySingleton.getmInstance(AdminMenu.this).addToRequestque(stringRequest);
+                    Notification notification = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_1_ID)
+                            .setSmallIcon(R.drawable.ic_new_releases_black_24dp)
+                            .setContentTitle("Physical")
+                            .setContentText("Physical emergency in " + "")
+                            .setPriority(NotificationCompat.PRIORITY_HIGH)
+                            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                            .build();
+                    notificationManager.notify(1,notification);
                 }
             }
         });
@@ -299,6 +275,9 @@ public class AdminMenu extends AppCompatActivity {
             crisisCall.setBackgroundResource(R.drawable.light_call_button);
             crisis4.setBackgroundResource(R.drawable.light_menu_button);
         }
+    }
+    public void sendOnChannel1(View v){
+
     }
     public void CrisisButtonMoveIntoAnimation(){
         Animation btn = new TranslateAnimation(Animation.ABSOLUTE,Animation.ABSOLUTE,Animation.ABSOLUTE+10000,Animation.ABSOLUTE);

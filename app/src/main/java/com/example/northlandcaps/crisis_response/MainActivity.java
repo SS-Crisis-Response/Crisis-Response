@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String usertxt = username.getText().toString();
-                final String passtxt = password.getText().toString();
+                final String usertxt = "no";
+                final String passtxt = "no";
 
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -56,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 LoginRequest loginRequest = new LoginRequest(usertxt,passtxt,responseListener,errorListener);
                 RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 queue.add(loginRequest);
-
+                Intent intent = new Intent(getApplicationContext(), AdminMenu.class);
+                startActivity(intent);
             }
         });
 
