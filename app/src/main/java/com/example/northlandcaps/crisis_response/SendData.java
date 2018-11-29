@@ -62,7 +62,6 @@ public class SendData {
 
     public interface OnDataSent {
         void onSuccess(String response);
-
         void onFailed(String error);
     }
 }
