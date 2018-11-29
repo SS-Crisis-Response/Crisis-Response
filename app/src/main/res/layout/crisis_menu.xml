@@ -11,71 +11,51 @@
 
     <Button
         android:id="@+id/Settings1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_width="182dp"
+        android:layout_height="118dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/Settings"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toStartOf="@+id/groupchat"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationlog" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="113dp" />
 
     <Button
         android:id="@+id/groupchat1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_width="190dp"
+        android:layout_height="113dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/Group_Chat"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:translationZ="1dp"
+        android:visibility="visible"
         app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/locationlog"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="194dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/logout1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_width="192dp"
+        android:layout_height="108dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/logout_button"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Settings"
-        app:layout_constraintTop_toBottomOf="@+id/groupchat" />
+        tools:layout_editor_absoluteX="194dp"
+        tools:layout_editor_absoluteY="123dp" />
 
     <Button
         android:id="@+id/locationlog1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_width="186dp"
+        android:layout_height="112dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/Location_Log"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintEnd_toStartOf="@+id/groupchat"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:translationZ="1dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio=""
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/crisiscallbutton1"
