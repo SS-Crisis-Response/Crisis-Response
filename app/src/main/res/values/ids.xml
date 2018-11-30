@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="createbuildingpage" type="id" />
+    <item name="crisis_menu" type="id" />
 </resources>
