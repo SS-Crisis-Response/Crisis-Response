@@ -52,8 +52,8 @@
 
         <activity android:name=".EditBuilding"/>
         <activity android:name=".calloptions"/>
-        <activity android:name=".CreateRoom"></activity>
-        <activity android:name=".CrisisMenu"></activity>
+        <activity android:name=".CreateRoom"/>
+        <activity android:name=".crisis_menu"/>
     </application>
 
 </manifest>

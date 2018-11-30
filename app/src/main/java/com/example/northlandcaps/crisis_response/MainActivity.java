@@ -51,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 System.out.println(response);
-                            if (response.equals("yes")){
+                            if (response.equals("true")){
                                 Intent intent = new Intent(getApplicationContext(), AdminMenu.class);
                                 startActivity(intent);
                                 System.out.println(response);
-                            }else if (response.equals("no")){
-                                //Intent intent = new Intent(getApplicationContext(), .class);
-                                //startActivity(intent);
+                            }else if (response.equals("false")){
+                                Intent intent = new Intent(getApplicationContext(), crisis_menu.class);
+                                startActivity(intent);
                                 System.out.println(response);
                             }else {
                                 System.out.println(response);
