@@ -38,26 +38,41 @@ public class MainActivity extends AppCompatActivity {
                 Intent registerIntent = new Intent(getApplicationContext(), CreateUser.class);
                 registerIntent.putExtra("com.example.northlandcaps.crisis_response", "Hide");
                 startActivity(registerIntent);
-            }
-        });
-        loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String usertxt = "no";
-                final String passtxt = "no";
-
-
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    }
+                });
+                loginbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onResponse(String response) {
-                        System.out.println(response);
+                    public void onClick(View v) {
+                        final String usertxt = username.getText().toString();
+                        final String passtxt = password.getText().toString();
+
+
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                System.out.println(response);
+                            if (response.equals("yes")){
+                                Intent intent = new Intent(getApplicationContext(), AdminMenu.class);
+                                startActivity(intent);
+                                System.out.println(response);
+                            }else if (response.equals("no")){
+                                //Intent intent = new Intent(getApplicationContext(), .class);
+                                //startActivity(intent);
+                                System.out.println(response);
+                            }else {
+                                System.out.println(response);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                builder.setMessage("Login failed :(")
+                                        .setNegativeButton("Retry",null)
+                                        .create()
+                                        .show();
+                            }
                     }
                 };
                 LoginRequest loginRequest = new LoginRequest(usertxt,passtxt,responseListener,errorListener);
                 RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 queue.add(loginRequest);
-                Intent intent = new Intent(getApplicationContext(), AdminMenu.class);
-                startActivity(intent);
+
             }
         });
 
