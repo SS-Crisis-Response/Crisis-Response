@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "49641504667",
-    "firebase_url": "https://crisis-call.firebaseio.com",
-    "project_id": "crisis-call",
-    "storage_bucket": "crisis-call.appspot.com"
+    "project_number": "731725843162",
+    "firebase_url": "https://crisis-response-73e6d.firebaseio.com",
+    "project_id": "crisis-response-73e6d",
+    "storage_bucket": "crisis-response-73e6d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:49641504667:android:185317f9f1bed6b1",
+        "mobilesdk_app_id": "1:731725843162:android:185317f9f1bed6b1",
         "android_client_info": {
           "package_name": "com.example.northlandcaps.crisis_response"
         }
       },
       "oauth_client": [
         {
-          "client_id": "49641504667-6gm0suoqb3am5fu9segffim7qaqnviu6.apps.googleusercontent.com",
+          "client_id": "731725843162-p0pg71okdc8b17rvng574n91d3ft16f9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.northlandcaps.crisis_response",
+            "certificate_hash": "eb87d5012a4845f5e4017fb05f1213296c144fb0"
+          }
+        },
+        {
+          "client_id": "731725843162-5qar538h437eiioj0h51adke87gqfqa3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAl0663MFH8QMC_xdlIruHfT1MqcLE6KWs"
+          "current_key": "AIzaSyDBdEshW3jUAbuMCRPJUoJbQvIewcgjPx4"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731725843162-5qar538h437eiioj0h51adke87gqfqa3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

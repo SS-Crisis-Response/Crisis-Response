@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,6 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/NormalTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <service
+            android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+        </service>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,27 +32,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".FcmInstanceIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"></action>
-            </intent-filter>
-        </service>
-        <service android:name=".FcmMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
-            </intent-filter>
-        </service>
         <activity android:name=".AdminMenu" />
         <activity android:name=".usermanagement" />
-        <activity android:name=".location_log_activity"></activity>
-
+        <activity android:name=".location_log_activity" />
         <activity android:name=".chat_group" />
         <activity android:name=".buildingmangement" />
-
-
-        <activity android:name=".location_log_activity"
+        <activity
+            android:name=".location_log_activity"
             tools:ignore="DuplicateActivity" />
-        <activity android:name=".buildingmangement"
+        <activity
+            android:name=".buildingmangement"
             tools:ignore="DuplicateActivity" />
         <activity android:name=".CreateUser" />
         <activity android:name=".DeleteBuilding" />
@@ -48,11 +49,11 @@
         <activity android:name=".roommanagement" />
         <activity android:name=".setingshandler" />
         <activity android:name=".CreateBuilding" />
+
         <activity android:name=".EditBuilding"/>
         <activity android:name=".calloptions"/>
         <activity android:name=".CreateRoom"></activity>
         <activity android:name=".CrisisMenu"></activity>
-
     </application>
 
 </manifest>
