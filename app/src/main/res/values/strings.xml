@@ -36,5 +36,14 @@
     <string name="change_password">Change Password</string>
     <string name="FCM_PREF">com.example.northlandcaps.crisis_response.fcm_pref</string>
     <string name="FCM_TOKEN">com.example.northlandcaps.crisis_response.fcm_token</string>
+    <string name="room">Room</string>
+    <string name="building">Building</string>
+    <string name="groupchat1">Group Chat</string>
+    <string name="Settings1">Settings</string>
+    <string name="logout1">Logout</string>
+    <string name="locationlog1">Location Log</string>
+    <string name="crisiscallbutton1">Crisis Call</string>
+    <string name="blur2">Blur</string>
+
 
 </resources>
