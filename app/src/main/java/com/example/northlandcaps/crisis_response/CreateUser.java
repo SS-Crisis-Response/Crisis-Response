@@ -48,7 +48,7 @@ public class CreateUser extends AppCompatActivity {
                 data.put("username", username);//define the value
                 data.put("password", password);//define the value
                 data.put("is_admin", isadmin);//define the value
-                SendData sendData = new SendData(getApplicationContext(), "http://192.168.10.109:80/phptesting/Register.php", data); //define the context and url properly
+                SendData sendData = new SendData(getApplicationContext(), "http://192.168.12.125:80/phptesting/Register.php", data); //define the context and url properly
                 sendData.setOnDataSent(new SendData.OnDataSent() {
                     @Override
                     public void onSuccess(String response) {
