@@ -1,24 +1,28 @@
 package com.example.northlandcaps.crisis_response;
 
+
 import android.app.Notification;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
+import static com.example.northlandcaps.crisis_response.App.CHANNEL_1_ID;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.ImageView;
-
-import static com.example.northlandcaps.crisis_response.App.CHANNEL_1_ID;
+import com.google.firebase.auth.FirebaseAuth;
+import com.onesignal.OneSignal;
 
 public class crisis_menu extends AppCompatActivity {
-    private NotificationManagerCompat notificationManager;
+Button signout;
+private FirebaseAuth mAuth;
+private NotificationManagerCompat notificationManager;
     Button crisis1,crisis2,crisis3,crisis4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -226,6 +230,18 @@ public class crisis_menu extends AppCompatActivity {
         crisis2.startAnimation(btn);
         crisis3.startAnimation(btn);
         crisis4.startAnimation(btn);
+        signout = findViewById(R.id.logout);
+        mAuth = FirebaseAuth.getInstance();
+        signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                OneSignal.sendTag("User_ID", "");
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
+
     }
 }
 

@@ -3,22 +3,34 @@ package com.example.northlandcaps.crisis_response;
 import android.app.Notification;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
+import android.os.StrictMode;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
 
 import static com.example.northlandcaps.crisis_response.App.CHANNEL_1_ID;
 
 public class AdminMenu extends AppCompatActivity {
-    private NotificationManagerCompat notificationManager;
+    static String LoggedIn_User_Email;
     Button crisis1,crisis2,crisis3,crisis4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +43,6 @@ public class AdminMenu extends AppCompatActivity {
         crisis3 = findViewById(R.id.crisistype3);
         crisis4 = findViewById(R.id.crisistype4);
         blurr.setVisibility(View.GONE);
-        final String app_server_url = "http://10.0.2.2/phptesting/fcm_insert.php";
         Global.active =true;
         final Button locationbutton = findViewById(R.id.locationlog);
         Button logoutbutton = findViewById(R.id.logout);
@@ -42,20 +53,11 @@ public class AdminMenu extends AppCompatActivity {
         Button buildingmanager = findViewById(R.id.buildingmanager);
         Button roommanager = findViewById(R.id.roommanager);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
-        notificationManager = NotificationManagerCompat.from(this);
-
         crisis1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!Global.active){
-                    Notification notification = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_1_ID)
-                            .setSmallIcon(R.drawable.ic_new_releases_black_24dp)
-                            .setContentTitle("Physical")
-                            .setContentText("Physical emergency in " + "")
-                            .setPriority(NotificationCompat.PRIORITY_HIGH)
-                            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                            .build();
-                    notificationManager.notify(1,notification);
+
                 }
             }
         });
@@ -300,3 +302,4 @@ public class AdminMenu extends AppCompatActivity {
         crisis4.startAnimation(btn);
     }
 }
+
