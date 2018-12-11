@@ -3,7 +3,9 @@ package com.example.northlandcaps.crisis_response;
 
 import android.app.Notification;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
+import android.os.StrictMode;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -19,11 +21,14 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 import com.onesignal.OneSignal;
 
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
 public class crisis_menu extends AppCompatActivity {
-Button signout;
 private FirebaseAuth mAuth;
-private NotificationManagerCompat notificationManager;
-    Button crisis1,crisis2,crisis3,crisis4;
+Button crisis1,crisis2,crisis3,crisis4,logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,40 +39,40 @@ private NotificationManagerCompat notificationManager;
         crisis3 = findViewById(R.id.crisistype3);
         crisis4 = findViewById(R.id.crisistype4);
         blurr.setVisibility(View.GONE);
-        final String app_server_url = "http://10.0.2.2/phptesting/fcm_insert.php";
         Global.active =true;
         final Button locationbutton = findViewById(R.id.locationlog);
-        Button logoutbutton = findViewById(R.id.logout);
+        logout = findViewById(R.id.logout);
         Button GroupChat = findViewById(R.id.groupchat);
         Button settings = findViewById(R.id.Settings);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
-        notificationManager = NotificationManagerCompat.from(this);
-
+        //when they click crisis call
         crisis1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!Global.active){
-                    Notification notification = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_1_ID)
-                            .setSmallIcon(R.drawable.ic_new_releases_black_24dp)
-                            .setContentTitle("Physical")
-                            .setContentText("Physical emergency in " + "")
-                            .setPriority(NotificationCompat.PRIORITY_HIGH)
-                            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                            .build();
-                    notificationManager.notify(1,notification);
+                    final String[] SynergyEmails = {"ruinhard@gmail.com", "harveym4662@gmail.com","user1@gmail.com"}; //an array containing all emails of personnel
+                    for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
+                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
+                            continue;
+                        }
+                        sendNotification(SynergyEmails[y],"Physical");
+                    }
                 }
             }
         });
-
-        logoutbutton.setOnClickListener(new View.OnClickListener() {
+        //user logging out
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (Global.active){
-                    Intent loginintent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(loginintent);
+                    mAuth.signOut();
+                    OneSignal.sendTag("User_ID", "");
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 }
             }
         });
+        //group chat function
         GroupChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +86,7 @@ private NotificationManagerCompat notificationManager;
                 }
             }
         });
+        //settings menu
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +96,7 @@ private NotificationManagerCompat notificationManager;
                 }
             }
         });
+        //the base bottom button for crisis call
         crisisCall.setOnClickListener(new View.OnClickListener() {
             @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
@@ -140,6 +147,7 @@ private NotificationManagerCompat notificationManager;
                 }
             }
         });
+        //location log menu button
         locationbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,6 +156,7 @@ private NotificationManagerCompat notificationManager;
             }
         });
     }
+    //////////////////the behemoth of styling////////////////
     @Override
     protected void onResume() {
         super.onResume();
@@ -208,9 +217,8 @@ private NotificationManagerCompat notificationManager;
             crisis4.setBackgroundResource(R.drawable.light_menu_button);
         }
     }
-    public void sendOnChannel1(View v){
-
-    }
+    /////////////////////////////////////////////////////////
+    ////////////////////////Methods//////////////////////////
     public void CrisisButtonMoveIntoAnimation(){
         Animation btn = new TranslateAnimation(Animation.ABSOLUTE,Animation.ABSOLUTE,Animation.ABSOLUTE+10000,Animation.ABSOLUTE);
         btn.setDuration(500);
@@ -230,9 +238,12 @@ private NotificationManagerCompat notificationManager;
         crisis2.startAnimation(btn);
         crisis3.startAnimation(btn);
         crisis4.startAnimation(btn);
-        signout = findViewById(R.id.logout);
+
+
         mAuth = FirebaseAuth.getInstance();
-        signout.setOnClickListener(new View.OnClickListener() {
+        logout =findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
@@ -243,6 +254,70 @@ private NotificationManagerCompat notificationManager;
         });
 
     }
+    private void sendNotification(final String SynergyEmail, final String crisis) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                int SDK_INT = android.os.Build.VERSION.SDK_INT;
+                if (SDK_INT > 8) {
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                            .permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    try {
+                        String jsonResponse;
+
+                        URL url = new URL("https://onesignal.com/api/v1/notifications");
+                        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                        con.setUseCaches(false);
+                        con.setDoOutput(true);
+                        con.setDoInput(true);
+
+                        con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                        con.setRequestProperty("Authorization", "Basic Mzk2YWEzOGUtMWEwNC00ZmZkLWFiMTQtN2JkYjNlNWZkYTk0"); //Rest API Key
+                        con.setRequestMethod("POST");
+                        String message = crisis + " emergency in ";
+                        String strJsonBody = "{"
+                                + "\"app_id\": \"43140cf2-d7a7-4430-8404-e0c6e644a11e\"," //One Signal app id
+
+                                + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_ID\", \"relation\": \"=\", \"value\": \"" + SynergyEmail + "\"}],"
+
+                                + "\"data\": {\"foo\": \"bar\"},"
+                                + "\"contents\": {\"en\": \""+message+"\"}"
+                                + "}";
+
+
+                        System.out.println("strJsonBody:\n" + strJsonBody);
+
+                        byte[] sendBytes = strJsonBody.getBytes("UTF-8");
+                        con.setFixedLengthStreamingMode(sendBytes.length);
+
+                        OutputStream outputStream = con.getOutputStream();
+                        outputStream.write(sendBytes);
+
+                        int httpResponse = con.getResponseCode();
+                        System.out.println("httpResponse: " + httpResponse);
+
+                        if (httpResponse >= HttpURLConnection.HTTP_OK
+                                && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
+                            Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
+                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                            scanner.close();
+                        } else {
+                            Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
+                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                            scanner.close();
+                        }
+                        System.out.println("jsonResponse:\n" + jsonResponse);
+
+                    } catch (Throwable t) {
+                        t.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+    ///////////////////////////////////////////////////
 }
+
 
 
