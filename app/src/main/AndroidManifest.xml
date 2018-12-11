@@ -4,7 +4,9 @@
     package="com.example.northlandcaps.crisis_response">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -14,17 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/NormalTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <service
-            android:name=".MyFirebaseInstanceIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
             <action android:name="com.google.firebase.MESSAGING_EVENT" />
         </intent-filter>
         </service>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,8 +49,8 @@
 
         <activity android:name=".EditBuilding"/>
         <activity android:name=".calloptions"/>
-        <activity android:name=".CreateRoom"></activity>
-        <activity android:name=".CrisisMenu"></activity>
+        <activity android:name=".CreateRoom"/>
+        <activity android:name=".crisis_menu"/>
     </application>
 
 </manifest>
