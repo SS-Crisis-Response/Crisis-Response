@@ -2,6 +2,7 @@ package com.example.northlandcaps.crisis_response;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,8 +17,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 import com.onesignal.OneSignal;
 
@@ -25,23 +30,44 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    public static FirebaseDatabase mDatabase;
+    private FirebaseAuth mAuth;
+    private EditText email,password,name;
+    private Button signin,signup;
     FirebaseUser user;
+    static String LoggedIn_Username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAuth=FirebaseAuth.getInstance();
         OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init();
-        this.setTitle("Sign In");
+        if (mAuth.getCurrentUser() != null) {
+            //User NOT logged in
+            user = mAuth.getCurrentUser();
+            LoggedIn_Username = user.getEmail();
+            OneSignal.sendTag("User_ID", LoggedIn_Username);
+            finish();
+            startActivity(new Intent(getApplicationContext(), crisis_menu.class));
+
+        }
         final EditText username = findViewById(R.id.usernametxt);
         final EditText password = findViewById(R.id.passwordtxt);
         final Button loginbtn = findViewById(R.id.loginbutton);
-        loginbtn.setTextColor(Color.rgb(0,0,0));
+        loginbtn.setTextColor(Color.rgb(0, 0, 0));
         final TextView registerlink = findViewById(R.id.registertxtv);
-        registerlink.setTextColor(Color.rgb(0,0,0));
+        registerlink.setTextColor(Color.rgb(0, 0, 0));
+
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         registerlink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,48 +75,63 @@ public class MainActivity extends AppCompatActivity {
                 registerIntent.putExtra("com.example.northlandcaps.crisis_response", "Hide");
                 startActivity(registerIntent);
 
-                    }
-                });
-                loginbtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        final String usertxt = username.getText().toString();
-                        final String passtxt = password.getText().toString();
-
-
-                        Response.Listener<String> responseListener = new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                System.out.println(response);
-                            if (response.equals("true")){
-                                Intent intent = new Intent(getApplicationContext(), AdminMenu.class);
-                                startActivity(intent);
-                                System.out.println(response);
-                            }else if (response.equals("false")){
-                                Intent intent = new Intent(getApplicationContext(), crisis_menu.class);
-                                startActivity(intent);
-                                System.out.println(response);
-                            }else {
-                                System.out.println(response);
-                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                                builder.setMessage("Login failed :(")
-                                        .setNegativeButton("Retry",null)
-                                        .create()
-                                        .show();
-                            }
-                    }
-                };
-                LoginRequest loginRequest = new LoginRequest(usertxt,passtxt,responseListener,errorListener);
-                RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                queue.add(loginRequest);
-
             }
         });
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String getemail = username.getText().toString().trim();
+                String getpassword = password.getText().toString().trim();
+                callsignin(getemail, getpassword);
+            }
 
-    }Response.ErrorListener errorListener = new Response.ErrorListener() {
-        @Override
-        public void onErrorResponse(VolleyError error) {
-            Toast.makeText(getApplicationContext(), String.valueOf(error), Toast.LENGTH_SHORT).show();
+        });
+    }
+    public void userProfile()
+    {
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user!= null)
+        {
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    //.setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))  // here you can set image link also.
+                    .build();
+
+            user.updateProfile(profileUpdates)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d("TESTING", "User profile updated.");
+                            }
+                        }
+                    });
         }
-    };
+    }
+    private void callsignin(String email,String password) {
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d("TESTING", "sign In Successful:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Log.w("TESTING", "signInWithEmail:failed", task.getException());
+                            Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            user = mAuth.getCurrentUser();
+                            LoggedIn_Username = user.getEmail();
+                            OneSignal.sendTag("User_ID", LoggedIn_Username);
+                            Intent i = new Intent(MainActivity.this, crisis_menu.class);
+                            finish();
+                            startActivity(i);
+                        }
+                    }
+                });
+
+    }
 }

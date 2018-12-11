@@ -2,6 +2,7 @@ package com.example.northlandcaps.crisis_response;
 
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,15 +12,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.HashMap;
 
 public class CreateUser extends AppCompatActivity {
+    public static FirebaseUser user;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,36 +44,33 @@ public class CreateUser extends AppCompatActivity {
         createuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String username = username1.getText().toString();
-                final String password = password1.getText().toString();
-                final boolean isadmin1 = isAdmin.isChecked();
-                final String isadmin;
-                if (isadmin1){
-                    isadmin = "true";
-                }else {
-                    isadmin = "false";
-                }
-                HashMap<String, String> data = new HashMap<>();
-                data.put("username", username);//define the value
-                data.put("password", password);//define the value
-                data.put("is_admin", isadmin);//define the value
-                SendData sendData = new SendData(getApplicationContext(), "http://192.168.12.125:80/phptesting/Register.php", data); //define the context and url properly
-                sendData.setOnDataSent(new SendData.OnDataSent() {
-                    @Override
-                    public void onSuccess(String response) {
-                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onFailed(String error) {
-                        Log.d("Error: ", error);
-                    }
-                });
-                sendData.send();
+                String getusername = username1.getText().toString().trim();
+                String getpassword = password1.getText().toString().trim();
+                callsignup(getusername,getpassword);
             }
         });
 
+    }
+    private void callsignup(String email,String password){
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d("TESTING", "Sign up successful");
+                        if (!task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(CreateUser.this,"Sign up failed",Toast.LENGTH_SHORT).show();
+                        } else {
+                            MainActivity thing = new MainActivity();
+                            thing.userProfile();
+                            Toast.makeText(CreateUser.this,"Created Account",Toast.LENGTH_SHORT).show();
+                            // If sign in fails, display a message to the user.
+                            Log.d("TESTING", "Created Account", task.getException());
+                        }
+
+                        // ...
+                    }
+                });
     }
 
     @Override
