@@ -104,6 +104,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
         Button GroupChat = findViewById(R.id.GroupchatNoAdmin);
         Button settings = findViewById(R.id.SettingNoAdmin);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
+        final String location = Global.CurrentBuilding + ", " + Global.CurrentRoom;
         //when they click crisis call
         crisis1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +115,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                         if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
                             continue;
                         }
-                        sendNotification(SynergyEmails[y],"Physical", "TEST LOCATION");
+                        sendNotification(SynergyEmails[y],"Physical", location);
                     }
                     if (Global.animationon) {
                         CrisisButtonMoveAwayAnimation(500);
@@ -143,7 +144,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                         if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
                             continue;
                         }
-                        sendNotification(SynergyEmails[y],"Medical", "TEST LOCATION");
+                        sendNotification(SynergyEmails[y],"Medical", location);
                     }
                     if (Global.animationon) {
                         CrisisButtonMoveAwayAnimation(500);
@@ -172,7 +173,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                         if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
                             continue;
                         }
-                        sendNotification(SynergyEmails[y],"Weapon", "TEST LOCATION");
+                        sendNotification(SynergyEmails[y],"Weapon", location);
                     }
                     if (Global.animationon) {
                         CrisisButtonMoveAwayAnimation(500);
@@ -201,7 +202,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                         if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
                             continue;
                         }
-                        sendNotification(SynergyEmails[y],"Unknown", "TEST LOCATION");
+                        sendNotification(SynergyEmails[y],"Unknown", location);
                     }
                     if (Global.animationon) {
                         CrisisButtonMoveAwayAnimation(500);

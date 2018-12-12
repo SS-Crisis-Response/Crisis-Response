@@ -1,5 +1,6 @@
 package com.example.northlandcaps.crisis_response;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,15 +8,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class location_log_activity extends AppCompatActivity {
-    private Spinner spinner1, spinner2;
     private Button btnSubmit;
     @Override
     protected void onResume() {
         super.onResume();
-        final ConstraintLayout locationloglayout = findViewById(R.id.locationloglayout);
         final Spinner Buildings = findViewById(R.id.spinner);
         final Spinner Rooms = findViewById(R.id.spinner2);
         this.setTitle("Location Log");
@@ -23,9 +23,21 @@ public class location_log_activity extends AppCompatActivity {
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.items);
         Buildings.setAdapter(adapter);
         Rooms.setAdapter(adapter1);
-        TextView BuildingText;
-        BuildingText = findViewById(R.id.BuildingText);
-        TextView RoomText = findViewById(R.id.RoomText);
+        if (!Global.CurrentBuilding.equals("Nothing")){
+            switch (Global.CurrentBuilding){
+                case "YRC": Buildings.setSelection(1);
+                break;
+                case "Parking Lot": Buildings.setSelection(2);
+                break;
+                case "Synergy House": Buildings.setSelection(3);
+                break;
+                case "DataBase": Buildings.setSelection(4);
+                case "Building": Buildings.setSelection(5);
+                default:
+                    System.out.println("No Building Found");
+                    break;
+            }
+        }
         btnSubmit =findViewById(R.id.locationsubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +46,8 @@ public class location_log_activity extends AppCompatActivity {
                String room = Rooms.getSelectedItem().toString();
                Global.CurrentBuilding = building;
                Global.CurrentRoom=room;
+                Intent intent = new Intent(getApplicationContext(),crisis_menu.class);
+                startActivity(intent);
             }
         });
 

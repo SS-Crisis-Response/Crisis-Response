@@ -9,8 +9,8 @@ public class Global {
     public static int textlightcolors = Color.parseColor("#5c5c5c");
     public static int textdarkcolors = Color.parseColor("#FFBFBFBF");
     public static boolean animationon = false;
-    public static String[] item = {"YRC", "Parking Lot", "Synergy House","DataBase","Building"};
-    public static String[] items = {"Clinic","Staff Cubes","Staff Kitchen","Fitness Room","CAC","Bathrooms","Conference Room", "Board Room", "Teaching Kitchen","Recording Studio", "Childcare Room", "Drop-in", "Youth Alley", "Gym", "Laundry Room", "Front Bathrooms", "Reception","Downstairs office","Upstairs office", "Upstairs Group Room", "Upstairs bedrooms", "Library", "Med Room", "Great Room", "Kitchen/Dining Room", "DataBase","Rooms"};
+    public static String[] item = {"YRC", "Parking Lot", "Synergy House","DataBase"};
+    public static String[] items = {"Clinic","Staff Cubes","Staff Kitchen","Fitness Room","CAC","Bathrooms","Conference Room", "Board Room", "Teaching Kitchen","Recording Studio", "Childcare Room", "Drop-in", "Youth Alley", "Gym", "Laundry Room", "Front Bathrooms", "Reception","Downstairs office","Upstairs office", "Upstairs Group Room", "Upstairs bedrooms", "Library", "Med Room", "Great Room", "Kitchen/Dining Room", "DataBase"};
     public static String CurrentBuilding = "Nothing";
     public static String CurrentRoom = "Nothing";
 
