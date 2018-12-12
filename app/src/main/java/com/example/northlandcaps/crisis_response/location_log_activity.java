@@ -12,7 +12,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 public class location_log_activity extends AppCompatActivity {
-    private Button btnSubmit;
     @Override
     protected void onResume() {
         super.onResume();
@@ -26,19 +25,25 @@ public class location_log_activity extends AppCompatActivity {
         if (!Global.CurrentBuilding.equals("Nothing")){
             switch (Global.CurrentBuilding){
                 case "YRC": Buildings.setSelection(1);
+                    System.out.println(Global.CurrentBuilding);
                 break;
                 case "Parking Lot": Buildings.setSelection(2);
+                    System.out.println(Global.CurrentBuilding);
                 break;
                 case "Synergy House": Buildings.setSelection(3);
+                    System.out.println(Global.CurrentBuilding);
                 break;
                 case "DataBase": Buildings.setSelection(4);
+                    System.out.println(Global.CurrentBuilding);
                 case "Building": Buildings.setSelection(5);
+                    System.out.println(Global.CurrentBuilding);
                 default:
+                    System.out.println(Global.CurrentBuilding);
                     System.out.println("No Building Found");
                     break;
             }
         }
-        btnSubmit =findViewById(R.id.locationsubmit);
+        Button btnSubmit = findViewById(R.id.locationsubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
