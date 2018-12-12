@@ -9,6 +9,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -96,11 +97,19 @@ public class setingshandler extends AppCompatActivity  {
 
             }
         });
-
+        if (Global.animationon){
+            animationon.toggle();
+        }
         animationon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.animationon = !Global.animationon;
+                if (Global.animationon){
+                    Global.animationon=false;
+                }else if (!Global.animationon){
+                    Global.animationon=true;
+                }else{
+                    Log.d("Global Animation: ", String.valueOf(Global.animationon));
+                }
             }
         });
     }
