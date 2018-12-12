@@ -24,21 +24,100 @@ public class location_log_activity extends AppCompatActivity {
         Rooms.setAdapter(adapter1);
         if (!Global.CurrentBuilding.equals("Nothing")){
             switch (Global.CurrentBuilding){
-                case "YRC": Buildings.setSelection(1);
+                case "YRC": Buildings.setSelection(0);
                     System.out.println(Global.CurrentBuilding);
                 break;
-                case "Parking Lot": Buildings.setSelection(2);
+                case "Parking Lot": Buildings.setSelection(1);
                     System.out.println(Global.CurrentBuilding);
                 break;
-                case "Synergy House": Buildings.setSelection(3);
+                case "Synergy House": Buildings.setSelection(2);
                     System.out.println(Global.CurrentBuilding);
                 break;
-                case "DataBase": Buildings.setSelection(4);
-                    System.out.println(Global.CurrentBuilding);
-                case "Building": Buildings.setSelection(5);
-                    System.out.println(Global.CurrentBuilding);
                 default:
                     System.out.println(Global.CurrentBuilding);
+                    System.out.println("No Building Found");
+                    break;
+            }
+        }
+        if (!Global.CurrentRoom.equals("Nothing")){
+            switch (Global.CurrentRoom){
+                case "Bathrooms": Rooms.setSelection(0);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Board Room": Rooms.setSelection(1);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "CAC": Rooms.setSelection(2);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Childcare Room": Rooms.setSelection(3);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Clinic": Rooms.setSelection(4);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Conference Room": Rooms.setSelection(5);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Downstairs office": Rooms.setSelection(6);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Drop-in": Rooms.setSelection(7);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Fitness Room": Rooms.setSelection(8);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Front Bathrooms": Rooms.setSelection(9);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Great Room": Rooms.setSelection(10);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Gym": Rooms.setSelection(11);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Kitchen/Dining Room": Rooms.setSelection(12);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Laundry Room": Rooms.setSelection(13);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Library": Rooms.setSelection(14);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Med Room": Rooms.setSelection(15);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Reception": Rooms.setSelection(16);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Recording Studio": Rooms.setSelection(17);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Staff Cube": Rooms.setSelection(18);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Staff Kitchen": Rooms.setSelection(19);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Teaching Kitchen": Rooms.setSelection(20);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Upstairs bedrooms": Rooms.setSelection(21);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Upstairs Group Room": Rooms.setSelection(22);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Upstairs office": Rooms.setSelection(23);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                case "Youth Alley":Rooms.setSelection(24);
+                    System.out.println(Global.CurrentRoom);
+                    break;
+                default:
+                    System.out.println(Global.CurrentRoom);
                     System.out.println("No Building Found");
                     break;
             }
