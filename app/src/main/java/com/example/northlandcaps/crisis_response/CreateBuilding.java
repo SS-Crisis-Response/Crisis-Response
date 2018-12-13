@@ -21,14 +21,17 @@ public class CreateBuilding extends AppCompatActivity {
         Button AddBuilding = findViewById(R.id.AddBuilding);
 
         if (Global.themetype == 0) {
+            //dark theme
             createbuildingpage.setBackground(Global.DarkGD);
             AddBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
             AddBuilding.setTextColor(Global.textdarkcolors);
         } else if (Global.themetype == 1) {
+            //normal theme
             createbuildingpage.setBackground(Global.NormalGD);
             AddBuilding.setBackgroundResource(R.drawable.menu_buttons);
             AddBuilding.setTextColor(Global.textnormalcolors);
         } else if (Global.themetype == 2) {
+            //light theme
             createbuildingpage.setBackground(Global.DarkGD);
             AddBuilding.setBackgroundResource(R.drawable.light_menu_button);
             AddBuilding.setTextColor(Global.textlightcolors);

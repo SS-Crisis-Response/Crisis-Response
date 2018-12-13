@@ -18,6 +18,7 @@ public class location_log_activity extends AppCompatActivity {
         Spinner Rooms = findViewById(R.id.spinner2);
 
         this.setTitle("Location Log");
+        //sets up location log (list of buildings and rooms)
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.item);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.items);
         Buildings.setAdapter(adapter);
@@ -26,14 +27,17 @@ public class location_log_activity extends AppCompatActivity {
         BuildingText = findViewById(R.id.BuildingText);
         TextView RoomText = findViewById(R.id.RoomText);
         if (Global.themetype == 0) {
+            //dark theme
             locationloglayout.setBackground(Global.DarkGD);
             BuildingText.setTextColor(Global.textdarkcolors);
             RoomText.setTextColor(Global.textdarkcolors);
         } else if (Global.themetype == 1) {
+            //normal theme
             locationloglayout.setBackground(Global.NormalGD);
             BuildingText.setTextColor(Global.textdarkcolors);
             RoomText.setTextColor(Global.textdarkcolors);
         } else if (Global.themetype == 2) {
+            //light theme
             locationloglayout.setBackground(Global.LightGD);
             BuildingText.setTextColor(Global.textlightcolors);
             RoomText.setTextColor(Global.textlightcolors);

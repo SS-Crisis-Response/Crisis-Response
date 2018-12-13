@@ -171,6 +171,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
         crisis3 = findViewById(R.id.crisistype3);
         crisis4 = findViewById(R.id.crisistype4);
         if (Global.themetype==0){
+            //dark theme
             crisismenu.setBackground(Global.DarkGD);
             logoutbutton.setTextColor(Global.textdarkcolors);
             GroupChat.setTextColor(Global.textdarkcolors);
@@ -186,6 +187,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
             locationbutton.setBackgroundResource(R.drawable.dark_menu_buttons);
             crisisCall.setBackgroundResource(R.drawable.dark_call_button);
         }else if (Global.themetype==1) {
+            //normal theme
             crisismenu.setBackground(Global.NormalGD);
             logoutbutton.setTextColor(Global.textnormalcolors);
             GroupChat.setTextColor(Global.textnormalcolors);
@@ -201,6 +203,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
             crisisCall.setBackgroundResource(R.drawable.call_button);
             crisis4.setBackgroundResource(R.drawable.menu_buttons);
         }else if (Global.themetype==2){
+            //light theme
             crisismenu.setBackground(Global.LightGD);
             logoutbutton.setTextColor(Global.textlightcolors);
             GroupChat.setTextColor(Global.textlightcolors);
@@ -246,6 +249,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //logout
                 mAuth.signOut();
                 OneSignal.sendTag("User_ID", "");
                 finish();
@@ -254,6 +258,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
         });
 
     }
+    //Notifications
     private void sendNotification(final String SynergyEmail, final String crisis) {
         AsyncTask.execute(new Runnable() {
             @Override

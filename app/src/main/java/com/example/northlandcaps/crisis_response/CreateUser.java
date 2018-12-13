@@ -44,6 +44,7 @@ public class CreateUser extends AppCompatActivity {
         createuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //when create user button is clicked
                 String getusername = username1.getText().toString().trim();
                 String getpassword = password1.getText().toString().trim();
                 callsignup(getusername,getpassword);
@@ -51,6 +52,7 @@ public class CreateUser extends AppCompatActivity {
         });
 
     }
+    //how sign up for users works
     private void callsignup(String email,String password){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -72,7 +74,6 @@ public class CreateUser extends AppCompatActivity {
                     }
                 });
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -82,7 +83,8 @@ public class CreateUser extends AppCompatActivity {
         Switch isAdmin = findViewById(R.id.isadmin);
         Button createuserbtn = findViewById(R.id.createuserbtn);
             if (Global.themetype==0){
-            createuserpage.setBackground(Global.DarkGD);
+                //dark theme
+                createuserpage.setBackground(Global.DarkGD);
             createusername.setTextColor(Global.textdarkcolors);
             createpassword.setTextColor(Global.textdarkcolors);
             isAdmin.setTextColor(Global.textdarkcolors);
@@ -90,6 +92,7 @@ public class CreateUser extends AppCompatActivity {
             /////////////////////////////////////////////////
             createuserbtn.setBackgroundResource(R.drawable.dark_menu_buttons);
         }else if (Global.themetype==1) {
+                //normal theme
             createuserpage.setBackground(Global.NormalGD);
             createusername.setTextColor(Global.textnormalcolors);
             createpassword.setTextColor(Global.textnormalcolors);
@@ -98,6 +101,7 @@ public class CreateUser extends AppCompatActivity {
             /////////////////////////////////////////////////
             createuserbtn.setBackgroundResource(R.drawable.menu_buttons);
         }else if (Global.themetype==2){
+                //light theme
             createuserpage.setBackground(Global.LightGD);
             createusername.setTextColor(Global.textlightcolors);
             createpassword.setTextColor(Global.textlightcolors);

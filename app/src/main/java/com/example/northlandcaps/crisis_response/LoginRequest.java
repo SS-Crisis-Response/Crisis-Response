@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginRequest extends StringRequest {
+    //how the app verifies the login credentials
     private static final String LOGIN_REQUEST_URL = "http://192.168.12.125:80/phptesting/Login.php";
     private Map<String,String> params;
     public LoginRequest(String username, String password, Response.Listener<String> listener,Response.ErrorListener errListener){

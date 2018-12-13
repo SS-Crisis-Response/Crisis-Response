@@ -17,6 +17,7 @@ public class usermanagement extends AppCompatActivity {
         Button edituser = findViewById(R.id.edituser);
         Button deleteuser = findViewById(R.id.deleteuser);
         if(Global.themetype ==0) {
+            //dark theme
             usermanagementlayout.setBackground(Global.DarkGD);
             createuser.setBackgroundResource(R.drawable.dark_menu_buttons);
             edituser.setBackgroundResource(R.drawable.dark_menu_buttons);
@@ -26,6 +27,7 @@ public class usermanagement extends AppCompatActivity {
             deleteuser.setTextColor(Global.textdarkcolors);
         }
         else if(Global.themetype ==1){
+            //normal theme
             usermanagementlayout.setBackground(Global.NormalGD);
             createuser.setBackgroundResource(R.drawable.menu_buttons);
             edituser.setBackgroundResource(R.drawable.menu_buttons);
@@ -35,6 +37,7 @@ public class usermanagement extends AppCompatActivity {
             deleteuser.setTextColor(Global.textnormalcolors);
         }
         else if(Global.themetype ==2){
+            //light theme
             usermanagementlayout.setBackground(Global.LightGD);
             createuser.setBackgroundResource(R.drawable.light_menu_button);
             edituser.setBackgroundResource(R.drawable.light_menu_button);

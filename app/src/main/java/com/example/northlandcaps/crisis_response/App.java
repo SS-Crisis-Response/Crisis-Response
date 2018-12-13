@@ -13,6 +13,7 @@ public class App extends Application {
         super.onCreate();
         createNotificationChannels();
     }
+    //how notifications work
     private void createNotificationChannels(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel channel1 = new NotificationChannel(
