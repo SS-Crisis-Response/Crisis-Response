@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         //User IS logged in
         OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
@@ -52,11 +52,19 @@ public class MainActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getemail = username.getText().toString().trim();
-                String getpassword = password.getText().toString().trim();
-                callsignin(getemail, getpassword);
-            }
+                if (username.getText().toString().equals("") && password.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Username and Password are Empty", Toast.LENGTH_SHORT).show();
+                } else if (!username.getText().toString().equals("") && password.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Password is Empty", Toast.LENGTH_SHORT).show();
+                } else if (username.getText().toString().equals("") && !password.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Username is Empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    String getemail = username.getText().toString().trim();
+                    String getpassword = password.getText().toString().trim();
+                    callsignin(getemail, getpassword);
+                }
 
+            }
         });
     }
     public void userProfile()
@@ -92,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w("TESTING", "signInWithEmail:failed", task.getException());
-                            Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Username or Password is Incorrect", Toast.LENGTH_SHORT).show();
                         }
                         else {
                             user = mAuth.getCurrentUser();
