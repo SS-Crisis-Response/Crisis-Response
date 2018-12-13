@@ -1,14 +1,13 @@
 package com.example.northlandcaps.crisis_response;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 
 public class location_log_activity extends AppCompatActivity {

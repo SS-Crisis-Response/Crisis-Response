@@ -1,10 +1,9 @@
 package com.example.northlandcaps.crisis_response;
 
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class CreateBuilding extends AppCompatActivity {
 

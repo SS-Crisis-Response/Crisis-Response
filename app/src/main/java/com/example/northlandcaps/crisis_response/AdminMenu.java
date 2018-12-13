@@ -1,36 +1,18 @@
 package com.example.northlandcaps.crisis_response;
 
-import android.app.Notification;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
-import android.os.StrictMode;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Scanner;
-
-import static com.example.northlandcaps.crisis_response.App.CHANNEL_1_ID;
 
 public class AdminMenu extends AppCompatActivity {
-    static String LoggedIn_User_Email;
     Button crisis1,crisis2,crisis3,crisis4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
