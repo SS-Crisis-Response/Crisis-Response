@@ -34,6 +34,7 @@ public class setingshandler extends AppCompatActivity  {
         seekbar.setProgress(Global.themetype);
         final Button changepassword = findViewById(R.id.changepassword);
         if (Global.themetype ==0){
+            //dark theme
             settings.setBackground(Global.DarkGD);
             progresstext.setTextColor(Global.textdarkcolors);
             progresstext.setText("Dark colors");
@@ -41,6 +42,7 @@ public class setingshandler extends AppCompatActivity  {
             changepassword.setBackgroundResource(R.drawable.dark_menu_buttons);
             changepassword.setTextColor(Global.textdarkcolors);
         }else if (Global.themetype ==1){
+            //normal theme
             settings.setBackground(Global.NormalGD);
             ToggleAnimationText.setTextColor(Global.textnormalcolors);
             progresstext.setTextColor(Global.textnormalcolors);
@@ -48,6 +50,7 @@ public class setingshandler extends AppCompatActivity  {
             changepassword.setBackgroundResource(R.drawable.menu_buttons);
             changepassword.setTextColor(Global.textnormalcolors);
         }else if (Global.themetype==2){
+            //light theme
             settings.setBackground(Global.LightGD);
             progresstext.setTextColor(Global.textlightcolors);
             ToggleAnimationText.setTextColor(Global.textlightcolors);

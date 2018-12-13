@@ -24,6 +24,7 @@ public class CreateRoom  extends AppCompatActivity {
         final ConstraintLayout createroomlayout = findViewById(R.id.createroom2);
         EditText roomnametxt = findViewById(R.id.roomnametxt);
         if (Global.themetype ==0){
+            //dark theme
             createroomlayout.setBackground(Global.DarkGD);
             CreateRoom.setTextColor(Global.textdarkcolors);
             roomnametxt.setTextColor(Global.textdarkcolors);
@@ -31,6 +32,7 @@ public class CreateRoom  extends AppCompatActivity {
             CreateRoom.setBackgroundResource(R.drawable.dark_menu_buttons);
         }
         else if (Global.themetype ==1){
+            //normal theme
             createroomlayout.setBackground(Global.NormalGD);
             CreateRoom.setTextColor(Global.textnormalcolors);
             roomnametxt.setTextColor(Global.textnormalcolors);
@@ -38,6 +40,7 @@ public class CreateRoom  extends AppCompatActivity {
             CreateRoom.setBackgroundResource(R.drawable.menu_buttons);
         }
         else if (Global.themetype ==2){
+            //light theme
             createroomlayout.setBackground(Global.LightGD);
             CreateRoom.setTextColor(Global.textlightcolors);
             roomnametxt.setTextColor(Global.textlightcolors);

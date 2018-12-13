@@ -12,6 +12,7 @@ public class DeleteRoom extends AppCompatActivity {
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
+        //sets up list for buildings
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_room);
         Spinner Rooms = findViewById(R.id.spinner4);
@@ -24,14 +25,17 @@ public class DeleteRoom extends AppCompatActivity {
         final ConstraintLayout deleteroomlayout = findViewById(R.id.DeleteRoom2);
         Button DeleteBotton2 = findViewById(R.id.DeleteButton2);
         if (Global.themetype ==0){
+            //dark theme
             deleteroomlayout.setBackground(Global.DarkGD);
             DeleteBotton2.setBackgroundResource(R.drawable.darkredbuttons);
         }
         else if (Global.themetype ==1){
+            //normal theme
             deleteroomlayout.setBackground(Global.NormalGD);
             DeleteBotton2.setBackgroundResource(R.drawable.redbuttons);
         }
         else if (Global.themetype ==2){
+            //light theme
             deleteroomlayout.setBackground(Global.LightGD);
             DeleteBotton2.setBackgroundResource(R.drawable.lightredbuttons);
         }

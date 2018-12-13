@@ -53,6 +53,7 @@ public class AdminMenu extends AppCompatActivity {
         Button buildingmanager = findViewById(R.id.buildingmanager);
         Button roommanager = findViewById(R.id.roommanager);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
+        //when they click crisis call
         crisis1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +62,7 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
-
+        //logout button
         logoutbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +72,7 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+        //Group Chat function
         GroupChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +86,7 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+        //Settings button
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +96,7 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+        //call options button
         calloptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +108,7 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+        //user manager button
         usermanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,6 +118,7 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+        //building manager button
         buildingmanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,6 +128,7 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+        //room manager button
         roommanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +138,7 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
+        //when clicked Crisis Call button
         crisisCall.setOnClickListener(new View.OnClickListener() {
             @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
@@ -208,6 +216,7 @@ public class AdminMenu extends AppCompatActivity {
         crisis3 = findViewById(R.id.crisistype3);
         crisis4 = findViewById(R.id.crisistype4);
         if (Global.themetype==0){
+            //dark theme
             adminmenu.setBackground(Global.DarkGD);
             logoutbutton.setTextColor(Global.textdarkcolors);
             GroupChat.setTextColor(Global.textdarkcolors);
@@ -231,6 +240,7 @@ public class AdminMenu extends AppCompatActivity {
             locationbutton.setBackgroundResource(R.drawable.dark_menu_buttons);
             crisisCall.setBackgroundResource(R.drawable.dark_call_button);
         }else if (Global.themetype==1) {
+            //normal theme
             adminmenu.setBackground(Global.NormalGD);
             logoutbutton.setTextColor(Global.textnormalcolors);
             GroupChat.setTextColor(Global.textnormalcolors);
@@ -254,6 +264,7 @@ public class AdminMenu extends AppCompatActivity {
             crisisCall.setBackgroundResource(R.drawable.call_button);
             crisis4.setBackgroundResource(R.drawable.menu_buttons);
         }else if (Global.themetype==2){
+            //light theme
             adminmenu.setBackground(Global.LightGD);
             logoutbutton.setTextColor(Global.textlightcolors);
             GroupChat.setTextColor(Global.textlightcolors);
@@ -281,6 +292,7 @@ public class AdminMenu extends AppCompatActivity {
     public void sendOnChannel1(View v){
 
     }
+    //when animations are on, buttons fly up on screen
     public void CrisisButtonMoveIntoAnimation(){
         Animation btn = new TranslateAnimation(Animation.ABSOLUTE,Animation.ABSOLUTE,Animation.ABSOLUTE+10000,Animation.ABSOLUTE);
         btn.setDuration(500);

@@ -18,10 +18,12 @@ public class location_log_activity extends AppCompatActivity {
         final Spinner Buildings = findViewById(R.id.spinner);
         final Spinner Rooms = findViewById(R.id.spinner2);
         this.setTitle("Location Log");
+        //sets up location log (list of buildings and rooms)
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.item);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.items);
         Buildings.setAdapter(adapter);
         Rooms.setAdapter(adapter1);
+
         if (!Global.CurrentBuilding.equals("Nothing")){
             switch (Global.CurrentBuilding){
                 case "YRC": Buildings.setSelection(0);

@@ -5,10 +5,13 @@ import android.graphics.drawable.GradientDrawable;
 
 public class Global {
     public static boolean active;
+    //theme types
     public static int textnormalcolors = Color.parseColor("#FF000000");
     public static int textlightcolors = Color.parseColor("#5c5c5c");
     public static int textdarkcolors = Color.parseColor("#FFBFBFBF");
     public static boolean animationon = false;
+
+    //lists of buildings and rooms
     public static String[] item = {"YRC", "Parking Lot", "Synergy House"};
     public static String[] items = {"Bathrooms",
             "Board Room",
@@ -37,14 +40,13 @@ public class Global {
             "Youth Alley"};
     public static String CurrentBuilding = "Nothing";
     public static String CurrentRoom = "Nothing";
-
-
+//normal colors
     public static int[] normalcolor = {Color.parseColor("#679acf"), Color.parseColor("#3b5e94")};
     public static GradientDrawable NormalGD = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, normalcolor);
-
+//dark colors
     static int[] darkcolor = {Color.parseColor("#213351"), Color.parseColor("#000268")};
     public static GradientDrawable DarkGD = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, darkcolor);
-
+//light colors
     static int[] lightcolor = {Color.parseColor("#eff0ff"), Color.parseColor("#65a1ff")};
     public static GradientDrawable LightGD = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, lightcolor);
 
