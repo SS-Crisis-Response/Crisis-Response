@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         final EditText password = findViewById(R.id.passwordtxt);
         final Button loginbtn = findViewById(R.id.loginbutton);
         loginbtn.setTextColor(Color.rgb(0, 0, 0));
-        final TextView registerlink = findViewById(R.id.registertxtv);
-        registerlink.setTextColor(Color.rgb(0, 0, 0));
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
