@@ -1,23 +1,20 @@
 package com.example.northlandcaps.crisis_response;
 
 
-import android.app.Notification;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
-import static com.example.northlandcaps.crisis_response.App.CHANNEL_1_ID;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.onesignal.OneSignal;
 
@@ -34,32 +31,198 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crisis_menu);
         final ImageView blurr = findViewById(R.id.blur2);
+        mAuth=FirebaseAuth.getInstance();
         crisis1 = findViewById(R.id.crisistype1);
         crisis2 = findViewById(R.id.crisistype2);
         crisis3 = findViewById(R.id.crisistype3);
         crisis4 = findViewById(R.id.crisistype4);
         blurr.setVisibility(View.GONE);
         Global.active =true;
-        final Button locationbutton = findViewById(R.id.locationlog);
-        logout = findViewById(R.id.logout);
-        Button GroupChat = findViewById(R.id.groupchat);
-        Button settings = findViewById(R.id.Settings);
+        final String[] SynergyEmails = {"ajackson@synergyservices.org",
+                "awiggins@synergyservices.org",
+                "aftercare@synergyservices.org",
+                "akimmi@synergyservices.org",
+                "ahilton@synergyservices.org",
+                "apina@synergyservices.org",
+                "asmedley@synergyservices.org",
+                "athompson@synergyservices.org",
+                "ACoe@synergyservices.org",
+                "abrantly@synergyservices.org",
+                "awimmer@synergyservices.org",
+                "aallee@synergyservices.org",
+                "arobinson@synergyservices.org",
+                "bmilks@synergyservices.org",
+                "basta@synergyservices.org",
+                "blillard@synergyservices.org",
+                "cacintake@synergyservices.org",
+                "cacintern@synergyservices.org",
+                "cactesting@synergyservices.org",
+                "ccollins@synergyservices.org",
+                "CParrick@synergyservices.org",
+                "CHoffman@synergyservices.org",
+                "dwaldenchastain@synergyservices.org",
+                "ewatkins@synergyservices.org",
+                "emense@synergyservices.org",
+                "gbuckner@synergyservices.org",
+                "gobrien@synergyservices.org",
+                "jhawkins@synergyservices.org",
+                "jrussell@synergyservices.org",
+                "kRohrer@synergyservices.org",
+                "kturner@synergyservices.org",
+                "kbrewer@synergyservices.org",
+                "kohara@synergyservices.org",
+                "kring@synergyservices.org",
+                "lguber@synergyservices.org",
+                "modle@synergyservices.org",
+                "mrankin@synergyservices.org",
+                "macklin@synergyservices.org",
+                "muptegrove@synergyservices.or",
+                "mblack@synergyservices.org",
+                "mpedram@synergyservices.org",
+                "pzilliox@synergyservices.org",
+                "pcook@synergyservices.org",
+                "phintern@synergyservices.org",
+                "rfrancis@synergyservices.org",",",
+                "rnelson@synergyservices.org",
+                "rpearson@synergyservices.org",
+                "smiddleton@synergyservices.org",
+                "sosinfo@synergyservices.org",
+                "sosintern@synergyservices.org",
+                "stopviolenceintern@SynergyServivces.org",
+                "tford@synergyservices.org",
+                "tbaldner@synergyservices.org",
+                "tschouten@synergyservices.org",
+                "tlpintern@synergyservices.org",
+                "tbrown@synergyservices.org",
+                "trezzelle@synergyservices.org",
+                "tglover@synergyservices.org",
+                "whowell@synergyservices.org",
+                "YRCintern@synergyservices.org",
+                "yrcintern@synergyservices.org",};
+        final Button locationbutton = findViewById(R.id.locationlogNoAdmin);
+        logout = findViewById(R.id.LogoutNoAdmin);
+        Button GroupChat = findViewById(R.id.GroupchatNoAdmin);
+        Button settings = findViewById(R.id.SettingNoAdmin);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
+        final String location = Global.CurrentBuilding + ", " + Global.CurrentRoom;
         //when they click crisis call
         crisis1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!Global.active){
-                    final String[] SynergyEmails = {"ruinhard@gmail.com", "harveym4662@gmail.com","user1@gmail.com"}; //an array containing all emails of personnel
+                     //an array containing all emails of personnel
                     for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
                         if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
                             continue;
                         }
-                        sendNotification(SynergyEmails[y],"Physical");
+                        sendNotification(SynergyEmails[y],"Physical", location);
                     }
+                    if (Global.animationon) {
+                        CrisisButtonMoveAwayAnimation(500);
+                    }else{
+                        CrisisButtonMoveAwayAnimation(0);
+                    }
+                    crisis1.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis2.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis3.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis4.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    blurr.setVisibility(View.INVISIBLE);
+                    Global.active=true;
                 }
             }
         });
+        crisis2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!Global.active){
+                    //an array containing all emails of personnel
+                    for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
+                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
+                            continue;
+                        }
+                        sendNotification(SynergyEmails[y],"Medical", location);
+                    }
+                    if (Global.animationon) {
+                        CrisisButtonMoveAwayAnimation(500);
+                    }else{
+                        CrisisButtonMoveAwayAnimation(0);
+                    }
+                    crisis1.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis2.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis3.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis4.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    blurr.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                }
+            }
+        });
+        crisis3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!Global.active){
+                    //an array containing all emails of personnel
+                    for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
+                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
+                            continue;
+                        }
+                        sendNotification(SynergyEmails[y],"Weapon", location);
+                    }
+                    if (Global.animationon) {
+                        CrisisButtonMoveAwayAnimation(500);
+                    }else{
+                        CrisisButtonMoveAwayAnimation(0);
+                    }
+                    crisis1.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis2.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis3.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis4.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    blurr.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                }
+            }
+        });
+        crisis4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!Global.active){
+                    //an array containing all emails of personnel
+                    for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
+                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
+                            continue;
+                        }
+                        sendNotification(SynergyEmails[y],"Unknown", location);
+                    }
+                    if (Global.animationon) {
+                        CrisisButtonMoveAwayAnimation(500);
+                    }else{
+                        CrisisButtonMoveAwayAnimation(0);
+                    }
+                    crisis1.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis2.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis3.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    crisis4.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                    blurr.setVisibility(View.INVISIBLE);
+                    Global.active=true;
+                }
+            }
+        });
+
         //user logging out
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,11 +292,15 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                     crisis4.setZ(50);
                     Global.active = false;
                     if (Global.animationon){
-                        CrisisButtonMoveIntoAnimation();
+                        CrisisButtonMoveIntoAnimation(500);
+                    }else{
+                        CrisisButtonMoveIntoAnimation(0);
                     }
                 }else{
                     if (Global.animationon) {
-                        CrisisButtonMoveAwayAnimation();
+                        CrisisButtonMoveAwayAnimation(500);
+                    }else{
+                        CrisisButtonMoveAwayAnimation(0);
                     }
                     crisis1.setVisibility(View.INVISIBLE);
                     Global.active=true;
@@ -161,10 +328,10 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
     protected void onResume() {
         super.onResume();
         final ConstraintLayout crisismenu = findViewById(R.id.crisis_menu);
-        Button locationbutton = findViewById(R.id.locationlog);
-        Button logoutbutton = findViewById(R.id.logout);
-        Button GroupChat = findViewById(R.id.groupchat);
-        Button settings = findViewById(R.id.Settings);
+        Button locationbutton = findViewById(R.id.locationlogNoAdmin);
+        Button logoutbutton = findViewById(R.id.LogoutNoAdmin);
+        Button GroupChat = findViewById(R.id.GroupchatNoAdmin);
+        Button settings = findViewById(R.id.SettingNoAdmin);
         Button crisisCall = findViewById(R.id.crisiscallbutton);
         crisis1 = findViewById(R.id.crisistype1);
         crisis2 = findViewById(R.id.crisistype2);
@@ -222,9 +389,9 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
     }
     /////////////////////////////////////////////////////////
     ////////////////////////Methods//////////////////////////
-    public void CrisisButtonMoveIntoAnimation(){
+    public void CrisisButtonMoveIntoAnimation(int time){
         Animation btn = new TranslateAnimation(Animation.ABSOLUTE,Animation.ABSOLUTE,Animation.ABSOLUTE+10000,Animation.ABSOLUTE);
-        btn.setDuration(500);
+        btn.setDuration(time);
         btn.setFillAfter(true);
 
         crisis1.startAnimation(btn);
@@ -232,34 +399,18 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
         crisis3.startAnimation(btn);
         crisis4.startAnimation(btn);
     }
-    public  void CrisisButtonMoveAwayAnimation() {
+    public  void CrisisButtonMoveAwayAnimation(int time) {
         Animation btn = new TranslateAnimation(Animation.ABSOLUTE,Animation.ABSOLUTE,Animation.ABSOLUTE,10000);
-        btn.setDuration(500);
+        btn.setDuration(time);
         btn.setFillAfter(true);
 
         crisis1.startAnimation(btn);
         crisis2.startAnimation(btn);
         crisis3.startAnimation(btn);
         crisis4.startAnimation(btn);
-
-
-        mAuth = FirebaseAuth.getInstance();
-        logout =findViewById(R.id.logout);
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //logout
-                mAuth.signOut();
-                OneSignal.sendTag("User_ID", "");
-                finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-        });
-
-    }
     //Notifications
-    private void sendNotification(final String SynergyEmail, final String crisis) {
+    }
+    private void sendNotification(final String SynergyEmail, final String crisis,final String location) {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -278,11 +429,11 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                         con.setDoInput(true);
 
                         con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                        con.setRequestProperty("Authorization", "Basic Mzk2YWEzOGUtMWEwNC00ZmZkLWFiMTQtN2JkYjNlNWZkYTk0"); //Rest API Key
+                        con.setRequestProperty("Authorization", "Basic MTM1NGViMGQtMjUxYS00MzI3LWJkYjYtMmEzYjg1ZDhiZmNm"); //Rest API Key
                         con.setRequestMethod("POST");
-                        String message = crisis + " emergency in ";
+                        String message = crisis + " emergency in "+location;
                         String strJsonBody = "{"
-                                + "\"app_id\": \"43140cf2-d7a7-4430-8404-e0c6e644a11e\"," //One Signal app id
+                                + "\"app_id\": \"8d785fd1-277e-4f5e-834c-38473634f99d\"," //One Signal app id
 
                                 + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_ID\", \"relation\": \"=\", \"value\": \"" + SynergyEmail + "\"}],"
 

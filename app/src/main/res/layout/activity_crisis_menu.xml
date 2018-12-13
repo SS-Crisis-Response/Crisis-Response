@@ -2,29 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/crisis_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".crisis_menu"
-    android:background="@drawable/background_light">
-
-    <Button
-        android:id="@+id/groupchat2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:background="@drawable/menu_buttons"
-        android:text="@string/Group_Chat"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:translationZ="1dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/locationlog"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+    android:background="@drawable/background_light"
+    tools:context=".crisis_menu">
 
     <Button
         android:id="@+id/crisistype1"
@@ -38,7 +20,7 @@
         android:text="@string/crisis1"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:translationZ="101dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/crisistype2"
         app:layout_constraintDimensionRatio="5.1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +40,7 @@
         android:text="@string/crisis2"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:translationZ="101dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/crisistype3"
         app:layout_constraintDimensionRatio="5.1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +61,7 @@
         android:text="@string/crisis3"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:translationZ="101dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/crisistype4"
         app:layout_constraintDimensionRatio="5.1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,64 +81,12 @@
         android:text="@string/unlisted_crisis"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:translationZ="101dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="5.1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/crisistype3" />
-
-    <Button
-        android:id="@+id/groupchat"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="300dp"
-        android:background="@drawable/menu_buttons"
-        android:text="@string/Settings"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"
-        app:layout_constraintEnd_toStartOf="@+id/logout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationlog" />
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="300dp"
-        android:background="@drawable/redbuttons"
-        android:text="@string/logout_button"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.793"
-        app:layout_constraintStart_toEndOf="@+id/Settings"
-        app:layout_constraintTop_toBottomOf="@+id/groupchat2"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/locationlog"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:background="@drawable/menu_buttons"
-        android:text="@string/Location_Log"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintBottom_toTopOf="@+id/Settings"
-        app:layout_constraintEnd_toStartOf="@+id/groupchat2"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
         android:id="@+id/crisiscallbutton"
@@ -165,8 +95,8 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/call_button"
         android:text="@string/Crisis_Call"
-        android:textSize="25pt"
         android:textAllCaps="false"
+        android:textSize="25pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -202,5 +132,69 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@color/focusbox" />
+
+    <Button
+        android:id="@+id/locationlogNoAdmin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/menu_buttons"
+        android:text="@string/locationlog1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintBottom_toTopOf="@+id/SettingNoAdmin"
+        app:layout_constraintEnd_toStartOf="@+id/GroupchatNoAdmin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/GroupchatNoAdmin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/menu_buttons"
+        android:text="@string/Group_Chat"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintBottom_toTopOf="@+id/LogoutNoAdmin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/locationlogNoAdmin"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/SettingNoAdmin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/menu_buttons"
+        android:text="@string/Settings"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"
+        app:layout_constraintEnd_toStartOf="@+id/LogoutNoAdmin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locationlogNoAdmin" />
+
+    <Button
+        android:id="@+id/LogoutNoAdmin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/redbuttons"
+        android:text="@string/logout1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/SettingNoAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/GroupchatNoAdmin" />
 
 </android.support.constraint.ConstraintLayout>
