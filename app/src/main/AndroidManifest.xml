@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
-        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,11 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/NormalTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <service android:name=".MyFirebaseMessagingService">
-            <intent-filter>
-            <action android:name="com.google.firebase.MESSAGING_EVENT" />
-        </intent-filter>
-        </service>
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -32,7 +26,6 @@
         <activity android:name=".AdminMenu" />
         <activity android:name=".usermanagement" />
         <activity android:name=".location_log_activity" />
-        <activity android:name=".chat_group" />
         <activity android:name=".buildingmangement" />
         <activity
             android:name=".location_log_activity"
@@ -49,8 +42,8 @@
 
         <activity android:name=".EditBuilding"/>
         <activity android:name=".calloptions"/>
-        <activity android:name=".CreateRoom"></activity>
-        <activity android:name=".crisis_menu"></activity>
+        <activity android:name=".CreateRoom"/>
+        <activity android:name=".crisis_menu"/>
     </application>
 
 </manifest>

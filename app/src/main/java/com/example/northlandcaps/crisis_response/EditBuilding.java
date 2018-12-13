@@ -21,8 +21,6 @@ public class EditBuilding extends AppCompatActivity {
     private void initrecyclerview(){
         Log.d(TAG, "initrecyclerview: init recylcerview");
         RecyclerView recyclerView = findViewById(R.id.recylcerviewlayout);
-        Recyclerhandler adapter = new Recyclerhandler(this,mwords);
-        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
