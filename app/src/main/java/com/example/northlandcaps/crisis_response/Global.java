@@ -9,8 +9,35 @@ public class Global {
     public static int textlightcolors = Color.parseColor("#5c5c5c");
     public static int textdarkcolors = Color.parseColor("#FFBFBFBF");
     public static boolean animationon = false;
-    public static String[] item = {"YRC", "Parking Lot", "Synergy House","DataBase","Building"};
-    public static String[] items = {"Clinic","Staff Cubes","Staff Kitchen","Fitness Room","CAC","Bathrooms","Conference Room", "Board Room", "Teaching Kitchen","Recording Studio", "Childcare Room", "Drop-in", "Youth Alley", "Gym", "Laundry Room", "Front Bathrooms", "Reception","Downstairs office","Upstairs office", "Upstairs Group Room", "Upstairs bedrooms", "Library", "Med Room", "Great Room", "Kitchen/Dining Room", "DataBase","Rooms"};
+    public static String[] item = {"YRC", "Parking Lot", "Synergy House"};
+    public static String[] items = {"Bathrooms",
+            "Board Room",
+            "CAC",
+            "Childcare Room",
+            "Clinic",
+            "Conference Room",
+            "Downstairs office",
+            "Drop-in",
+            "Fitness Room",
+            "Front Bathrooms",
+            "Great Room",
+            "Gym",
+            "Kitchen/Dining Room",
+            "Laundry Room",
+            "Library",
+            "Med Room",
+            "Reception",
+            "Recording Studio",
+            "Staff Cubes",
+            "Staff Kitchen",
+            "Teaching Kitchen",
+            "Upstairs bedrooms",
+            "Upstairs Group Room",
+            "Upstairs office",
+            "Youth Alley"};
+    public static String CurrentBuilding = "Nothing";
+    public static String CurrentRoom = "Nothing";
+
 
     public static int[] normalcolor = {Color.parseColor("#679acf"), Color.parseColor("#3b5e94")};
     public static GradientDrawable NormalGD = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, normalcolor);
