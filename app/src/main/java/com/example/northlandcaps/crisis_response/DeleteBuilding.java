@@ -3,12 +3,9 @@ package com.example.northlandcaps.crisis_response;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-
-import java.util.ArrayList;
 
 public class DeleteBuilding  extends AppCompatActivity {
     @Override

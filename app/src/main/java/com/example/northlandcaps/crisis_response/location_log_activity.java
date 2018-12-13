@@ -1,17 +1,18 @@
 package com.example.northlandcaps.crisis_response;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 
 public class location_log_activity extends AppCompatActivity {
+    EditText CustomBuilding, CustomRoom;
     @Override
     protected void onResume() {
         super.onResume();
@@ -128,15 +129,36 @@ public class location_log_activity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               String building =  Buildings.getSelectedItem().toString();
-               String room = Rooms.getSelectedItem().toString();
-               Global.CurrentBuilding = building;
-               Global.CurrentRoom=room;
+               Global.CurrentBuilding = Buildings.getSelectedItem().toString();
+               Global.CurrentRoom=Rooms.getSelectedItem().toString();
                 Intent intent = new Intent(getApplicationContext(),crisis_menu.class);
                 startActivity(intent);
             }
         });
-
+        Button custombtnsubmit = findViewById(R.id.customlocationsubmit);
+        CustomBuilding = findViewById(R.id.CustomBuilding);
+        CustomRoom = findViewById(R.id.CustomRoom);
+        custombtnsubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!CustomBuilding.getText().toString().equals("") && !CustomRoom.getText().toString().equals("")){
+                    Global.CurrentBuilding=CustomBuilding.getText().toString();
+                    Global.CurrentRoom=CustomRoom.getText().toString();
+                    Intent intent = new Intent(getApplicationContext(),crisis_menu.class);
+                    startActivity(intent);
+                }else if (!CustomBuilding.getText().toString().equals("") && CustomRoom.getText().toString().equals("")){
+                    Global.CurrentBuilding=CustomBuilding.getText().toString();
+                    Global.CurrentRoom= Rooms.getSelectedItem().toString();
+                    Intent intent = new Intent(getApplicationContext(),crisis_menu.class);
+                    startActivity(intent);
+                }else  if (!CustomRoom.getText().toString().equals("")&&CustomBuilding.getText().toString().equals("")){
+                    Global.CurrentRoom=CustomRoom.getText().toString();
+                    Global.CurrentBuilding= Buildings.getSelectedItem().toString();
+                    Intent intent = new Intent(getApplicationContext(),crisis_menu.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override
@@ -153,20 +175,12 @@ public class location_log_activity extends AppCompatActivity {
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.items);
         Rooms.setAdapter(adapter1);
         final ConstraintLayout locationloglayout = findViewById(R.id.locationloglayout);
-        TextView BuildingText = findViewById(R.id.BuildingText);
-        TextView RoomText = findViewById(R.id.RoomText);
         if (Global.themetype == 0) {
             locationloglayout.setBackground(Global.DarkGD);
-            BuildingText.setTextColor(Global.textdarkcolors);
-            RoomText.setTextColor(Global.textdarkcolors);
         } else if (Global.themetype == 1) {
             locationloglayout.setBackground(Global.NormalGD);
-            BuildingText.setTextColor(Global.textnormalcolors);
-            RoomText.setTextColor(Global.textnormalcolors);
         } else if (Global.themetype == 2) {
             locationloglayout.setBackground(Global.LightGD);
-            BuildingText.setTextColor(Global.textlightcolors);
-            RoomText.setTextColor(Global.textlightcolors);
         }
 
     }

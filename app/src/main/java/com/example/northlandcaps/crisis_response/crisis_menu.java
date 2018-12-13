@@ -109,116 +109,120 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
         crisis1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!Global.active){
-                     //an array containing all emails of personnel
-                    for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
-                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
-                            continue;
+                if(!Global.active) {
+                    if (Global.CurrentBuilding.equals("Nothing") || Global.CurrentRoom.equals("Nothing")) {
+                        startActivity(new Intent(getApplication(),location_log_activity.class));
+                    } else {
+                        //an array containing all emails of personnel
+                        for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
+                            sendNotification(SynergyEmails[y], "Physical", location);
                         }
-                        sendNotification(SynergyEmails[y],"Physical", location);
+                        if (Global.animationon) {
+                            CrisisButtonMoveAwayAnimation(500);
+                        } else {
+                            CrisisButtonMoveAwayAnimation(0);
+                        }
+                        crisis1.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis2.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis3.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis4.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        blurr.setVisibility(View.INVISIBLE);
+                        Global.active = true;
                     }
-                    if (Global.animationon) {
-                        CrisisButtonMoveAwayAnimation(500);
-                    }else{
-                        CrisisButtonMoveAwayAnimation(0);
-                    }
-                    crisis1.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis2.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis3.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis4.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    blurr.setVisibility(View.INVISIBLE);
-                    Global.active=true;
                 }
             }
         });
         crisis2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!Global.active){
-                    //an array containing all emails of personnel
-                    for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
-                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
-                            continue;
+                if(!Global.active) {
+                    if (Global.CurrentBuilding.equals("Nothing") || Global.CurrentRoom.equals("Nothing")) {
+                        startActivity(new Intent(getApplication(), location_log_activity.class));
+                    } else {
+                        //an array containing all emails of personnel
+                        for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
+                            sendNotification(SynergyEmails[y], "Medical", location);
                         }
-                        sendNotification(SynergyEmails[y],"Medical", location);
+                        if (Global.animationon) {
+                            CrisisButtonMoveAwayAnimation(500);
+                        } else {
+                            CrisisButtonMoveAwayAnimation(0);
+                        }
+                        crisis1.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis2.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis3.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis4.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        blurr.setVisibility(View.INVISIBLE);
+                        Global.active = true;
                     }
-                    if (Global.animationon) {
-                        CrisisButtonMoveAwayAnimation(500);
-                    }else{
-                        CrisisButtonMoveAwayAnimation(0);
-                    }
-                    crisis1.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis2.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis3.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis4.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    blurr.setVisibility(View.INVISIBLE);
-                    Global.active=true;
                 }
             }
         });
         crisis3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!Global.active){
-                    //an array containing all emails of personnel
-                    for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
-                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
-                            continue;
+                if(!Global.active) {
+                    if (Global.CurrentBuilding.equals("Nothing") || Global.CurrentRoom.equals("Nothing")) {
+                        startActivity(new Intent(getApplication(), location_log_activity.class));
+                    } else {
+                        //an array containing all emails of personnel
+                        for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
+                            sendNotification(SynergyEmails[y], "Weapon", location);
                         }
-                        sendNotification(SynergyEmails[y],"Weapon", location);
+                        if (Global.animationon) {
+                            CrisisButtonMoveAwayAnimation(500);
+                        } else {
+                            CrisisButtonMoveAwayAnimation(0);
+                        }
+                        crisis1.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis2.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis3.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis4.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        blurr.setVisibility(View.INVISIBLE);
+                        Global.active = true;
                     }
-                    if (Global.animationon) {
-                        CrisisButtonMoveAwayAnimation(500);
-                    }else{
-                        CrisisButtonMoveAwayAnimation(0);
-                    }
-                    crisis1.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis2.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis3.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis4.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    blurr.setVisibility(View.INVISIBLE);
-                    Global.active=true;
                 }
             }
         });
         crisis4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!Global.active){
-                    //an array containing all emails of personnel
-                    for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
-                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
-                            continue;
+                if(!Global.active) {
+                    if (Global.CurrentBuilding.equals("Nothing") || Global.CurrentRoom.equals("Nothing")) {
+                        startActivity(new Intent(getApplication(), location_log_activity.class));
+                    } else {
+                        //an array containing all emails of personnel
+                        for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
+                            sendNotification(SynergyEmails[y], "Unknown", location);
                         }
-                        sendNotification(SynergyEmails[y],"Unknown", location);
+                        if (Global.animationon) {
+                            CrisisButtonMoveAwayAnimation(500);
+                        } else {
+                            CrisisButtonMoveAwayAnimation(0);
+                        }
+                        crisis1.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis2.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis3.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        crisis4.setVisibility(View.INVISIBLE);
+                        Global.active = true;
+                        blurr.setVisibility(View.INVISIBLE);
+                        Global.active = true;
                     }
-                    if (Global.animationon) {
-                        CrisisButtonMoveAwayAnimation(500);
-                    }else{
-                        CrisisButtonMoveAwayAnimation(0);
-                    }
-                    crisis1.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis2.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis3.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    crisis4.setVisibility(View.INVISIBLE);
-                    Global.active=true;
-                    blurr.setVisibility(View.INVISIBLE);
-                    Global.active=true;
                 }
             }
         });

@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class AdminMenu extends AppCompatActivity {
-    static String LoggedIn_User_Email;
     Button crisis1,crisis2,crisis3,crisis4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
