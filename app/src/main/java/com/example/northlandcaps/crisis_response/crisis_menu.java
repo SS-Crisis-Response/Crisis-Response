@@ -112,9 +112,6 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                 if(!Global.active){
                      //an array containing all emails of personnel
                     for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
-                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
-                            continue;
-                        }
                         sendNotification(SynergyEmails[y],"Physical", location);
                     }
                     if (Global.animationon) {
@@ -141,9 +138,6 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                 if(!Global.active){
                     //an array containing all emails of personnel
                     for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
-                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
-                            continue;
-                        }
                         sendNotification(SynergyEmails[y],"Medical", location);
                     }
                     if (Global.animationon) {
@@ -170,9 +164,6 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                 if(!Global.active){
                     //an array containing all emails of personnel
                     for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
-                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
-                            continue;
-                        }
                         sendNotification(SynergyEmails[y],"Weapon", location);
                     }
                     if (Global.animationon) {
@@ -199,9 +190,6 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                 if(!Global.active){
                     //an array containing all emails of personnel
                     for (int y = 0; y < SynergyEmails.length; y++) { //repeats the sendNotif until every signed in user has gotten an notif
-                        if (SynergyEmails[y].equals(MainActivity.LoggedIn_Username)) { //if the phone that will recieve the notif has the same email as yours (aka your own phone), skip
-                            continue;
-                        }
                         sendNotification(SynergyEmails[y],"Unknown", location);
                     }
                     if (Global.animationon) {
