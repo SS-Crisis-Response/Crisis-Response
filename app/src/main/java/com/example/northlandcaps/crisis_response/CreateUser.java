@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,7 +49,6 @@ public class CreateUser extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d("TESTING", "Sign up successful");
                         if (!task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(CreateUser.this,"Sign up failed",Toast.LENGTH_SHORT).show();
@@ -59,7 +57,6 @@ public class CreateUser extends AppCompatActivity {
                             thing.userProfile();
                             Toast.makeText(CreateUser.this,"Created Account",Toast.LENGTH_SHORT).show();
                             // If sign in fails, display a message to the user.
-                            Log.d("TESTING", "Created Account", task.getException());
                         }
 
                         // ...
