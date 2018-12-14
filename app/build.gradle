@@ -17,7 +17,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
             manifestPlaceholders = [
-                    onesignal_app_id: '8d785fd1-277e-4f5e-834c-38473634f99d',
+                    onesignal_app_id: '22049646-5597-451b-bd36-abf873e395bc',
                     // Project number pulled from dashboard, local value is ignored.
                     onesignal_google_project_number: 'REMOTE'
             ]
@@ -65,7 +65,6 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:1.2.0'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.firebase:firebase-client-android:2.4.0'
-    implementation 'com.google.firebase:firebase-core:16.0.5'
     implementation 'com.firebaseui:firebase-ui-database:1.2.0'
     implementation 'com.firebaseui:firebase-ui-storage:1.2.0'
 }
