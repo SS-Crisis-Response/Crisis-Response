@@ -46,7 +46,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                 "apina@synergyservices.org",
                 "asmedley@synergyservices.org",
                 "athompson@synergyservices.org",
-                "ACoe@synergyservices.org",
+                "acoe@synergyservices.org",
                 "abrantly@synergyservices.org",
                 "awimmer@synergyservices.org",
                 "aallee@synergyservices.org",
@@ -58,8 +58,8 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                 "cacintern@synergyservices.org",
                 "cactesting@synergyservices.org",
                 "ccollins@synergyservices.org",
-                "CParrick@synergyservices.org",
-                "CHoffman@synergyservices.org",
+                "cparrick@synergyservices.org",
+                "choffman@synergyservices.org",
                 "dwaldenchastain@synergyservices.org",
                 "ewatkins@synergyservices.org",
                 "emense@synergyservices.org",
@@ -67,7 +67,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                 "gobrien@synergyservices.org",
                 "jhawkins@synergyservices.org",
                 "jrussell@synergyservices.org",
-                "kRohrer@synergyservices.org",
+                "krohrer@synergyservices.org",
                 "kturner@synergyservices.org",
                 "kbrewer@synergyservices.org",
                 "kohara@synergyservices.org",
@@ -97,8 +97,8 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                 "trezzelle@synergyservices.org",
                 "tglover@synergyservices.org",
                 "whowell@synergyservices.org",
-                "YRCintern@synergyservices.org",
-                "yrcintern@synergyservices.org",};
+                "yrcintern@synergyservices.org",
+                "ytintern@synergyservices.org"};
         final Button locationbutton = findViewById(R.id.locationlogNoAdmin);
         logout = findViewById(R.id.LogoutNoAdmin);
         Button GroupChat = findViewById(R.id.GroupchatNoAdmin);
