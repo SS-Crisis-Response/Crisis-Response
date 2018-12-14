@@ -1,23 +1,13 @@
 package com.example.northlandcaps.crisis_response;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.ColorSpace;
-import android.graphics.drawable.GradientDrawable;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toolbar;
-
-import org.w3c.dom.Text;
 
 public class setingshandler extends AppCompatActivity  {
 
@@ -111,7 +101,6 @@ public class setingshandler extends AppCompatActivity  {
                 }else if (!Global.animationon){
                     Global.animationon=true;
                 }else{
-                    Log.d("Global Animation: ", String.valueOf(Global.animationon));
                 }
             }
         });
