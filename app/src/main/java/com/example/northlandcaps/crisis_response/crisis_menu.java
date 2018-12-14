@@ -433,11 +433,11 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
                         con.setDoInput(true);
 
                         con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                        con.setRequestProperty("Authorization", "Basic MTM1NGViMGQtMjUxYS00MzI3LWJkYjYtMmEzYjg1ZDhiZmNm"); //Rest API Key
+                        con.setRequestProperty("Authorization", "Basic MmMzZjhiMTItMmJlYS00OTFmLThjOGMtNTAxZTA3NmZjODk5"); //Rest API Key
                         con.setRequestMethod("POST");
                         String message = crisis + " emergency in "+location;
                         String strJsonBody = "{"
-                                + "\"app_id\": \"8d785fd1-277e-4f5e-834c-38473634f99d\"," //One Signal app id
+                                + "\"app_id\": \"22049646-5597-451b-bd36-abf873e395bc\"," //One Signal app id
 
                                 + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_ID\", \"relation\": \"=\", \"value\": \"" + SynergyEmail + "\"}],"
 
