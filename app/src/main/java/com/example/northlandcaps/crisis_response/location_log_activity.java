@@ -9,14 +9,75 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class location_log_activity extends AppCompatActivity {
     EditText CustomBuilding, CustomRoom;
     @Override
     protected void onResume() {
         super.onResume();
-        final Spinner Buildings = findViewById(R.id.spinner);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference fDatabaseRoot = database.getReference("");
+
+        // Looking for the Buildings and displaying it in the spinner
+        fDatabaseRoot.child("buildings").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                final List<String> buildings = new ArrayList<>();
+
+                for (DataSnapshot buildingsSnapshot: dataSnapshot.getChildren()) {
+                    String buildingName = buildingsSnapshot.child("buildingName").getValue(String.class);
+                    buildings.add(buildingName);
+                }
+
+                Spinner buildingSpinner = findViewById(R.id.spinner);
+                ArrayAdapter<String> buildingAdapter = new ArrayAdapter<>(location_log_activity.this, android.R.layout.simple_spinner_item, buildings);
+                buildingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                buildingSpinner.setAdapter(buildingAdapter);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        // Looking for the Rooms and displaying it in the spinner
+        fDatabaseRoot.child("rooms").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                final List<String> rooms = new ArrayList<>();
+
+                for (DataSnapshot roomsSnapshot: dataSnapshot.getChildren()) {
+                    String roomName = roomsSnapshot.child("roomName").getValue(String.class);
+                    rooms.add(roomName);
+                }
+
+                Spinner roomSpinner = findViewById(R.id.spinner2);
+                ArrayAdapter<String> roomAdapter = new ArrayAdapter<>(location_log_activity.this, android.R.layout.simple_spinner_item, rooms);
+                roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                roomSpinner.setAdapter(roomAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        /*final Spinner Buildings = findViewById(R.id.spinner);
         final Spinner Rooms = findViewById(R.id.spinner2);
         this.setTitle("Location Log");
         //sets up location log (list of buildings and rooms)
@@ -181,7 +242,6 @@ public class location_log_activity extends AppCompatActivity {
             locationloglayout.setBackground(Global.NormalGD);
         } else if (Global.themetype == 2) {
             locationloglayout.setBackground(Global.LightGD);
-        }
-
+        }*/
     }
 }
