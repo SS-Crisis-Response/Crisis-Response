@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roombuildingtxt" />
+        app:layout_constraintTop_toBottomOf="@+id/createroomtxt" />
 
     <Button
         android:id="@+id/DeleteBuilding"

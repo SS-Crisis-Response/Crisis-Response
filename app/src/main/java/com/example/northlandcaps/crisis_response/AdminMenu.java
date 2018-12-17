@@ -32,8 +32,9 @@ public class AdminMenu extends AppCompatActivity {
         Button settings = findViewById(R.id.Settings);
         Button calloptions = findViewById(R.id.calloptions);
         Button usermanager = findViewById(R.id.usermanager);
-        Button buildingmanager = findViewById(R.id.buildingandroomanager);
-        Button roommanager = findViewById(R.id.roommanager);
+        Button buildroommanager = findViewById(R.id.buildingandroommanagement);
+        //Button buildingmanager = findViewById(R.id.buildingandroomanager);
+        //Button roommanager = findViewById(R.id.roommanager);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
         //when they click crisis call
         crisis1.setOnClickListener(new View.OnClickListener() {
@@ -100,18 +101,18 @@ public class AdminMenu extends AppCompatActivity {
                 }
             }
         });
-        //building manager button
-        buildingmanager.setOnClickListener(new View.OnClickListener() {
+        //building and room manager button
+        buildroommanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (Global.active) {
-                    Intent buildingmanager = new Intent(getApplicationContext(), CreateBuilding.class);
-                    startActivity(buildingmanager);
+                    Intent buildroommanager = new Intent(getApplicationContext(), CreateBuilding.class);
+                    startActivity(buildroommanager);
                 }
             }
         });
         //room manager button
-        roommanager.setOnClickListener(new View.OnClickListener() {
+        /*roommanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (Global.active) {
@@ -119,7 +120,7 @@ public class AdminMenu extends AppCompatActivity {
                     startActivity(roommanager);
                 }
             }
-        });
+        });*/
         //when clicked Crisis Call button
         crisisCall.setOnClickListener(new View.OnClickListener() {
             @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -190,7 +191,8 @@ public class AdminMenu extends AppCompatActivity {
         Button settings = findViewById(R.id.Settings);
         Button calloptions = findViewById(R.id.calloptions);
         Button usermanager = findViewById(R.id.usermanager);
-        Button buildingmanager = findViewById(R.id.buildingmanager);
+        Button buildroommanager = findViewById(R.id.buildingandroommanagement);
+        //Button buildingmanager = findViewById(R.id.buildingmanager);
         Button roommanager = findViewById(R.id.roommanager);
         Button crisisCall = findViewById(R.id.crisiscallbutton);
         crisis1 = findViewById(R.id.crisistype1);
@@ -205,8 +207,9 @@ public class AdminMenu extends AppCompatActivity {
             settings.setTextColor(Global.textdarkcolors);
             calloptions.setTextColor(Global.textdarkcolors);
             usermanager.setTextColor(Global.textdarkcolors);
-            buildingmanager.setTextColor(Global.textdarkcolors);
-            roommanager.setTextColor(Global.textdarkcolors);
+            buildroommanager.setTextColor(Global.textdarkcolors);
+            //buildingmanager.setTextColor(Global.textdarkcolors);
+            //roommanager.setTextColor(Global.textdarkcolors);
             crisisCall.setTextColor(Global.textdarkcolors);
             locationbutton.setTextColor(Global.textdarkcolors);
             crisis4.setTextColor(Global.textdarkcolors);
@@ -217,8 +220,9 @@ public class AdminMenu extends AppCompatActivity {
             settings.setBackgroundResource(R.drawable.dark_menu_buttons);
             calloptions.setBackgroundResource(R.drawable.dark_menu_buttons);
             usermanager.setBackgroundResource(R.drawable.dark_menu_buttons);
-            buildingmanager.setBackgroundResource(R.drawable.dark_menu_buttons);
-            roommanager.setBackgroundResource(R.drawable.dark_menu_buttons);
+            buildroommanager.setBackgroundResource(R.drawable.dark_menu_buttons);
+            //buildingmanager.setBackgroundResource(R.drawable.dark_menu_buttons);
+            //roommanager.setBackgroundResource(R.drawable.dark_menu_buttons);
             locationbutton.setBackgroundResource(R.drawable.dark_menu_buttons);
             crisisCall.setBackgroundResource(R.drawable.dark_call_button);
         }else if (Global.themetype==1) {
@@ -229,8 +233,9 @@ public class AdminMenu extends AppCompatActivity {
             settings.setTextColor(Global.textnormalcolors);
             calloptions.setTextColor(Global.textnormalcolors);
             usermanager.setTextColor(Global.textnormalcolors);
-            buildingmanager.setTextColor(Global.textnormalcolors);
-            roommanager.setTextColor(Global.textnormalcolors);
+            buildroommanager.setTextColor(Global.textnormalcolors);
+            //buildingmanager.setTextColor(Global.textnormalcolors);
+            //roommanager.setTextColor(Global.textnormalcolors);
             crisisCall.setTextColor(Global.textnormalcolors);
             locationbutton.setTextColor(Global.textnormalcolors);
             crisis4.setTextColor(Global.textnormalcolors);
@@ -240,8 +245,9 @@ public class AdminMenu extends AppCompatActivity {
             settings.setBackgroundResource(R.drawable.menu_buttons);
             calloptions.setBackgroundResource(R.drawable.menu_buttons);
             usermanager.setBackgroundResource(R.drawable.menu_buttons);
-            buildingmanager.setBackgroundResource(R.drawable.menu_buttons);
-            roommanager.setBackgroundResource(R.drawable.menu_buttons);
+            buildroommanager.setBackgroundResource(R.drawable.menu_buttons);
+            //buildingmanager.setBackgroundResource(R.drawable.menu_buttons);
+            //roommanager.setBackgroundResource(R.drawable.menu_buttons);
             locationbutton.setBackgroundResource(R.drawable.menu_buttons);
             crisisCall.setBackgroundResource(R.drawable.call_button);
             crisis4.setBackgroundResource(R.drawable.menu_buttons);
@@ -253,8 +259,9 @@ public class AdminMenu extends AppCompatActivity {
             settings.setTextColor(Global.textlightcolors);
             calloptions.setTextColor(Global.textlightcolors);
             usermanager.setTextColor(Global.textlightcolors);
-            buildingmanager.setTextColor(Global.textlightcolors);
-            roommanager.setTextColor(Global.textlightcolors);
+            buildroommanager.setTextColor(Global.textlightcolors);
+            //buildingmanager.setTextColor(Global.textlightcolors);
+            //roommanager.setTextColor(Global.textlightcolors);
             crisisCall.setTextColor(Global.textlightcolors);
             locationbutton.setTextColor(Global.textlightcolors);
             crisis4.setTextColor(Global.textlightcolors);
@@ -264,8 +271,9 @@ public class AdminMenu extends AppCompatActivity {
             settings.setBackgroundResource(R.drawable.light_menu_button);
             calloptions.setBackgroundResource(R.drawable.light_menu_button);
             usermanager.setBackgroundResource(R.drawable.light_menu_button);
-            buildingmanager.setBackgroundResource(R.drawable.light_menu_button);
-            roommanager.setBackgroundResource(R.drawable.light_menu_button);
+            buildroommanager.setBackgroundResource(R.drawable.light_menu_button);
+            //buildingmanager.setBackgroundResource(R.drawable.light_menu_button);
+            //roommanager.setBackgroundResource(R.drawable.light_menu_button);
             locationbutton.setBackgroundResource(R.drawable.light_menu_button);
             crisisCall.setBackgroundResource(R.drawable.light_call_button);
             crisis4.setBackgroundResource(R.drawable.light_menu_button);

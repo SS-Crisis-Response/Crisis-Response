@@ -89,26 +89,6 @@
         app:layout_constraintTop_toBottomOf="@+id/crisistype3" />
 
     <Button
-        android:id="@+id/buildingandroomanager"
-        android:layout_width="184dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:background="@drawable/menu_buttons"
-        android:text="@string/building_and_room_management"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:translationZ="1dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/crisistype4"
-        app:layout_constraintEnd_toStartOf="@+id/crisistype2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Settings"
-        app:layout_contraintEnd_toStartOf="@+id/calloptions"
-        app:layout_contraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/usermanager"
         android:layout_width="0dp"
         android:layout_height="106dp"
@@ -130,14 +110,13 @@
         android:layout_width="181dp"
         android:layout_height="108dp"
         android:layout_marginStart="2dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/Settings"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:translationZ="1dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/buildingandroomanager"
         app:layout_constraintEnd_toStartOf="@+id/usermanager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationlog" />
@@ -146,13 +125,39 @@
         android:id="@+id/calloptions"
         android:layout_width="186dp"
         android:layout_height="106dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/Call_Option"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:translationZ="1dp"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="191dp"
-        tools:layout_editor_absoluteY="239dp" />
+        app:layout_constraintBottom_toTopOf="@+id/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/crisistype3"
+        app:layout_constraintTop_toBottomOf="@+id/crisistype2" />
+
+    <Button
+        android:id="@+id/buildingandroommanagement"
+        android:layout_width="186dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="196dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/menu_buttons"
+        android:text="@string/building_and_room_management"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:translationZ="1dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/crisistype3"
+        app:layout_constraintTop_toBottomOf="@+id/crisistype2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/groupchat"
@@ -179,14 +184,19 @@
         android:id="@+id/logout"
         android:layout_width="196dp"
         android:layout_height="113dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="336dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/redbuttons"
         android:text="@string/Logout"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:translationZ="1dp"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/calloptions"
-        tools:layout_editor_absoluteX="94dp" />
+        app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"
+        app:layout_constraintEnd_toStartOf="@+id/crisistype4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calloptions" />
 
     <Button
         android:id="@+id/locationlog"
@@ -225,8 +235,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-<<<<<<< HEAD
-=======
     <ImageView
         android:id="@+id/blur"
         android:layout_width="0dp"
@@ -239,5 +247,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@color/focusbox" />
 
->>>>>>> 8b07e8fa04dc01c7a5aae5f00060244a53b8d9ba
 </android.support.constraint.ConstraintLayout>
