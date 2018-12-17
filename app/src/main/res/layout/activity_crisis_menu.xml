@@ -114,7 +114,7 @@
         android:translationZ="2dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"
-        app:layout_constraintEnd_toStartOf="@+id/Settings"
+        app:layout_constraintEnd_toStartOf="@+id/SettingNoAdmin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/focus_box" />

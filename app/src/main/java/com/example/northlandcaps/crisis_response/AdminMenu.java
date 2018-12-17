@@ -32,7 +32,7 @@ public class AdminMenu extends AppCompatActivity {
         Button settings = findViewById(R.id.Settings);
         Button calloptions = findViewById(R.id.calloptions);
         Button usermanager = findViewById(R.id.usermanager);
-        Button buildingmanager = findViewById(R.id.buildingmanager);
+        Button buildingmanager = findViewById(R.id.buildingandroomanager);
         Button roommanager = findViewById(R.id.roommanager);
         final Button crisisCall = findViewById(R.id.crisiscallbutton);
         //when they click crisis call
@@ -105,7 +105,7 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Global.active) {
-                    Intent buildingmanager = new Intent(getApplicationContext(), buildingmangement.class);
+                    Intent buildingmanager = new Intent(getApplicationContext(), CreateBuilding.class);
                     startActivity(buildingmanager);
                 }
             }
