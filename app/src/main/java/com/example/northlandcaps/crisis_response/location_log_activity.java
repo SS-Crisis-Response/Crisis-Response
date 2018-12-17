@@ -77,7 +77,7 @@ public class location_log_activity extends AppCompatActivity {
         });
 
 
-        /*final Spinner Buildings = findViewById(R.id.spinner);
+        final Spinner Buildings = findViewById(R.id.spinner);
         final Spinner Rooms = findViewById(R.id.spinner2);
         this.setTitle("Location Log");
         //sets up location log (list of buildings and rooms)
@@ -226,7 +226,7 @@ public class location_log_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_log_activity);
-        Spinner Buildings = findViewById(R.id.spinner);
+        /*Spinner Buildings = findViewById(R.id.spinner);
 
         Spinner Rooms = findViewById(R.id.spinner2);
 
@@ -234,7 +234,7 @@ public class location_log_activity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.item);
         Buildings.setAdapter(adapter);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.items);
-        Rooms.setAdapter(adapter1);
+        Rooms.setAdapter(adapter1);*/
         final ConstraintLayout locationloglayout = findViewById(R.id.locationloglayout);
         if (Global.themetype == 0) {
             locationloglayout.setBackground(Global.DarkGD);
@@ -242,6 +242,6 @@ public class location_log_activity extends AppCompatActivity {
             locationloglayout.setBackground(Global.NormalGD);
         } else if (Global.themetype == 2) {
             locationloglayout.setBackground(Global.LightGD);
-        }*/
+        }
     }
 }

@@ -48,7 +48,7 @@ public class SendData {
             }
         }) {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 Map<String, String> map = new HashMap<>();
                 map.putAll(data);
                 return map;
