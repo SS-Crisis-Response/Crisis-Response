@@ -45,6 +45,7 @@
     <string name="crisiscallbutton1">Crisis Call</string>
     <string name="blur2">Blur</string>
     <string name="building_and_room_management">Building and Room Management</string>
+    <string name="textview">TextView</string>
 
 
 </resources>

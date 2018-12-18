@@ -110,11 +110,12 @@
 
     <Button
         android:id="@+id/usermanager"
-        android:layout_width="0dp"
-        android:layout_height="105dp"
+        android:layout_width="193dp"
+        android:layout_height="112dp"
         android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/menu_buttons"
         android:text="@string/User_Managememt"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -123,7 +124,8 @@
         app:layout_constraintBottom_toTopOf="@+id/calloptions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/Settings" />
+        app:layout_constraintStart_toEndOf="@+id/Settings"
+        app:layout_constraintTop_toBottomOf="@+id/groupchat" />
 
     <Button
         android:id="@+id/Settings"
@@ -144,7 +146,7 @@
 
     <Button
         android:id="@+id/calloptions"
-        android:layout_width="187dp"
+        android:layout_width="190dp"
         android:layout_height="105dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
@@ -187,7 +189,8 @@
         android:layout_width="196dp"
         android:layout_height="112dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="21dp"
         android:background="@drawable/redbuttons"
         android:text="@string/Logout"
@@ -196,7 +199,7 @@
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/crisiscallbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.988"
         app:layout_constraintStart_toEndOf="@+id/crisistype4"
         app:layout_constraintTop_toBottomOf="@+id/calloptions" />
 

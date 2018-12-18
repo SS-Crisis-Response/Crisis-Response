@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.onesignal.OneSignal;
@@ -390,6 +392,8 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
             crisisCall.setBackgroundResource(R.drawable.light_call_button);
             crisis4.setBackgroundResource(R.drawable.light_menu_button);
         }
+        TextView CurrentLocation = findViewById(R.id.currentlocation);
+        CurrentLocation.setText("Current Location: " + Global.CurrentBuilding + ", " + Global.CurrentRoom);
     }
     /////////////////////////////////////////////////////////
     ////////////////////////Methods//////////////////////////
