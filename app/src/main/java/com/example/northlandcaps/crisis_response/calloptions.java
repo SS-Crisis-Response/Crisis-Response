@@ -21,6 +21,7 @@ public class calloptions extends AppCompatActivity {
         createchangesbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //to edit crisis call buttons
                 Intent createchanges = new Intent (getApplicationContext(),AdminMenu.class);
                 startActivity(createchanges);
             }

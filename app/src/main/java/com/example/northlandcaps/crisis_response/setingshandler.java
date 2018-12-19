@@ -1,22 +1,13 @@
 package com.example.northlandcaps.crisis_response;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.ColorSpace;
-import android.graphics.drawable.GradientDrawable;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toolbar;
-
-import org.w3c.dom.Text;
 
 public class setingshandler extends AppCompatActivity  {
 
@@ -33,6 +24,7 @@ public class setingshandler extends AppCompatActivity  {
         seekbar.setProgress(Global.themetype);
         final Button changepassword = findViewById(R.id.changepassword);
         if (Global.themetype ==0){
+            //dark theme
             settings.setBackground(Global.DarkGD);
             progresstext.setTextColor(Global.textdarkcolors);
             progresstext.setText("Dark colors");
@@ -40,6 +32,7 @@ public class setingshandler extends AppCompatActivity  {
             changepassword.setBackgroundResource(R.drawable.dark_menu_buttons);
             changepassword.setTextColor(Global.textdarkcolors);
         }else if (Global.themetype ==1){
+            //normal theme
             settings.setBackground(Global.NormalGD);
             ToggleAnimationText.setTextColor(Global.textnormalcolors);
             progresstext.setTextColor(Global.textnormalcolors);
@@ -47,6 +40,7 @@ public class setingshandler extends AppCompatActivity  {
             changepassword.setBackgroundResource(R.drawable.menu_buttons);
             changepassword.setTextColor(Global.textnormalcolors);
         }else if (Global.themetype==2){
+            //light theme
             settings.setBackground(Global.LightGD);
             progresstext.setTextColor(Global.textlightcolors);
             ToggleAnimationText.setTextColor(Global.textlightcolors);
@@ -96,11 +90,18 @@ public class setingshandler extends AppCompatActivity  {
 
             }
         });
-
+        if (Global.animationon){
+            animationon.toggle();
+        }
         animationon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.animationon = !Global.animationon;
+                if (Global.animationon){
+                    Global.animationon=false;
+                }else if (!Global.animationon){
+                    Global.animationon=true;
+                }else{
+                }
             }
         });
     }

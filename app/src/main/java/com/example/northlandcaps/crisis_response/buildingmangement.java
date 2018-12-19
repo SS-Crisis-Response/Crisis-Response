@@ -19,6 +19,7 @@ public class buildingmangement extends AppCompatActivity {
         addbuilding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //when you add a building
                 if (Global.active) {
                     Intent addbuilding = new Intent(getApplicationContext(), CreateBuilding.class);
                     startActivity(addbuilding);
@@ -27,6 +28,7 @@ public class buildingmangement extends AppCompatActivity {
                 startActivity(createBuilding);
             }
         });
+        //when you want to edit a building
         Button editbuilding = findViewById(R.id.EditBuilding);
         editbuilding.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +37,7 @@ public class buildingmangement extends AppCompatActivity {
                 startActivity(editbuilding);
             }
         });
+        //when you want to delete building from list
         Button deletebuilding = findViewById(R.id.DeleteBuilding);
         deletebuilding.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +56,7 @@ public class buildingmangement extends AppCompatActivity {
         Button EditBuilding = findViewById(R.id.EditBuilding);
         Button DeleteBuilding = findViewById(R.id.DeleteBuilding);
         if (Global.themetype == 0) {
+            //dark theme
             buildingmanagement.setBackground(Global.DarkGD);
             CreateBuilding.setTextColor(Global.textdarkcolors);
             CreateBuilding.setBackgroundResource(R.drawable.dark_menu_buttons);
@@ -61,6 +65,7 @@ public class buildingmangement extends AppCompatActivity {
             DeleteBuilding.setTextColor(Global.textdarkcolors);
             DeleteBuilding.setBackgroundResource(R.drawable.darkredbuttons);
         } else if (Global.themetype == 1) {
+            //normal theme
             buildingmanagement.setBackground(Global.NormalGD);
             CreateBuilding.setTextColor(Global.textnormalcolors);
             CreateBuilding.setBackgroundResource(R.drawable.menu_buttons);
@@ -69,6 +74,7 @@ public class buildingmangement extends AppCompatActivity {
             DeleteBuilding.setTextColor(Global.textnormalcolors);
             DeleteBuilding.setBackgroundResource(R.drawable.redbuttons);
         } else if (Global.themetype == 2) {
+            //light theme
             buildingmanagement.setBackground(Global.LightGD);
             CreateBuilding.setTextColor(Global.textlightcolors);
             CreateBuilding.setBackgroundResource(R.drawable.light_menu_button);

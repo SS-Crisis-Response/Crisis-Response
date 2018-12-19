@@ -1,25 +1,25 @@
 package com.example.northlandcaps.crisis_response;
 
 
-import android.content.Intent;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
-
-import java.util.HashMap;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class CreateUser extends AppCompatActivity {
+    public static FirebaseUser user;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,33 +35,34 @@ public class CreateUser extends AppCompatActivity {
         createuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String username = username1.getText().toString();
-                final String password = password1.getText().toString();
-                final String isadmin = isAdmin.getText().toString();
-                HashMap<String, String> data = new HashMap<>();
-                data.put("username", username);//define the value
-                data.put("password", password);//define the value
-                data.put("isAdmin", isadmin);//define the value
-
-                SendData sendData = new SendData(getApplicationContext(), "http://192.168.0.9:80/phptesting/Register.php", data); //define the context and url properly
-                sendData.setOnDataSent(new SendData.OnDataSent() {
-                    @Override
-                    public void onSuccess(String response) {
-                        Intent intent = new Intent(getApplicationContext(),AdminMenu.class);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onFailed(String error) {
-                        Log.d("Error: ", error);
-                    }
-                });
-                sendData.send();
+                //when create user button is clicked
+                String getusername = username1.getText().toString().trim();
+                String getpassword = password1.getText().toString().trim();
+                callsignup(getusername,getpassword);
             }
         });
 
     }
+    //how sign up for users works
+    private void callsignup(String email,String password){
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (!task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(CreateUser.this,"Sign up failed",Toast.LENGTH_SHORT).show();
+                        } else {
+                            MainActivity thing = new MainActivity();
+                            thing.userProfile();
+                            Toast.makeText(CreateUser.this,"Created Account",Toast.LENGTH_SHORT).show();
+                            // If sign in fails, display a message to the user.
+                        }
 
+                        // ...
+                    }
+                });
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -71,7 +72,8 @@ public class CreateUser extends AppCompatActivity {
         Switch isAdmin = findViewById(R.id.isadmin);
         Button createuserbtn = findViewById(R.id.createuserbtn);
             if (Global.themetype==0){
-            createuserpage.setBackground(Global.DarkGD);
+                //dark theme
+                createuserpage.setBackground(Global.DarkGD);
             createusername.setTextColor(Global.textdarkcolors);
             createpassword.setTextColor(Global.textdarkcolors);
             isAdmin.setTextColor(Global.textdarkcolors);
@@ -79,6 +81,7 @@ public class CreateUser extends AppCompatActivity {
             /////////////////////////////////////////////////
             createuserbtn.setBackgroundResource(R.drawable.dark_menu_buttons);
         }else if (Global.themetype==1) {
+                //normal theme
             createuserpage.setBackground(Global.NormalGD);
             createusername.setTextColor(Global.textnormalcolors);
             createpassword.setTextColor(Global.textnormalcolors);
@@ -87,6 +90,7 @@ public class CreateUser extends AppCompatActivity {
             /////////////////////////////////////////////////
             createuserbtn.setBackgroundResource(R.drawable.menu_buttons);
         }else if (Global.themetype==2){
+                //light theme
             createuserpage.setBackground(Global.LightGD);
             createusername.setTextColor(Global.textlightcolors);
             createpassword.setTextColor(Global.textlightcolors);
