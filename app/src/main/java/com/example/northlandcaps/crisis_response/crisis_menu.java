@@ -338,6 +338,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
         Button GroupChat = findViewById(R.id.GroupchatNoAdmin);
         Button settings = findViewById(R.id.SettingNoAdmin);
         Button crisisCall = findViewById(R.id.crisiscallbutton);
+        TextView CurrentLocation = findViewById(R.id.CurrentLocation);
         crisis1 = findViewById(R.id.crisistype1);
         crisis2 = findViewById(R.id.crisistype2);
         crisis3 = findViewById(R.id.crisistype3);
@@ -351,6 +352,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
             crisisCall.setTextColor(Global.textdarkcolors);
             locationbutton.setTextColor(Global.textdarkcolors);
             crisis4.setTextColor(Global.textdarkcolors);
+            CurrentLocation.setTextColor(Global.textdarkcolors);
             /////////////////////////////////////////////////
             logoutbutton.setBackgroundResource(R.drawable.darkredbuttons);
             crisis4.setBackgroundResource(R.drawable.dark_menu_buttons);
@@ -367,6 +369,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
             crisisCall.setTextColor(Global.textnormalcolors);
             locationbutton.setTextColor(Global.textnormalcolors);
             crisis4.setTextColor(Global.textnormalcolors);
+            CurrentLocation.setTextColor(Global.textnormalcolors);
             /////////////////////////////////////////////////
             logoutbutton.setBackgroundResource(R.drawable.redbuttons);
             GroupChat.setBackgroundResource(R.drawable.menu_buttons);
@@ -383,6 +386,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
             crisisCall.setTextColor(Global.textlightcolors);
             locationbutton.setTextColor(Global.textlightcolors);
             crisis4.setTextColor(Global.textlightcolors);
+            CurrentLocation.setTextColor(Global.textlightcolors);
             /////////////////////////////////////////////////
             logoutbutton.setBackgroundResource(R.drawable.lightredbuttons);
             GroupChat.setBackgroundResource(R.drawable.light_menu_button);
@@ -391,7 +395,7 @@ Button crisis1,crisis2,crisis3,crisis4,logout;
             crisisCall.setBackgroundResource(R.drawable.light_call_button);
             crisis4.setBackgroundResource(R.drawable.light_menu_button);
         }
-        TextView CurrentLocation = findViewById(R.id.CurrentLocation);
+
         if (Global.CurrentRoom.equals("Nothing") || Global.CurrentBuilding.equals("Nothing")){
             CurrentLocation.setText("No location logged");
         }else {

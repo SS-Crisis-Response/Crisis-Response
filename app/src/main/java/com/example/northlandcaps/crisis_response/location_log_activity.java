@@ -9,15 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.TextView;
 
 public class location_log_activity extends AppCompatActivity {
     EditText CustomBuilding, CustomRoom;
@@ -25,56 +17,7 @@ public class location_log_activity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference fDatabaseRoot = database.getReference("");
 
-        // Looking for the Buildings and displaying it in the spinner
-        fDatabaseRoot.child("buildings").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                final List<String> buildings = new ArrayList<>();
-
-                for (DataSnapshot buildingsSnapshot: dataSnapshot.getChildren()) {
-                    String buildingName = buildingsSnapshot.child("buildingName").getValue(String.class);
-                    buildings.add(buildingName);
-                }
-
-                Spinner buildingSpinner = findViewById(R.id.spinner);
-                ArrayAdapter<String> buildingAdapter = new ArrayAdapter<>(location_log_activity.this, android.R.layout.simple_spinner_item, buildings);
-                buildingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                buildingSpinner.setAdapter(buildingAdapter);
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        // Looking for the Rooms and displaying it in the spinner
-        fDatabaseRoot.child("rooms").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                final List<String> rooms = new ArrayList<>();
-
-                for (DataSnapshot roomsSnapshot: dataSnapshot.getChildren()) {
-                    String roomName = roomsSnapshot.child("roomName").getValue(String.class);
-                    rooms.add(roomName);
-                }
-
-                Spinner roomSpinner = findViewById(R.id.spinner2);
-                ArrayAdapter<String> roomAdapter = new ArrayAdapter<>(location_log_activity.this, android.R.layout.simple_spinner_item, rooms);
-                roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                roomSpinner.setAdapter(roomAdapter);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
 
         final Spinner Buildings = findViewById(R.id.spinner);
@@ -220,13 +163,61 @@ public class location_log_activity extends AppCompatActivity {
                 }
             }
         });
+        Button customsubmitbtn = findViewById(R.id.customlocationsubmit);
+        Button normalsubmitbtn = findViewById(R.id.locationsubmit);
+        EditText custombuildingedittxt = findViewById(R.id.CustomBuilding);
+        EditText customroomedittxt = findViewById(R.id.CustomRoom);
+        TextView buildingtxt = findViewById(R.id.buildingtxt);
+        TextView roomtxt = findViewById(R.id.roomtxt);
+        Spinner BuildingsSpinner = findViewById(R.id.spinner);
+        Spinner RoomsSpinner = findViewById(R.id.spinner2);
+        final ConstraintLayout locationlog = findViewById(R.id.locationloglayout);
+        if (Global.themetype==0){
+            locationlog.setBackground(Global.DarkGD);
+            /////////////////////////////////////////
+            customsubmitbtn.setTextColor(Global.textdarkcolors);
+            normalsubmitbtn.setTextColor(Global.textdarkcolors);
+            custombuildingedittxt.setTextColor(Global.textdarkcolors);
+            customroomedittxt.setTextColor(Global.textdarkcolors);
+            buildingtxt.setTextColor(Global.textdarkcolors);
+            roomtxt.setTextColor(Global.textdarkcolors);
+            //////////////////////////////////////////
+            custombtnsubmit.setBackgroundResource(R.drawable.dark_menu_buttons);
+            normalsubmitbtn.setBackgroundResource(R.drawable.dark_menu_buttons);
+        }else if(Global.themetype==1){
+            locationlog.setBackground(Global.NormalGD);
+            /////////////////////////////////////////
+            customsubmitbtn.setTextColor(Global.textnormalcolors);
+            normalsubmitbtn.setTextColor(Global.textnormalcolors);
+            custombuildingedittxt.setTextColor(Global.textnormalcolors);
+            customroomedittxt.setTextColor(Global.textnormalcolors);
+            buildingtxt.setTextColor(Global.textnormalcolors);
+            roomtxt.setTextColor(Global.textnormalcolors);
+            //////////////////////////////////////////
+            custombtnsubmit.setBackgroundResource(R.drawable.menu_buttons);
+            normalsubmitbtn.setBackgroundResource(R.drawable.menu_buttons);
+        }else if(Global.themetype==2) {
+            locationlog.setBackground(Global.LightGD);
+            /////////////////////////////////////////
+            customsubmitbtn.setTextColor(Global.textlightcolors);
+            normalsubmitbtn.setTextColor(Global.textlightcolors);
+            custombuildingedittxt.setTextColor(Global.textlightcolors);
+            customroomedittxt.setTextColor(Global.textlightcolors);
+            buildingtxt.setTextColor(Global.textlightcolors);
+            roomtxt.setTextColor(Global.textlightcolors);
+            //////////////////////////////////////////
+            custombtnsubmit.setBackgroundResource(R.drawable.light_menu_button);
+            normalsubmitbtn.setBackgroundResource(R.drawable.light_menu_button);
+        }
+
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_log_activity);
-        /*Spinner Buildings = findViewById(R.id.spinner);
+        Spinner Buildings = findViewById(R.id.spinner);
 
         Spinner Rooms = findViewById(R.id.spinner2);
 
@@ -234,7 +225,7 @@ public class location_log_activity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.item);
         Buildings.setAdapter(adapter);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Global.items);
-        Rooms.setAdapter(adapter1);*/
+        Rooms.setAdapter(adapter1);
         final ConstraintLayout locationloglayout = findViewById(R.id.locationloglayout);
         if (Global.themetype == 0) {
             locationloglayout.setBackground(Global.DarkGD);
